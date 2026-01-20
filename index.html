@@ -16,15 +16,15 @@ body {
 }
 
 section {
-  min-height: 85vh;              /* 🔧 ajustado */
-  padding: 70px 20px;            /* 🔧 ajustado */
+  min-height: 70vh;               /* 🔧 ainda menor */
+  padding: 55px 20px;             /* 🔧 ainda menor */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   opacity: 0;
-  transform: translateY(50px);
-  transition: all 1s ease;
+  transform: translateY(40px);
+  transition: all 0.9s ease;
 }
 
 section.show {
@@ -38,58 +38,58 @@ section.show {
 }
 
 h1 {
-  font-size: 3.2rem;
-  margin-bottom: 18px;
+  font-size: 3rem;
+  margin-bottom: 14px;
 }
 
 h2 {
-  font-size: 2.4rem;
-  margin-bottom: 18px;
+  font-size: 2.2rem;
+  margin-bottom: 14px;
 }
 
 p {
-  font-size: 1.15rem;
-  margin-bottom: 12px;          /* 🔧 ajustado */
-  line-height: 1.6;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  line-height: 1.55;
 }
 
 img.big {
   max-width: 100%;
-  border-radius: 18px;
-  margin-top: 30px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  border-radius: 16px;
+  margin-top: 24px;
+  box-shadow: 0 18px 36px rgba(0,0,0,0.45);
 }
 
 .logo {
-  width: 160px;
-  margin-bottom: 30px;
+  width: 140px;
+  margin-bottom: 20px;
 }
 
 .btn {
   display: inline-block;
-  margin-top: 28px;
-  padding: 14px 32px;
+  margin-top: 24px;
+  padding: 13px 30px;
   background: #1abc9c;
   color: #000;
   font-weight: bold;
-  border-radius: 30px;
+  border-radius: 28px;
   text-decoration: none;
 }
 
 .values {
-  margin-top: 25px;
+  margin-top: 18px;
 }
 
 .values div {
-  margin: 8px 0;
-  font-size: 1.1rem;
+  margin: 6px 0;
+  font-size: 1.05rem;
 }
 
 footer {
   background: #081f2f;
-  padding: 50px 20px;
+  padding: 40px 20px;
   text-align: center;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 footer a {
@@ -105,13 +105,25 @@ footer a {
 <!-- HERO -->
 <section style="background:url('hero.jpg') center/cover no-repeat;">
   <div class="container">
+
+    <!-- LOGO VISÍVEL -->
     <img src="logo.png" class="logo" alt="WCUP Logo">
+
+    <!-- TEXTO DA IMAGEM (AGORA ESCRITO) -->
     <h1>Many Flags. One Nation.</h1>
-    <p>Different languages. Different cultures.<br>
-       The same feeling when the ball starts rolling.</p>
+
+    <p><strong>Different languages. Different cultures.</strong></p>
+    <p>The same feeling when the ball starts rolling.</p>
+
+    <p>
+      Football connects people beyond borders.<br>
+      WCUP exists to carry this same emotion into Web3.
+    </p>
+
     <a href="https://x.com/WCUP_token" target="_blank" class="btn">
       Join the WCUP Nation
     </a>
+
   </div>
 </section>
 
@@ -121,13 +133,17 @@ footer a {
     <h2>What is WCUP?</h2>
     <p>
       WCUP is a community-driven meme coin inspired by football —
-      the most powerful cultural force on Earth.
+      the most universal sport on the planet.
     </p>
     <p>
-      In a divided world, football connects people instantly.
-      WCUP exists to carry that same emotion into Web3.
+      In a world divided by borders, languages and beliefs,
+      football reminds us that emotion is universal.
     </p>
-    <image1.png>
+    <p>
+      WCUP represents this idea:
+      many flags, one shared identity.
+    </p>
+    <img src="image1.png" class="big" alt="Football unity">
   </div>
 </section>
 
@@ -136,12 +152,16 @@ footer a {
   <div class="container">
     <h2>Why Football?</h2>
     <p>
-      Football is more than a sport.
-      It’s a universal language spoken everywhere.
+      Football is not just a game.
+      It is memory, culture and belonging.
     </p>
     <p>
-      A ball rolling on the ground can unite strangers in seconds.
-      WCUP is built on that same magic.
+      Anywhere on Earth, a ball rolling on the ground
+      can unite people who have never met before.
+    </p>
+    <p>
+      WCUP is built on this same spirit —
+      everyone plays on the same team.
     </p>
   </div>
 </section>
@@ -151,19 +171,21 @@ footer a {
   <div class="container">
     <h2>The WCUP Nation</h2>
     <p>
-      This is not about speculation.
-      This is about people.
+      WCUP is community-first.
+      People come before numbers.
     </p>
+
     <div class="values">
       <div>🌍 Cultural diversity</div>
-      <div>🤝 Inclusion and respect</div>
+      <div>🤝 Social inclusion</div>
       <div>🎭 Memes and creativity</div>
       <div>⚽ Sportsmanship</div>
       <div>❤️ Unity between nations</div>
     </div>
+
     <p>
-      You don’t just join WCUP.<br>
-      You belong.
+      This is not about hype.<br>
+      This is about belonging.
     </p>
   </div>
 </section>
@@ -171,15 +193,18 @@ footer a {
 <!-- SOCIAL IMPACT -->
 <section>
   <div class="container">
-    <h2>Sport Can Change Lives</h2>
+    <h2>Football Can Change Lives</h2>
     <p>
-      WCUP believes football is a tool for social transformation.
+      WCUP believes sport is a tool for social transformation.
     </p>
     <p>
       Future initiatives aim to support underprivileged communities
-      through sports equipment and opportunity.
+      with sports equipment and opportunity.
     </p>
-    <img src="image2.png" class="big" alt="Football emotion">
+    <p>
+      Because access to sport means access to hope.
+    </p>
+    <img src="image2.png" class="big" alt="Global football emotion">
   </div>
 </section>
 
@@ -192,10 +217,10 @@ footer a {
       to immortalize iconic football moments.
     </p>
     <p>
-      Not just images —
-      memories, emotions, history.
+      Not just NFTs —
+      memories, emotions and history.
     </p>
-    <p><em>Coming at the right moment.</em></p>
+    <p><em>Built with care. Released at the right time.</em></p>
   </div>
 </section>
 
@@ -208,7 +233,7 @@ footer a {
       football — like crypto — is for all.
     </p>
     <p>
-      Join before the world starts watching.
+      Join early. Build together.
     </p>
     <a href="https://x.com/WCUP_token" target="_blank" class="btn">
       @WCUP_token
@@ -232,7 +257,7 @@ const observer = new IntersectionObserver(entries => {
       entry.target.classList.add("show");
     }
   });
-}, { threshold: 0.2 });
+}, { threshold: 0.15 });
 
 sections.forEach(section => observer.observe(section));
 </script>
