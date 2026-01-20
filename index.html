@@ -1,97 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WCUP — Football Unites People</title>
+  <meta charset="UTF-8">
+  <title>WCUP — Football Unites the World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, #e6f2ff, #f5fbff);
-      color: #0b2545;
-    }
-
-    header {
-      text-align: center;
-      padding: 40px 20px;
-    }
-
-    header img {
-      max-width: 140px;
-      margin-bottom: 20px;
-    }
-
-    header h1 {
-      font-size: 36px;
-      margin: 10px 0;
-    }
-
-    header p {
-      font-size: 18px;
-      color: #1f4e79;
-      max-width: 700px;
-      margin: auto;
-    }
-
-    .hero {
-      width: 100%;
-      max-height: 520px;
-      overflow: hidden;
-    }
-
-    .hero img {
-      width: 100%;
-      object-fit: cover;
+      background: linear-gradient(180deg, #0b3c5d, #0f6b4a);
+      color: #ffffff;
+      scroll-behavior: smooth;
     }
 
     section {
-      max-width: 900px;
+      padding: 80px 20px;
+      max-width: 1100px;
       margin: auto;
-      padding: 50px 20px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero {
+      background: url("hero.jpg") center/cover no-repeat;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .hero img {
+      width: 140px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+    }
+
+    .btn {
+      margin-top: 30px;
+      padding: 14px 28px;
+      background: #1abc9c;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 30px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .center {
       text-align: center;
     }
 
-    section h2 {
-      font-size: 28px;
-      margin-bottom: 20px;
-      color: #0b3c5d;
+    .image-box img {
+      width: 100%;
+      border-radius: 16px;
+      margin-top: 30px;
     }
 
-    section p {
-      font-size: 18px;
-      line-height: 1.6;
-      color: #1f4e79;
+    ul {
+      list-style: none;
+      padding: 0;
+      text-align: center;
     }
 
-    .highlight {
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 30px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    }
-
-    .warm {
-      color: #d97b00;
-      font-weight: bold;
+    ul li {
+      margin: 12px 0;
+      font-size: 1.1rem;
     }
 
     footer {
-      background: #0b3c5d;
-      color: #ffffff;
       text-align: center;
-      padding: 30px 20px;
-      margin-top: 40px;
+      padding: 40px 20px;
+      background: #082c40;
+      font-size: 0.9rem;
     }
 
-    footer p {
-      margin: 5px 0;
-      font-size: 14px;
-    }
-
-    a {
-      color: #ffd166;
+    footer a {
+      color: #1abc9c;
       text-decoration: none;
       font-weight: bold;
     }
@@ -100,82 +107,94 @@
 
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <img src="logo.png" alt="WCUP Logo" />
-    <h1>WCUP</h1>
-    <p>
-      Football before tokens. <br />
-      People before numbers.
-    </p>
-  </header>
-
-  <!-- HERO IMAGE -->
+  <!-- HERO -->
   <div class="hero">
-    <img src="hero.jpg" alt="Football uniting people around the world" />
+    <img src="logo.png" alt="WCUP Logo">
+    <h1>Football Unites the World</h1>
+    <p>
+      Different flags. Different languages.  
+      The same feeling when the ball starts rolling.
+    </p>
+    <a class="btn" href="https://x.com/WCUP_token" target="_blank">
+      Join the Community
+    </a>
   </div>
 
-  <!-- MANIFESTO -->
+  <!-- ABOUT -->
   <section>
-    <div class="highlight">
-      <h2>Football is a universal language</h2>
-      <p>
-        Different flags. Different languages. Different cultures.<br />
-        Yet the same emotion when the ball starts rolling.
-      </p>
-      <p>
-        WCUP is being built as a <span class="warm">community-first project</span>,
-        inspired by football’s unique power to unite people across borders.
-      </p>
+    <h2>What is WCUP?</h2>
+    <p class="center">
+      WCUP is a community-first Web3 project inspired by football’s unique power
+      to unite people beyond borders, cultures and languages.
+    </p>
+    <p class="center">
+      Football comes before tokens.  
+      People come before numbers.
+    </p>
+
+    <div class="image-box">
+      <img src="community.jpg" alt="Global Football Community">
     </div>
   </section>
 
-  <!-- PURPOSE -->
+  <!-- PRINCIPLES -->
   <section>
-    <h2>This is not about speculation</h2>
-    <p>
-      There is no token launch date.<br />
-      There is no price discussion.
-    </p>
-    <p>
-      This project starts with listening, sharing memories,
-      and building something meaningful together — slowly and honestly.
-    </p>
+    <h2>Our Principles</h2>
+    <ul>
+      <li>⚽ Community before speculation</li>
+      <li>🌍 Inclusion over division</li>
+      <li>🤝 Transparency and honesty</li>
+      <li>🚫 No hype. No false promises.</li>
+      <li>🕰 Built slowly, together</li>
+    </ul>
   </section>
 
   <!-- COMMUNITY -->
   <section>
-    <div class="highlight">
-      <h2>Built by people who love the game</h2>
-      <p>
-        If football ever made you feel something real —
-        a moment, a memory, a connection —
-        you already understand what WCUP is about.
-      </p>
-      <p>
-        We are currently in the <span class="warm">community-building phase</span>.
-        Conversations come first. Everything else comes later.
-      </p>
-    </div>
-  </section>
+    <h2>Join the Movement</h2>
+    <p class="center">
+      WCUP is for everyone who believes.
+      Believes that football — like crypto — can bring people together.
+    </p>
 
-  <!-- JOIN -->
-  <section>
-    <h2>Join the conversation</h2>
-    <p>
-      Follow us on <strong>X</strong>.<br />
-      Telegram community coming soon.
+    <p class="center">
+      We are building the community first.  
+      Everything else comes after.
     </p>
-    <p>
-      This is just the beginning.
-    </p>
+
+    <div class="image-box">
+      <img src="hero.jpg" alt="World Cup Stadium">
+    </div>
+
+    <div class="center">
+      <a class="btn" href="https://x.com/WCUP_token" target="_blank">
+        Follow WCUP on X
+      </a>
+    </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>WCUP — Built slowly. Built together.</p>
-    <p>Football connects us.</p>
+    WCUP © 2026  
+    <br>
+    Built by the community.  
+    <br><br>
+    <a href="https://x.com/WCUP_token" target="_blank">@WCUP_token</a>
   </footer>
+
+  <script>
+    const sections = document.querySelectorAll("section");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
 
 </body>
 </html>
