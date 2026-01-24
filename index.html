@@ -4,7 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>WCUP — Many Flags. One Nation.</title>
- 
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
 <style>
 * {
   box-sizing: border-box;
@@ -14,95 +23,110 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(180deg, #0b3c6d, #0f6b4a);
+  background: linear-gradient(180deg, #050b12, #0b1f33);
   color: #ffffff;
 }
 
 /* SECTIONS */
 section {
   padding: 70px 20px;
+  text-align: center;
 }
 
 .container {
   max-width: 900px;
   margin: auto;
-  text-align: center;
 }
 
-/* HERO IMAGE (LIMPA, SEM TEXTO) */
+/* HERO IMAGE */
 .hero-image {
   width: 100%;
-  height: 75vh;
-  background: url('hero.jpg') center / cover no-repeat;
+  height: 80vh;
+  background: url('hero.jpg') center/cover no-repeat;
 }
 
-/* LOGO */
+/* CONTENT */
 .logo {
   width: 140px;
-  margin-bottom: 24px;
+  margin-bottom: 22px;
 }
 
-/* TEXT */
 h1 {
   font-size: 3rem;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 h2 {
-  font-size: 2.4rem;
-  margin-bottom: 22px;
+  font-size: 2.2rem;
+  margin-bottom: 18px;
 }
 
 p {
   font-size: 1.1rem;
+  margin-bottom: 14px;
   line-height: 1.6;
-  margin-top: 16px;
+  opacity: 0.95;
 }
 
-/* BUTTON */
 .btn {
   display: inline-block;
-  margin-top: 32px;
+  margin-top: 28px;
   padding: 14px 36px;
   background: #1abc9c;
   color: #000;
   font-weight: bold;
   border-radius: 30px;
   text-decoration: none;
+  transition: transform 0.2s ease;
 }
 
-/* VALUES — CENTRALIZADAS */
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* VALUES (CENTRALIZED) */
 .values {
-  margin: 40px auto 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 18px;
-  max-width: 700px;
+  gap: 14px;
+  margin-top: 28px;
 }
 
 .values div {
+  max-width: 650px;
   font-size: 1.05rem;
-  line-height: 1.6;
+  line-height: 1.55;
 }
 
 /* IMAGES */
 img.big {
   max-width: 100%;
-  border-radius: 18px;
-  margin-top: 36px;
-  box-shadow: 0 18px 36px rgba(0,0,0,0.45);
+  border-radius: 16px;
+  margin-top: 32px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.55);
 }
 
 /* FOOTER */
 footer {
-  background: #081f2f;
+  background: #02070c;
   padding: 40px 20px;
-  text-align: center;
   font-size: 0.9rem;
+  text-align: center;
+}
+
+/* ANIMATIONS */
+.fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 </style>
-   
 <head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-74JFCT5J63"></script>
@@ -114,16 +138,15 @@ footer {
   gtag('config', 'G-74JFCT5J63');
 </script>
 </head>
-   
+
 <body>
 
-<!-- HERO IMAGE -->
+<!-- HERO IMAGE CLEAN -->
 <div class="hero-image"></div>
 
-<!-- HERO CONTENT -->
-<section>
+<!-- INTRO -->
+<section class="fade">
   <div class="container">
-
     <img src="logo.png" class="logo" alt="WCUP Logo">
 
     <h1>Many Flags. One Nation.</h1>
@@ -133,56 +156,47 @@ footer {
 
     <p>
       Football connects people beyond borders.<br>
-      WCUP exists to carry this same emotion into Web3.
+      WCUP carries this emotion into Web3.
     </p>
 
     <a href="https://x.com/WCUP_token" target="_blank" class="btn">
       Join the WCUP Nation
     </a>
-
   </div>
 </section>
 
 <!-- WHAT IS WCUP -->
-<section>
+<section class="fade">
   <div class="container">
-
     <h2>What is WCUP?</h2>
 
     <p>
       WCUP is a community-driven meme coin inspired by football —
       the most universal sport on the planet.
-      In a world divided by borders, languages and beliefs,
-      football reminds us that emotion is universal.
     </p>
 
     <p>
-      WCUP is more than just a token; it’s your VIP pass to the
-      world’s largest digital stadium. Born from the passion that
-      halts the planet every four years, this project merges vibrant
-      meme culture with the adrenaline of the World Cup.
+      Born from the passion that stops the world every four years,
+      WCUP blends football culture, memes and blockchain
+      into one global digital stadium.
     </p>
 
     <p>
-      With an ecosystem focused on community engagement and cultural impact,
-      WCUP transforms football passion into digital identity.
-      In WCUP, victory is collective and the match never ends.
+      No promises. No artificial hype.<br>
+      Just people, passion and shared emotion.
     </p>
 
-    <img src="image_1.jpeg" class="big" alt="Football unity">
-
+    <img src="image_1.jpeg" class="big" alt="Football Unity">
   </div>
 </section>
 
-<!-- COMMUNITY VALUES -->
-<section>
+<!-- COMMUNITY -->
+<section class="fade">
   <div class="container">
-
     <h2>The WCUP Nation</h2>
 
     <p>
-      A global community united by football, culture and memes.
-      The WCUP Nation is more than a community; it is a global movement.
+      A global community united by football, culture and creativity.
     </p>
 
     <div class="values">
@@ -192,70 +206,58 @@ footer {
       <div>⚽ Sportsmanship</div>
       <div>❤️ Unity between nations</div>
     </div>
-
   </div>
 </section>
 
 <!-- SOCIAL IMPACT -->
-<section>
+<section class="fade">
   <div class="container">
-
     <h2>Football Can Change Lives</h2>
 
     <p>
-      WCUP believes that football is the world’s most powerful tool
-      for social transformation.
+      Football is more than a game — it’s a tool for social transformation.
     </p>
 
     <div class="values">
       <div>
         <strong>🎒 Access to Sports</strong><br>
-        Distributing essential sports gear — balls, cleats, and kits —
-        to remove the financial barriers that keep talent from flourishing.
+        Distributing essential sports gear — balls, cleats and kits —
+        to remove financial barriers.
       </div>
 
       <div>
-        <strong>📚 Opportunity and Education</strong><br>
-        Supporting after-school programs that use football as a “hook”
-        to steer youth away from violence and toward personal development.
+        <strong>📚 Opportunity & Education</strong><br>
+        Supporting after-school programs that guide youth
+        toward growth and purpose.
       </div>
 
       <div>
         <strong>🧒 Real Inclusion</strong><br>
-        Creating safe spaces where children from all backgrounds can
-        develop vital life skills and physical health.
+        Creating safe spaces for development, health and dignity.
       </div>
     </div>
 
     <p>
-      At WCUP, every transaction helps kick inequality out of the game.
-      We are playing for a legacy that lasts long after the final whistle.
+      At WCUP, we play for a legacy that lasts
+      long after the final whistle.
     </p>
 
-    <img src="image_2.jpeg" class="big" alt="Global football emotion">
-
+    <img src="image_2.jpeg" class="big" alt="Global Football Emotion">
   </div>
 </section>
 
 <!-- NFT -->
-<section>
+<section class="fade">
   <div class="container">
-
     <h2>Digital Memories</h2>
 
     <p>
-      Exclusive digital collectibles inspired by iconic football moments.
-    </p>
-
-    <p>
-      WCUP transforms emotion, nostalgia and culture into verifiable
-      digital assets — memories that live forever on-chain.
+      Iconic football moments, transformed into digital collectibles.
     </p>
 
     <p>
       Memories. Emotion. Culture.
     </p>
-
   </div>
 </section>
 
@@ -266,6 +268,18 @@ footer {
     Not a financial product or investment.
   </p>
 </footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+});
+
+document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
