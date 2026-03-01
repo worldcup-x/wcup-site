@@ -36,7 +36,7 @@
             object-fit: cover;
         }
         .video-overlay {
-            background: rgba(0,0,0,0.75); /* Escurece o vídeo para o texto brilhar */
+            background: rgba(0,0,0,0.75);
             z-index: 0;
         }
 
@@ -74,7 +74,8 @@
 
     <section class="relative h-screen flex items-center justify-center overflow-hidden text-center px-6">
         <div class="video-docker absolute top-0 left-0 w-full h-full overflow-hidden">
-            <video autoplay muted loop playsinline src="hero-video.mp4"></video> </div>
+            <video autoplay muted loop playsinline src="hero-video.mp4"></video> 
+        </div>
         <div class="video-overlay absolute top-0 left-0 w-full h-full"></div>
 
         <div class="relative z-10 max-w-5xl" data-aos="zoom-out">
@@ -137,11 +138,16 @@
                     <p class="text-gray-300 text-xl mb-8">
                         Our mascot represents <b>Resilience and Adaptation</b>. A creature that thrives in adversity and protects the Nation. 
                     </p>
+                    
                     <form action="https://formspree.io/f/mjgedppa" method="POST" class="space-y-4">
+                        <input type="hidden" name="_subject" value="Novo Palpite de Mascote - WCUP Nation">
+                        
                         <label class="text-xs font-bold uppercase tracking-widest text-blue-400">Can you guess the animal?</label>
-                        <input type="text" placeholder="Your guess..." class="w-full bg-black border border-white/10 rounded-full px-6 py-4 focus:border-blue-500 outline-none transition">
-                        <input type="text" placeholder="Suggested name..." class="w-full bg-black border border-white/10 rounded-full px-6 py-4 focus:border-blue-500 outline-none transition">
-                        <button class="w-full bg-white text-black font-black py-4 rounded-full hover:bg-blue-500 hover:text-white transition-all uppercase italic">Submit My Suggestion</button>
+                        <input type="text" name="mascot_guess" placeholder="Your guess..." class="w-full bg-black border border-white/10 rounded-full px-6 py-4 focus:border-blue-500 outline-none transition" required>
+                        
+                        <input type="text" name="name_suggestion" placeholder="Suggested name..." class="w-full bg-black border border-white/10 rounded-full px-6 py-4 focus:border-blue-500 outline-none transition" required>
+                        
+                        <button type="submit" class="w-full bg-white text-black font-black py-4 rounded-full hover:bg-blue-500 hover:text-white transition-all uppercase italic">Submit My Suggestion</button>
                     </form>
                 </div>
             </div>
