@@ -49,6 +49,15 @@
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #050505; }
         ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 10px; }
+
+        /* Custom select styling for country */
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1.5rem center;
+            background-size: 1em;
+        }
     </style>
 </head>
 <body>
@@ -127,27 +136,44 @@
     <section id="mascot" class="py-32 px-6 bg-[#080808]">
         <div class="max-w-5xl mx-auto text-center">
             <h2 class="text-blue-500 font-black tracking-[0.3em] uppercase mb-4 text-sm">The Guardian</h2>
-            <h3 class="text-5xl md:text-7xl font-black italic uppercase mb-12">Who is the Mascot?</h3>
+            <h3 class="text-5xl md:text-7xl font-black italic uppercase mb-4">Who is the Mascot?</h3>
+            <p class="text-blue-400 font-bold uppercase tracking-widest text-xs mb-12">Represent your country. Join the Nation.</p>
             
             <div class="grid lg:grid-cols-2 gap-16 items-center bg-zinc-900/50 p-12 rounded-[4rem] border border-white/5">
                 <div data-aos="zoom-in">
                     <img src="mascot-silhouette.png" alt="Mascot Silhouette" class="w-full h-auto drop-shadow-[0_0_50px_rgba(59,130,246,0.2)]">
                 </div>
                 <div class="text-left" data-aos="fade-left">
-                    <p class="text-gray-300 text-xl mb-8">
-                        Our mascot represents <b>Resilience and Adaptation</b>. A creature that thrives in adversity and protects the Nation. 
+                    <p class="text-gray-300 text-xl mb-8 leading-relaxed">
+                        Our mascot represents <b>Resilience and Adaptation</b>. A creature that thrives in adversity and protects our global community. 
                     </p>
                     
                     <form action="https://formspree.io/f/mjgedppa" method="POST" class="space-y-4">
                         <input type="hidden" name="_replyto" value="simao.vieira@aol.com">
-                        <input type="hidden" name="_subject" value="Novo Palpite Mascot - WCUP Nation">
+                        <input type="hidden" name="_subject" value="Novo Embaixador WCUP - Palpite Mascot">
                         
-                        <label class="text-xs font-bold uppercase tracking-widest text-blue-400">Can you guess the animal?</label>
-                        <input type="text" name="Animal_Guess" placeholder="Your guess..." class="w-full bg-black border border-white/10 rounded-full px-6 py-4 focus:border-blue-500 outline-none transition" required>
+                        <div>
+                            <label class="text-[10px] font-black uppercase tracking-widest text-gray-500 mb-2 block">Which animal is this?</label>
+                            <input type="text" name="Animal_Guess" placeholder="Your guess..." class="w-full bg-black border border-white/10 rounded-full px-6 py-4 focus:border-blue-500 outline-none transition" required>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="text-[10px] font-black uppercase tracking-widest text-gray-500 mb-2 block">Mascot Name Suggestion</label>
+                                <input type="text" name="Name_Suggestion" placeholder="Ex: Victus" class="w-full bg-black border border-white/10 rounded-full px-6 py-4 focus:border-blue-500 outline-none transition" required>
+                            </div>
+                            <div>
+                                <label class="text-[10px] font-black uppercase tracking-widest text-gray-500 mb-2 block">Your Country</label>
+                                <input type="text" name="Country" placeholder="Your flag..." class="w-full bg-black border border-white/10 rounded-full px-6 py-4 focus:border-blue-500 outline-none transition" required>
+                            </div>
+                        </div>
                         
-                        <input type="text" name="Name_Suggestion" placeholder="Suggested name..." class="w-full bg-black border border-white/10 rounded-full px-6 py-4 focus:border-blue-500 outline-none transition" required>
-                        
-                        <button type="submit" class="w-full bg-white text-black font-black py-4 rounded-full hover:bg-blue-500 hover:text-white transition-all uppercase italic">Submit My Suggestion</button>
+                        <div class="pt-4">
+                            <button type="submit" class="w-full bg-white text-black font-black py-5 rounded-full hover:bg-blue-600 hover:text-white transition-all uppercase italic flex items-center justify-center gap-3">
+                                <i class="fa-solid fa-earth-americas"></i> Register My Guess
+                            </button>
+                            <p class="text-[9px] text-gray-600 mt-4 text-center uppercase tracking-widest">By submitting, you become part of the WCUP Global Stadium.</p>
+                        </div>
                     </form>
                 </div>
             </div>
