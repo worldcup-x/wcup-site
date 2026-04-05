@@ -10,193 +10,309 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WCUP NATION | The Evolution of Football ⚽</title>
+    <title>WCUP NATION | Many Flags. One Nation. ⚽</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;400;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #fff; overflow-x: hidden; scroll-behavior: smooth; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .gradient-text { background: linear-gradient(90deg, #3b82f6, #2dd4bf, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         
-        body { font-family: 'Inter', sans-serif; background-color: #030303; color: #fff; overflow-x: hidden; scroll-behavior: smooth; }
-        h1, h2, h3, .font-special { font-family: 'Syncopate', sans-serif; }
-
-        .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); }
-        .gradient-text { background: linear-gradient(90deg, #3b82f6, #60a5fa, #2dd4bf); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        
-        .hero-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%); z-index: -1; }
+        .video-docker video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            object-fit: cover;
+        }
+        .video-overlay {
+            background: rgba(0,0,0,0.75);
+            z-index: 0;
+        }
 
         .floating { animation: float 6s ease-in-out infinite; }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
-
-        .reveal-blur { filter: blur(15px) brightness(0.8); transition: all 1s ease; }
-        .reveal-container:hover .reveal-blur { filter: blur(8px) brightness(1.1); }
-
-        .btn-gold { background: linear-gradient(135deg, #fbbf24, #d97706); box-shadow: 0 0 20px rgba(217, 119, 6, 0.4); }
+        .btn-glow:hover { box-shadow: 0 0 30px rgba(59, 130, 246, 0.6); transform: translateY(-2px); transition: all 0.3s ease; }
+        .token-card { background: linear-gradient(145deg, rgba(59, 130, 246, 0.1), rgba(0, 0, 0, 0.5)); border: 1px solid rgba(59, 130, 246, 0.2); transition: all 0.3s ease; }
+        .token-card:hover { border-color: #3b82f6; transform: scale(1.02); }
+        .phase-done { border-left: 4px solid #2dd4bf; background: rgba(45, 212, 191, 0.05); }
         
-        .copy-box { background: rgba(255,255,255,0.05); border: 1px dashed rgba(59, 130, 246, 0.5); }
-        
-        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050505; }
         ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 10px; }
+
+        /* Custom select styling for country */
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1.5rem center;
+            background-size: 1em;
+        }
     </style>
 </head>
 <body>
 
-    <nav class="fixed w-full z-50 glass px-8 py-4 flex justify-between items-center border-b border-white/5">
-        <div class="flex items-center gap-2">
-            <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center font-black italic">W</div>
-            <span class="font-black text-xl tracking-tighter uppercase italic">WCUP <span class="text-blue-500">NATION</span></span>
+    <nav class="fixed w-full z-50 glass px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+            <img src="logo.png" alt="WCUP" class="h-10 w-auto">
+            <span class="font-black text-xl tracking-tighter italic uppercase">WCUP <span class="text-blue-500 font-light">NATION</span></span>
         </div>
-        <div class="hidden lg:flex gap-10 font-bold text-[10px] uppercase tracking-[0.3em]">
-            <a href="#about" class="hover:text-blue-400 transition">Evolution</a>
+        <div class="hidden lg:flex gap-8 font-semibold text-[10px] uppercase tracking-[0.2em]">
+            <a href="#about" class="hover:text-blue-400 transition">About</a>
             <a href="#mascot" class="hover:text-blue-400 transition">Mascot</a>
-            <a href="#roadmap" class="hover:text-blue-400 transition">Roadmap</a>
-            <a href="#tokenomics" class="hover:text-blue-400 transition">Token</a>
+            <a href="#gameplan" class="hover:text-blue-400 transition">Roadmap</a>
+            <a href="#tokenomics" class="hover:text-blue-400 transition">Tokenomics</a>
+            <a href="#impact" class="hover:text-blue-400 transition">Social Impact</a>
         </div>
-        <a href="https://t.me/+I6CLsQdNTBFkNDIx" target="_blank" class="bg-white text-black px-6 py-2 rounded-full font-black text-[10px] uppercase tracking-widest hover:bg-blue-500 hover:text-white transition-all">Join Stadium</a>
+        <div class="flex gap-4 items-center">
+            <a href="https://x.com/WCUP_NATION" target="_blank" class="text-xl hover:text-blue-400 transition"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://t.me/+I6CLsQdNTBFkNDIx" target="_blank" class="btn-glow bg-blue-600 px-6 py-2 rounded-full font-bold text-xs">STADIUM</a>
+        </div>
     </nav>
 
-    <section class="relative h-screen flex items-center justify-center text-center px-6 pt-20">
-        <div class="hero-glow"></div>
-        <div class="relative z-10 max-w-6xl" data-aos="zoom-out">
-            <h2 class="text-blue-500 font-bold tracking-[0.8em] mb-6 uppercase text-[10px]">The World Comes Together</h2>
-            <h1 class="text-6xl md:text-[8rem] font-black mb-8 leading-[0.9] tracking-tighter uppercase italic">THE FUTURE <br><span class="gradient-text italic">OF FANS.</span></h1>
-            
-            <div class="max-w-2xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="400">
-                <p class="text-[10px] uppercase tracking-widest text-gray-500 mb-3 font-bold">Official Token Address (BSC)</p>
-                <div class="copy-box p-2 rounded-2xl flex items-center justify-between gap-4">
-                    <code id="tokenAddress" class="text-blue-400 font-mono text-xs md:text-sm truncate pl-4">0x0000000000000000000000000000000000000000</code>
-                    <button onclick="copyToken()" class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-xl font-black text-[10px] uppercase transition-all whitespace-nowrap">Copy</button>
-                </div>
-            </div>
+    <section class="relative h-screen flex items-center justify-center overflow-hidden text-center px-6">
+        <div class="video-docker absolute top-0 left-0 w-full h-full overflow-hidden">
+            <video autoplay muted loop playsinline src="hero-video.mp4"></video> 
+        </div>
+        <div class="video-overlay absolute top-0 left-0 w-full h-full"></div>
 
+        <div class="relative z-10 max-w-5xl" data-aos="zoom-out">
+            <h2 class="text-blue-400 font-bold tracking-[0.5em] mb-4 uppercase text-xs md:text-sm">Many Flags. One Nation.</h2>
+            <h1 class="text-5xl md:text-[7rem] font-black mb-8 leading-none tracking-tighter uppercase">FOOTBALL <br><span class="gradient-text">ON-CHAIN.</span></h1>
+            <p class="text-lg md:text-2xl text-gray-200 max-w-4xl mx-auto mb-10 leading-relaxed font-light">
+                In a world of noise, we choose <b>Unity</b>. The first community ecosystem bringing the passion of 5 billion fans to the blockchain through love, resilience, and the beautiful game.
+            </p>
             <div class="flex flex-wrap justify-center gap-6">
-                <a href="#mascot" class="btn-gold text-white px-10 py-5 rounded-full font-black text-sm tracking-widest transition-all hover:scale-105">THE BIG REVEAL</a>
-                <a href="https://t.me/+I6CLsQdNTBFkNDIx" target="_blank" class="glass px-10 py-5 rounded-full font-black text-sm tracking-widest hover:bg-white/5 transition-all">WHITEPAPER</a>
+                <a href="https://t.me/+I6CLsQdNTBFkNDIx" target="_blank" class="btn-glow bg-blue-600 text-white px-12 py-5 rounded-full font-black text-lg flex items-center gap-3 transition-all">
+                    <i class="fa-brands fa-telegram text-xl"></i> JOIN THE NATION
+                </a>
+                <a href="#about" class="glass px-12 py-5 rounded-full font-black text-lg hover:bg-white/10 transition flex items-center gap-3">
+                    EXPLORE PROJECT
+                </a>
             </div>
         </div>
     </section>
 
-    <section id="mascot" class="py-32 px-6 relative">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-20">
-                <h3 class="text-blue-500 font-bold tracking-[0.4em] uppercase text-xs mb-4">Mystery Box</h3>
-                <h2 class="text-5xl md:text-7xl font-black uppercase italic">NEXT SUNDAY</h2>
+<section id="about" class="py-32 px-6 bg-zinc-950 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
+            <div data-aos="fade-right">
+                <div class="relative inline-block">
+                    <img src="impacto-social.jpg" alt="Social Impact" class="rounded-[3rem] shadow-2xl relative z-10 border border-white/5">
+                    <div class="absolute -bottom-6 -right-6 w-full h-full border-2 border-blue-600 rounded-[3rem] z-0"></div>
+                </div>
             </div>
-
-            <div class="grid lg:grid-cols-2 gap-16 items-center glass p-8 md:p-16 rounded-[4rem]">
-                <div class="reveal-container relative flex justify-center" data-aos="fade-right">
-                    <img src="kamaleon-egg.png" alt="Kamaleon Egg" class="reveal-blur w-full max-w-md floating drop-shadow-[0_0_80px_rgba(59,130,246,0.3)]">
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="bg-black/60 backdrop-blur-xl border border-white/20 p-6 rounded-3xl text-center">
-                            <span class="text-4xl">🔒</span>
-                            <p class="font-black text-xs uppercase tracking-tighter mt-2">Classified</p>
-                        </div>
+            <div data-aos="fade-left">
+                <h3 class="text-blue-500 font-bold uppercase tracking-widest mb-4">The Mission</h3>
+                <h2 class="text-5xl md:text-7xl font-black mb-8 leading-tight italic uppercase">LOVE WINS THE <br>ALGORITHM.</h2>
+                <p class="text-gray-300 text-xl mb-6 leading-relaxed">
+                    Beyond the charts, we build <b>real connections</b>. While the world faces conflict, WCUP Nation uses football as the universal language of peace and fraternity.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                    <div class="glass p-6 rounded-2xl">
+                        <i class="fa-solid fa-hands-holding-child text-blue-500 text-3xl mb-4"></i>
+                        <h4 class="font-bold text-white uppercase mb-2">Social Fund</h4>
+                        <p class="text-gray-400 text-sm">2% of every transaction goes directly to kits and equipment for underserved communities.</p>
+                    </div>
+                    <div class="glass p-6 rounded-2xl">
+                        <i class="fa-solid fa-earth-americas text-blue-500 text-3xl mb-4"></i>
+                        <h4 class="font-bold text-white uppercase mb-2">No Borders</h4>
+                        <p class="text-gray-400 text-sm">A decentralized nation where your flag doesn't divide, it joins the collection.</p>
                     </div>
                 </div>
-                
-                <div data-aos="fade-left">
-                    <h4 class="text-3xl font-black italic mb-6 uppercase">A NEW LEGEND IS HATCHING.</h4>
-                    <p class="text-gray-400 text-xl leading-relaxed mb-10">
-                        He represents all flags. He adapts to every market. He is the guardian of the WCUP Nation. On Sunday, the evolution will be complete.
+            </div>
+        </div>
+    </section>
+
+    <section id="mascot" class="py-32 px-6 bg-[#080808]">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-blue-500 font-black tracking-[0.3em] uppercase mb-4 text-sm">The Guardian</h2>
+            <h3 class="text-5xl md:text-7xl font-black italic uppercase mb-4">Who is the Mascot?</h3>
+            <p class="text-blue-400 font-bold uppercase tracking-widest text-xs mb-12">Represent your country. Join the Nation.</p>
+            
+            <div class="grid lg:grid-cols-2 gap-16 items-center bg-zinc-900/50 p-12 rounded-[4rem] border border-white/5">
+                <div data-aos="zoom-in">
+                    <img src="mascot-silhouette.png" alt="Mascot Silhouette" class="w-full h-auto drop-shadow-[0_0_50px_rgba(59,130,246,0.2)]">
+                </div>
+                <div class="text-left" data-aos="fade-left">
+                    <p class="text-gray-300 text-xl mb-8 leading-relaxed">
+                        Our mascot represents <b>Resilience and Adaptation</b>. A creature that thrives in adversity and protects our global community. 
                     </p>
                     
-                    <div class="space-y-6">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full glass flex items-center justify-center text-blue-500"><i class="fa-solid fa-bolt"></i></div>
+                    <form action="https://formspree.io/f/mjgedppa" method="POST" class="space-y-4">
+                        <input type="hidden" name="_replyto" value="simao.vieira@aol.com">
+                        <input type="hidden" name="_subject" value="Novo Embaixador WCUP - Palpite Mascot">
+                        
+                        <div>
+                            <label class="text-[10px] font-black uppercase tracking-widest text-gray-500 mb-2 block">Which animal is this?</label>
+                            <input type="text" name="Animal_Guess" placeholder="Your guess..." class="w-full bg-black border border-white/10 rounded-full px-6 py-4 focus:border-blue-500 outline-none transition" required>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <p class="font-bold text-white uppercase text-xs tracking-widest">Power Level</p>
-                                <p class="text-gray-500 text-sm">Beyond Human Limits</p>
+                                <label class="text-[10px] font-black uppercase tracking-widest text-gray-500 mb-2 block">Mascot Name Suggestion</label>
+                                <input type="text" name="Name_Suggestion" placeholder="Ex: Victus" class="w-full bg-black border border-white/10 rounded-full px-6 py-4 focus:border-blue-500 outline-none transition" required>
+                            </div>
+                            <div>
+                                <label class="text-[10px] font-black uppercase tracking-widest text-gray-500 mb-2 block">Your Country</label>
+                                <input type="text" name="Country" placeholder="Your flag..." class="w-full bg-black border border-white/10 rounded-full px-6 py-4 focus:border-blue-500 outline-none transition" required>
                             </div>
                         </div>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full glass flex items-center justify-center text-blue-500"><i class="fa-solid fa-earth-americas"></i></div>
-                            <div>
-                                <p class="font-bold text-white uppercase text-xs tracking-widest">Global Reach</p>
-                                <p class="text-gray-500 text-sm">Uniting 200+ Nations</p>
-                            </div>
+                        
+                        <div class="pt-4">
+                            <button type="submit" class="w-full bg-white text-black font-black py-5 rounded-full hover:bg-blue-600 hover:text-white transition-all uppercase italic flex items-center justify-center gap-3">
+                                <i class="fa-solid fa-earth-americas"></i> Register My Guess
+                            </button>
+                            <p class="text-[9px] text-gray-600 mt-4 text-center uppercase tracking-widest">By submitting, you become part of the WCUP Global Stadium.</p>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="tokenomics" class="py-32 px-6 bg-[#050505]">
-        <div class="max-w-6xl mx-auto text-center">
-            <h2 class="text-4xl md:text-6xl font-black uppercase italic mb-16">The Economic Engine</h2>
+    <section id="gameplan" class="py-32 px-6 bg-zinc-950">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-24" data-aos="fade-up">
+                <h2 class="text-blue-500 font-black tracking-[0.3em] uppercase mb-4 text-sm">Strategic Roadmap</h2>
+                <h3 class="text-6xl md:text-8xl font-black italic uppercase tracking-tighter">THE GAME PLAN</h3>
+            </div>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass p-12 rounded-[3rem]" data-aos="fade-up">
-                    <p class="text-blue-500 font-bold text-xs tracking-[0.3em] mb-4 uppercase">Sustainability</p>
-                    <h5 class="text-6xl font-black italic mb-4">5%</h5>
-                    <p class="text-gray-500 text-[10px] uppercase font-black leading-relaxed">2% Marketing<br>2% Social Fund<br>1% Auto-Liquidity</p>
+                <div class="glass p-10 rounded-[3rem] relative overflow-hidden group phase-done" data-aos="fade-up">
+                    <span class="absolute top-6 right-8 text-2xl text-teal-400"><i class="fa-solid fa-circle-check"></i></span>
+                    <h4 class="text-2xl font-black text-white mb-6 uppercase italic">Phase 1: Kick-Off</h4>
+                    <ul class="text-gray-400 space-y-3 text-sm">
+                        <li><i class="fa-solid fa-check text-teal-500 mr-2"></i> Token Creation (BNB Chain)</li>
+                        <li><i class="fa-solid fa-check text-teal-500 mr-2"></i> Official Channels Launch</li>
+                        <li><i class="fa-solid fa-check text-teal-500 mr-2"></i> Litepaper Publication</li>
+                    </ul>
                 </div>
-                <div class="glass p-12 rounded-[3rem] border-blue-500/30" data-aos="fade-up" data-aos-delay="200">
-                    <p class="text-blue-500 font-bold text-xs tracking-[0.3em] mb-4 uppercase">Network</p>
-                    <h5 class="text-4xl font-black italic mb-4">BINANCE</h5>
-                    <p class="text-gray-500 text-[10px] uppercase font-black leading-relaxed">BSC Smart Chain<br>Ultra Low Fees</p>
+                <div class="glass p-10 rounded-[3rem] relative overflow-hidden group phase-done" data-aos="fade-up" data-aos-delay="100">
+                    <span class="absolute top-6 right-8 text-2xl text-teal-400"><i class="fa-solid fa-circle-check"></i></span>
+                    <h4 class="text-2xl font-black text-white mb-6 uppercase italic">Phase 2: Positioning</h4>
+                    <ul class="text-gray-400 space-y-3 text-sm">
+                        <li><i class="fa-solid fa-check text-teal-500 mr-2"></i> Website 2.0 Launch</li>
+                        <li><i class="fa-solid fa-check text-teal-500 mr-2"></i> Mascot Silhouette Reveal</li>
+                        <li><i class="fa-solid fa-spinner text-blue-500 animate-spin mr-2"></i> Organic Community Growth</li>
+                    </ul>
                 </div>
-                <div class="glass p-12 rounded-[3rem]" data-aos="fade-up" data-aos-delay="400">
-                    <p class="text-blue-500 font-bold text-xs tracking-[0.3em] mb-4 uppercase">Safety</p>
-                    <h5 class="text-4xl font-black italic mb-4">RENOUNCED</h5>
-                    <p class="text-gray-500 text-[10px] uppercase font-black leading-relaxed">Contract Verified<br>LP Burned Forever</p>
+                <div class="glass p-10 rounded-[3rem] relative overflow-hidden group border-blue-500/30" data-aos="fade-up" data-aos-delay="200">
+                    <span class="absolute top-6 right-8 text-2xl text-gray-700"><i class="fa-solid fa-lock"></i></span>
+                    <h4 class="text-2xl font-black text-white mb-6 uppercase italic">Phase 3: Attack</h4>
+                    <ul class="text-gray-400 space-y-3 text-sm">
+                        <li>- Community Campaigns</li>
+                        <li>- NFT Collectibles Reveal</li>
+                        <li>- Launch Announcement</li>
+                        <li>- Initial Social Initiatives</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="roadmap" class="py-32 px-6">
-        <div class="max-w-4xl mx-auto relative border-l border-white/10 pl-10 ml-6 md:ml-auto md:mr-auto">
-            <h2 class="text-5xl font-black uppercase italic mb-16 -ml-16">The Game Plan</h2>
-            
-            <div class="mb-16 relative" data-aos="fade-left">
-                <div class="absolute -left-[54px] top-0 w-6 h-6 rounded-full bg-blue-600 shadow-[0_0_20px_rgba(59,130,246,0.8)]"></div>
-                <h4 class="text-blue-400 font-black tracking-widest text-xs uppercase mb-2">Phase 01: Warm Up</h4>
-                <p class="text-xl font-bold mb-4">Fair Launch & Community Formation</p>
-                <ul class="text-gray-500 text-sm space-y-2 uppercase font-bold italic">
-                    <li>- Token Stealth Launch</li>
-                    <li>- Social Channels Debut</li>
-                    <li>- 1,000+ Holders Goal</li>
-                </ul>
-            </div>
-
-            <div class="mb-16 relative" data-aos="fade-left">
-                <div class="absolute -left-[54px] top-0 w-6 h-6 rounded-full bg-blue-600"></div>
-                <h4 class="text-blue-400 font-black tracking-widest text-xs uppercase mb-2">Phase 02: Kick Off</h4>
-                <p class="text-xl font-bold mb-4">The Kamaleon Reveal</p>
-                <ul class="text-gray-500 text-sm space-y-2 uppercase font-bold italic">
-                    <li>- Mascot Grand Premiere</li>
-                    <li>- CMC & CoinGecko Listing</li>
-                    <li>- Global Shilling Campaign</li>
-                </ul>
+    <section id="tokenomics" class="py-32 px-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-6xl md:text-8xl font-black uppercase italic mb-20 tracking-tighter">TOKENOMICS</h2>
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="token-card p-16 rounded-[4rem]" data-aos="flip-left">
+                    <h4 class="text-blue-500 font-bold mb-4 uppercase text-xs tracking-[0.3em]">Tax Structure</h4>
+                    <span class="text-8xl font-black italic tracking-tighter">5%</span>
+                    <div class="h-1 w-20 bg-blue-600 mx-auto my-6"></div>
+                    <p class="text-[10px] text-gray-400 uppercase font-black tracking-[0.2em] leading-loose">
+                        2% MARKETING<br>2% SOCIAL IMPACT<br>1% AUTO-LP
+                    </p>
+                </div>
+                <div class="token-card p-16 rounded-[4rem]" data-aos="flip-left" data-aos-delay="200">
+                    <h4 class="text-blue-500 font-bold mb-4 uppercase text-xs tracking-[0.3em]">Network</h4>
+                    <span class="text-5xl font-black italic tracking-tighter uppercase">BNB CHAIN</span>
+                    <p class="text-[10px] text-gray-500 mt-8 uppercase font-bold tracking-widest italic italic">Reliable & Scalable</p>
+                </div>
+                <div class="token-card p-16 rounded-[4rem]" data-aos="flip-left" data-aos-delay="400">
+                    <h4 class="text-blue-500 font-bold mb-4 uppercase text-xs tracking-[0.3em]">Security</h4>
+                    <span class="text-6xl font-black italic tracking-tighter">LOCKED</span>
+                    <p class="text-[10px] text-gray-500 mt-8 uppercase font-bold tracking-widest italic">LP BURNED / CONTRACT VERIFIED</p>
+                </div>
             </div>
         </div>
     </section>
+<!-- COUNTDOWN -->
 
-    <footer class="py-20 px-8 border-t border-white/5 bg-black text-center">
-        <div class="flex justify-center gap-8 mb-12">
-            <a href="https://x.com/WCUP_NATION" target="_blank" class="glass w-14 h-14 rounded-full flex items-center justify-center hover:bg-blue-600 transition-all text-xl"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="https://t.me/+I6CLsQdNTBFkNDIx" target="_blank" class="glass w-14 h-14 rounded-full flex items-center justify-center hover:bg-blue-600 transition-all text-xl"><i class="fa-brands fa-telegram"></i></a>
+<section class="section text-center">
+
+<h2 class="text-4xl font-bold mb-10">Road to World Cup 2026</h2>
+
+<div id="countdown" class="text-5xl font-black"></div>
+
+</section>
+
+<script>
+
+const targetDate = new Date("Jun 11, 2026").getTime();
+
+const timer = setInterval(function(){
+
+const now = new Date().getTime();
+
+const distance = targetDate - now;
+
+const days = Math.floor(distance/(1000*60*60*24));
+
+const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+
+const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+
+const seconds = Math.floor((distance%(1000*60))/1000);
+
+document.getElementById("countdown").innerHTML =
+days+"d "+hours+"h "+minutes+"m "+seconds+"s ";
+
+},1000);
+
+</script>
+<!-- PRICE CHART -->
+
+<section class="section text-center">
+
+<h2 class="text-4xl font-bold mb-10">Token Chart</h2>
+
+<iframe
+src="https://dexscreener.com"
+width="100%"
+height="500"
+class="rounded-xl">
+</iframe>
+
+</section>
+    <footer class="py-24 px-6 border-t border-white/5 text-center bg-[#030303]">
+        <img src="logo.png" alt="WCUP" class="h-20 mx-auto mb-10">
+        <div class="flex justify-center gap-10 mb-12">
+            <a href="https://x.com/WCUP_NATION" target="_blank" class="text-3xl hover:text-blue-400 transition transform hover:scale-110"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://t.me/+I6CLsQdNTBFkNDIx" target="_blank" class="text-3xl hover:text-blue-500 transition transform hover:scale-110"><i class="fa-brands fa-telegram"></i></a>
         </div>
-        <p class="text-[10px] font-black tracking-[0.8em] text-zinc-600 uppercase">WCUP NATION © 2026 - THE NEW ERA OF FOOTBALL</p>
+        <p class="text-zinc-700 text-[10px] font-black tracking-[0.6em] uppercase">
+            © 2026 WCUP NATION | FOOTBALL IS PEACE
+        </p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1000, once: true });
-
-        function copyToken() {
-            const address = document.getElementById('tokenAddress').innerText;
-            navigator.clipboard.writeText(address);
-            alert("Address copied to clipboard! ⚽🚀");
-        }
-
-        // Smooth Scroll
+        AOS.init({ duration: 1200, once: true });
+        
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
     </script>
