@@ -8,540 +8,553 @@
       gtag('js', new Date());
       gtag('config', 'G-74JFCT5J63', { 'anonymize_ip': false });
     </script>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="WCUP Nation - The first decentralized nation for football fans.">
     <title>WCUP NATION | The Global Stadium on Blockchain ⚽</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;400;600;700;900&family=Syncopate:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;900&family=Syncopate:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+ 
     <style>
-        /* --- DESIGN SYSTEM & VARIABLES --- */
         :root {
             --primary: #3b82f6;
-            --primary-glow: rgba(59, 130, 246, 0.5);
+            --primary-bright: #60a5fa;
             --secondary: #10b981;
             --accent: #fbbf24;
             --bg-dark: #020617;
-            --glass: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-bg: rgba(255, 255, 255, 0.03);
         }
-
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-            cursor: default;
-            user-select: none;
-        }
-
-        html { scroll-behavior: smooth; }
+ 
+        * { margin: 0; padding: 0; box-sizing: border-box; cursor: default; }
         
-        ::-webkit-scrollbar { width: 10px; }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: var(--bg-dark); }
-        ::-webkit-scrollbar-thumb { 
-            background: linear-gradient(to bottom, var(--primary), var(--secondary)); 
-            border-radius: 20px;
-        }
-
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+ 
         body { 
             font-family: 'Outfit', sans-serif; 
             background-color: var(--bg-dark); 
             color: #fff; 
             overflow-x: hidden;
-            line-height: 1.7;
+            line-height: 1.6;
         }
-
+ 
         .font-sync { font-family: 'Syncopate', sans-serif; }
         .font-mono { font-family: 'JetBrains+Mono', monospace; }
-
-        /* --- BACKGROUND ENGINE --- */
+ 
+        /* --- Global Video Background --- */
         .master-video-bg {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -2; overflow: hidden;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
         }
-
+ 
         .master-video-bg video {
-            min-width: 100%; min-height: 100%;
-            width: auto; height: auto;
-            position: absolute; top: 50%; left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
             transform: translate(-50%, -50%);
             object-fit: cover;
-            filter: brightness(0.4) saturate(1.2);
+            filter: saturate(1.2) brightness(0.6);
         }
-
+ 
         .master-overlay {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(2, 6, 23, 0.9) 100%);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 0%, rgba(2, 6, 23, 0.8) 100%),
+                       linear-gradient(180deg, rgba(2, 6, 23, 0.6) 0%, rgba(2, 6, 23, 0.9) 100%);
             z-index: -1;
         }
-
-        /* --- REUSABLE COMPONENTS --- */
+ 
+        /* --- Specialized UI Components --- */
         .glass-panel {
-            background: var(--glass);
-            backdrop-filter: blur(25px);
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
-            border-radius: 3rem;
-            transition: var(--transition);
+            border-radius: 2.5rem;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
         }
-
+ 
         .glass-panel:hover {
-            border-color: var(--primary);
-            box-shadow: 0 0 50px rgba(59, 130, 246, 0.1);
-            transform: translateY(-5px);
+            border-color: var(--primary-bright);
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.15);
         }
-
+ 
         .gradient-text {
             background: linear-gradient(135deg, #60a5fa, #34d399, #fbbf24);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
+ 
         .btn-stadium {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
-            transition: var(--transition);
+            box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.5);
+            transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
-            display: inline-flex;
+        }
+ 
+        .btn-stadium:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 30px -5px rgba(59, 130, 246, 0.7);
+        }
+ 
+        .btn-stadium::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: rgba(255,255,255,0.1);
+            transform: rotate(45deg);
+            transition: 0.6s;
+        }
+ 
+        .btn-stadium:hover::after { left: 120%; }
+ 
+        /* --- Mascot Video Container --- */
+        .mascot-video-wrapper {
+            width: 100%;
+            max-width: 500px;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            border: 4px solid rgba(59, 130, 246, 0.2);
+            box-shadow: 0 0 80px rgba(59, 130, 246, 0.3);
+            animation: float 6s ease-in-out infinite;
+        }
+ 
+        .mascot-video-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+ 
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.02); }
+        }
+ 
+        .step-pill {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 18px;
+            display: flex;
             align-items: center;
             justify-content: center;
+            font-weight: 900;
+            font-size: 1.4rem;
+            box-shadow: 0 8px 15px rgba(59, 130, 246, 0.3);
         }
-
-        .btn-stadium:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px var(--primary-glow);
-        }
-
-        /* --- ANIMATIONS --- */
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0); }
-            50% { transform: translateY(-30px) rotate(2deg); }
-        }
-
-        .animate-float { animation: float 8s ease-in-out infinite; }
-
-        .scan-line {
-            width: 100%; height: 2px;
-            background: linear-gradient(90deg, transparent, var(--primary), transparent);
-            position: absolute; top: 0;
-            animation: scan 3s linear infinite;
-        }
-
-        @keyframes scan {
-            0% { top: 0%; opacity: 0; }
-            50% { opacity: 1; }
-            100% { top: 100%; opacity: 0; }
-        }
-
-        /* --- ROADMAP & TIMELINE --- */
-        .timeline-line {
-            position: absolute; left: 20px; top: 0; bottom: 0;
-            width: 1px; background: rgba(255,255,255,0.1);
-        }
-
-        .roadmap-card {
-            margin-left: 50px;
-            padding: 2.5rem;
+ 
+        .trade-card {
             background: rgba(255,255,255,0.02);
-            border-radius: 2rem;
             border: 1px solid rgba(255,255,255,0.05);
-            position: relative;
-            margin-bottom: 3rem;
+            padding: 2rem;
+            border-radius: 2rem;
+            transition: 0.3s;
         }
-
-        .roadmap-card::before {
-            content: '';
-            position: absolute; left: -35px; top: 30px;
-            width: 15px; height: 15px;
-            background: var(--primary);
-            border-radius: 50%;
-            box-shadow: 0 0 15px var(--primary);
+ 
+        .trade-card:hover {
+            background: rgba(59, 130, 246, 0.08);
+            border-color: var(--primary);
         }
-
-        /* --- RESPONSIVE ADJUSTMENTS --- */
-        @media (max-width: 1024px) {
-            .hero-title { font-size: 4.5rem !important; }
+ 
+        /* Responsive Text */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 3.5rem !important; }
+            .hero-subtitle { font-size: 1.1rem !important; }
         }
     </style>
 </head>
 <body>
-
+ 
     <div class="master-video-bg">
-        <video autoplay muted loop playsinline poster="fallback.jpg">
+        <video autoplay muted loop playsinline poster="hero-poster.jpg">
             <source src="hero-video.mp4" type="video/mp4">
         </video>
     </div>
     <div class="master-overlay"></div>
-
-    <nav class="fixed w-full z-[1000] px-6 py-6 transition-all duration-500" id="mainNav">
-        <div class="max-w-7xl mx-auto flex justify-between items-center bg-black/30 backdrop-blur-2xl px-8 py-4 rounded-3xl border border-white/5 shadow-2xl">
-            <div class="flex items-center gap-5">
-                <div class="w-14 h-14 bg-gradient-to-br from-blue-600 to-emerald-500 rounded-2xl flex items-center justify-center rotate-3 hover:rotate-0 transition-transform">
-                    <i class="fa-solid fa-futbol text-white text-2xl animate-spin-slow"></i>
-                </div>
-                <div>
-                    <span class="font-sync font-bold text-3xl tracking-tighter uppercase italic block leading-none">WCUP <span class="text-blue-500">NATION</span></span>
-                    <span class="text-[9px] font-bold uppercase tracking-[0.5em] text-emerald-400">Decentralized Stadium</span>
-                </div>
-            </div>
-
-            <div class="hidden lg:flex gap-12 font-bold text-[11px] uppercase tracking-[0.3em]">
-                <a href="#vision" class="hover:text-blue-400 transition-colors">The Vision</a>
-                <a href="#mascot" class="hover:text-blue-400 transition-colors">Kamaleon</a>
-                <a href="#tokenomics" class="hover:text-emerald-400 transition-colors">Economics</a>
-                <a href="#roadmap" class="hover:text-blue-400 transition-colors">Game Plan</a>
-                <a href="#faq" class="hover:text-blue-400 transition-colors">FAQ</a>
-            </div>
-
-            <div class="flex items-center gap-6">
-                <div class="hidden md:flex gap-4">
-                    <a href="https://x.com/WCUP_NATION" target="_blank" class="hover:text-blue-400 transition"><i class="fa-brands fa-x-twitter text-xl"></i></a>
-                    <a href="https://t.me/+I6CLsQdNTBFkNDIx" target="_blank" class="hover:text-blue-500 transition"><i class="fa-brands fa-telegram text-xl"></i></a>
-                </div>
-                <a href="https://t.me/+I6CLsQdNTBFkNDIx" target="_blank" class="btn-stadium px-10 py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest text-white shadow-lg">Enter Stadium</a>
-            </div>
+ 
+    <nav class="fixed w-full z-[100] px-6 py-4 flex justify-between items-center bg-black/40 backdrop-blur-xl border-b border-white/5">
+        <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-gradient-to-tr from-blue-600 to-emerald-400 rounded-2xl flex items-center justify-center shadow-lg">
+                <i class="fa-solid fa-trophy text-white text-xl"></i>
+           </div>
+            <div class="hidden sm:block">
+                <span class="font-sync font-bold text-2xl tracking-tighter uppercase italic block leading-none">WCUP <span class="text-blue-500">NATION</span></span>
+                <span class="text-[9px] font-bold uppercase tracking-[0.4em] text-emerald-400">United by the Game</span>
+           </div>
+        </div>
+ 
+        <div class="hidden lg:flex gap-10 font-bold text-[10px] uppercase tracking-[0.25em]">
+            <a href="#vision" class="hover:text-blue-400 transition-colors">Vision</a>
+            <a href="#mascot" class="hover:text-blue-400 transition-colors">Kamaleon</a>
+            <a href="#howtobuy" class="hover:text-emerald-400 transition-colors">How to Trade</a>
+            <a href="#tokenomics" class="hover:text-blue-400 transition-colors">Economics</a>
+            <a href="#roadmap" class="hover:text-blue-400 transition-colors">Game Plan</a>
+        </div>
+ 
+        <div class="flex items-center gap-4">
+            <div class="flex gap-3 mr-4">
+                <a href="https://x.com/WCUP_NATION" target="_blank" class="text-xl hover:text-blue-400 transition"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://t.me/+I6CLsQdNTBFkNDIx" target="_blank" class="text-xl hover:text-blue-500 transition"><i class="fa-brands fa-telegram"></i></a>
+           </div>
+            <a href="https://t.me/+I6CLsQdNTBFkNDIx" target="_blank" class="btn-stadium px-8 py-3 rounded-full font-black text-xs uppercase tracking-widest text-white">Join Stadium</a>
         </div>
     </nav>
-
-    <section class="relative min-h-screen flex items-center justify-center text-center px-6 pt-40 pb-20 overflow-hidden">
-        <div class="max-w-7xl relative z-10" data-aos="fade-up" data-aos-duration="2000">
-            
-            <div class="inline-flex items-center gap-4 px-8 py-3 rounded-full bg-blue-500/10 border border-blue-500/20 mb-12 animate-bounce-slow">
-                <span class="relative flex h-3 w-3">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-                </span>
-                <span class="text-[11px] font-black uppercase tracking-[0.4em] text-blue-300">Phase 01: The Global Kick-off</span>
-            </div>
-
-            <h1 class="hero-title text-7xl md:text-[10rem] font-sync font-bold mb-10 leading-[0.85] tracking-tighter uppercase italic">
-                ONE BALL. <br><span class="gradient-text italic">ONE NATION.</span>
-            </h1>
-
-            <p class="text-xl md:text-3xl text-gray-200 max-w-5xl mx-auto mb-16 leading-relaxed font-light italic opacity-90">
-                Football is the heartbeat of humanity. We built a decentralized sanctuary <br class="hidden lg:block"> where 5 billion fans trade, cheer, and create social legacy.
+ 
+    <section class="relative min-h-screen flex items-center justify-center text-center px-6 pt-32 pb-20 overflow-hidden">
+        <div class="max-w-6xl relative z-10" data-aos="zoom-out" data-aos-duration="1500">
+            <div class="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-10">
+                <span class="w-2.5 h-2.5 rounded-full bg-blue-500 animate-pulse"></span>
+                <span class="text-[10px] font-black uppercase tracking-[0.3em] text-blue-300">Official Revel: Kamaleon is Here</span>
+           </div>
+ 
+            <h1 class="hero-title text-6xl md:text-[9rem] font-sync font-bold mb-8 leading-[0.8] tracking-tighter uppercase italic">
+                BEYOND <br><span class="gradient-text italic">THE GAME.</span>
+           </h1>
+ 
+            <p class="hero-subtitle text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto mb-14 leading-relaxed font-light">
+                Football is more than sport; it's a <b>global bridge</b>. WCUP Nation is the first decentralized sanctuary for billions of fans to connect, trade, and build a lasting social legacy.
             </p>
-
-            <div class="max-w-4xl mx-auto glass-panel p-8 flex flex-col md:flex-row items-center gap-8 border-blue-500/20 mb-20 shadow-2xl relative overflow-hidden group">
-                <div class="scan-line"></div>
-                <div class="flex-1 text-left">
-                    <p class="text-[10px] uppercase font-black text-blue-400 tracking-[0.5em] mb-4 italic flex items-center gap-2">
-                        <i class="fa-solid fa-shield-check"></i> Verified Contract (BSC)
-                    </p>
-                    <code id="caAddress" class="text-lg font-mono text-gray-300 block mb-4 truncate">0x0000000000000000000000000000000000000000</code>
-                    
-                    <div class="flex flex-wrap gap-6 mt-4">
-                        <div class="flex items-center gap-3">
-                            <span class="text-[11px] font-bold text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-1 rounded">Total Supply</span>
-                            <span class="text-xl font-mono text-white font-bold tracking-tight">150,000,000,000 <span class="text-sm text-gray-500">$WCUP</span></span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <span class="text-[11px] font-bold text-blue-400 uppercase tracking-widest bg-blue-500/10 px-3 py-1 rounded">Tax</span>
-                            <span class="text-xl font-mono text-white font-bold italic">5% <span class="text-[10px] text-gray-500 italic">Buy/Sell</span></span>
-                        </div>
-                    </div>
-                </div>
-                <button onclick="copyCA()" class="w-full md:w-auto btn-stadium text-white px-14 py-7 rounded-3xl font-black text-xs uppercase tracking-[0.2em] shadow-2xl active:scale-95">
-                    <i class="fa-solid fa-copy mr-4"></i> Copy Contract
-                </button>
-            </div>
-
-            <div class="flex flex-wrap justify-center gap-8">
-                <a href="#howtobuy" class="btn-stadium px-16 py-8 rounded-[2.5rem] font-black text-xl uppercase tracking-widest text-white group shadow-blue-500/20 shadow-2xl">
-                    Buy $WCUP Now <i class="fa-solid fa-arrow-right-long ml-4 transition-transform group-hover:translate-x-3"></i>
-                </a>
-                <a href="https://t.me/+I6CLsQdNTBFkNDIx" target="_blank" class="glass-panel px-16 py-8 rounded-[2.5rem] font-black text-xl uppercase tracking-widest flex items-center gap-4 hover:bg-white/10 transition-all">
-                    Community <i class="fa-brands fa-telegram text-blue-400 text-2xl"></i>
-                </a>
-            </div>
+ 
+            <div class="max-w-3xl mx-auto glass-panel p-5 flex flex-col md:flex-row items-center gap-5 border-blue-500/30 mb-14 shadow-2xl">
+               <div class="flex-1 text-left px-6">
+                   <p class="text-[9px] uppercase font-black text-blue-400 tracking-[0.4em] mb-2 italic">Verify Smart Contract (BEP-20)</p>
+                   <code id="caAddress" class="text-sm font-mono text-gray-300 truncate block">0x0000000000000000000000000000000000000000</code>
+               </div>
+               <button onclick="copyCA()" class="w-full md:w-auto btn-stadium text-white px-12 py-5 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl">
+                   <i class="fa-solid fa-copy mr-3"></i> Copy Address
+               </button>
+           </div>
+ 
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="#howtobuy" class="btn-stadium px-14 py-7 rounded-3xl font-black text-xl uppercase tracking-widest text-white group">
+                   Start Trading <i class="fa-solid fa-arrow-right ml-3 transition-transform group-hover:translate-x-2"></i>
+               </a>
+                <a href="https://dexscreener.com" target="_blank" class="glass-panel px-14 py-7 rounded-3xl font-black text-xl uppercase tracking-widest flex items-center gap-4 hover:bg-white/10 transition-all">
+                   Live Charts <i class="fa-solid fa-chart-line text-blue-400"></i>
+               </a>
+           </div>
         </div>
-        
-        <div class="absolute -bottom-20 -left-20 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px]"></div>
-        <div class="absolute -top-20 -right-20 w-[600px] h-[600px] bg-emerald-600/10 rounded-full blur-[120px]"></div>
     </section>
-
-    <section id="vision" class="py-40 px-6 relative">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-32 items-center">
+ 
+    <section id="vision" class="py-32 px-6 relative">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-24 items-center">
             <div class="relative" data-aos="fade-right">
-                <div class="relative z-10 rounded-[5rem] overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(59,130,246,0.15)] group">
-                    <img src="stadium-unity.jpg" alt="Fans Unity" class="w-full grayscale-[40%] group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100">
-                    <div class="absolute inset-0 bg-gradient-to-t from-bg-dark via-transparent to-transparent"></div>
-                </div>
-                <div class="absolute -top-10 -right-10 bg-emerald-500 p-8 rounded-full shadow-2xl animate-float">
-                    <i class="fa-solid fa-heart-pulse text-4xl"></i>
-                </div>
-            </div>
-
+               <div class="relative z-10 rounded-[4rem] overflow-hidden border border-white/10 shadow-2xl group">
+                   <img src="impacto-social.jpg" alt="Social Impact" class="w-full grayscale-[30%] group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100">
+                   <div class="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent"></div>
+               </div>
+               <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-blue-600/30 rounded-full blur-[80px]"></div>
+               <div class="absolute -top-10 -right-10 w-60 h-60 bg-emerald-500/20 rounded-full blur-[100px]"></div>
+           </div>
+ 
             <div data-aos="fade-left">
-                <h3 class="text-emerald-400 font-bold uppercase tracking-[0.8em] text-xs mb-8 italic">Social Purpose</h3>
-                <h2 class="text-6xl md:text-8xl font-sync font-bold mb-12 leading-none italic uppercase">FOOTBALL IS <br><span class="text-blue-500 italic">PEACE.</span></h2>
+                <h3 class="text-emerald-400 font-bold uppercase tracking-[0.6em] text-xs mb-6 italic">The Philosophy</h3>
+                <h2 class="text-5xl md:text-7xl font-sync font-bold mb-10 leading-none italic uppercase">SPORT IS THE <br><span class="text-blue-500 italic">LANGUAGE.</span></h2>
                 
-                <div class="space-y-10 text-gray-300 text-xl leading-relaxed font-light">
-                    <p>
-                        In a world divided by borders and ideologies, football remains the only language spoken in every corner of the planet. **WCUP Nation** was born to digitize this energy.
-                    </p>
-                    <p class="font-bold text-white italic">
-                        "Every transaction within our stadium fuels social projects that bring sports to vulnerable communities. We don't just trade; we build hope."
-                    </p>
-                    <div class="grid grid-cols-2 gap-8 pt-6">
-                        <div class="glass-panel p-8">
-                            <span class="text-4xl font-black text-blue-500 block mb-2">5B</span>
-                            <span class="text-[10px] uppercase font-black tracking-widest text-gray-500">Global Fans</span>
-                        </div>
-                        <div class="glass-panel p-8">
-                            <span class="text-4xl font-black text-emerald-500 block mb-2">100%</span>
-                            <span class="text-[10px] uppercase font-black tracking-widest text-gray-500">Decentralized</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+               <div class="space-y-8 text-gray-300 text-lg leading-relaxed">
+                   <p class="font-light">
+                       At the intersection of technology and passion lies a truth that transcends borders. Football is the world’s most powerful unifier, and **WCUP Nation** is its digital home. 
+                   </p>
+                   <div class="p-8 bg-white/5 border-l-4 border-blue-500 rounded-r-3xl backdrop-blur-md">
+                       <p class="italic text-white">
+                           "While traditional finance builds walls, the game builds stadiums. We use blockchain to ensure every cheer, every goal, and every fan has a tangible stake in our shared global nation."
+                       </p>
+                   </div>
+                   <p class="text-base">
+                       Our commitment is not just to the chart, but to the field. A significant portion of our ecosystem is dedicated to supporting grassroots sports and humanitarian aid in underserved communities, proving that <b>$WCUP</b> has a pulse beyond the digital wallet.
+                   </p>
+               </div>
+ 
+               <div class="flex gap-10 mt-16 border-t border-white/10 pt-10">
+                   <div>
+                       <span class="block text-4xl font-black text-white italic">2.0%</span>
+                       <span class="text-[10px] text-blue-400 font-bold uppercase tracking-widest">Social Impact Fund</span>
+                   </div>
+                   <div class="w-px h-12 bg-white/10"></div>
+                   <div>
+                       <span class="block text-4xl font-black text-white italic">100%</span>
+                       <span class="text-[10px] text-blue-400 font-bold uppercase tracking-widest">Fan Decentralization</span>
+                   </div>
+               </div>
+           </div>
         </div>
     </section>
-
-    <section id="mascot" class="py-40 px-6 bg-gradient-to-b from-transparent to-blue-900/5">
-        <div class="max-w-7xl mx-auto text-center mb-32" data-aos="fade-up">
-            <h2 class="text-6xl md:text-9xl font-sync font-bold italic uppercase tracking-tighter">MEET THE <br><span class="text-emerald-400">LEGEND.</span></h2>
-        </div>
-        
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
-            <div class="order-2 lg:order-1" data-aos="fade-right">
-                <h3 class="text-5xl font-sync font-bold mb-10 italic">KAMALEON</h3>
-                <p class="text-2xl text-gray-400 mb-10 leading-relaxed italic">
-                    The ultimate player. Capable of adapting to any team, any flag, and any challenge. Kamaleon is the living symbol of the WCUP Nation.
-                </p>
-                <div class="space-y-6">
-                    <div class="flex items-center gap-6 p-8 glass-panel border-l-8 border-l-blue-500">
-                        <i class="fa-solid fa-mask text-3xl text-blue-500"></i>
-                        <div>
-                            <h4 class="font-bold text-xl uppercase italic">Adaptability</h4>
-                            <p class="text-sm text-gray-500 uppercase tracking-widest font-bold">Resonating with every global culture</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-6 p-8 glass-panel border-l-8 border-l-emerald-500">
-                        <i class="fa-solid fa-bolt text-3xl text-emerald-500"></i>
-                        <div>
-                            <h4 class="font-bold text-xl uppercase italic">Agility</h4>
-                            <p class="text-sm text-gray-500 uppercase tracking-widest font-bold">Fast as a counter-attack on blockchain</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+ 
+    <section id="mascot" class="py-32 px-6">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-blue-400 font-bold uppercase tracking-[0.8em] text-xs mb-6">The Ambassador</h2>
+            <h3 class="text-7xl md:text-[9rem] font-sync font-bold italic mb-20 uppercase tracking-tighter">KAMALEON</h3>
             
-            <div class="order-1 lg:order-2 flex justify-center" data-aos="zoom-in">
-                <div class="relative w-full max-w-xl aspect-square rounded-full border-2 border-dashed border-blue-500/30 p-10 animate-spin-slow">
-                    <div class="w-full h-full rounded-full overflow-hidden shadow-[0_0_100px_rgba(59,130,246,0.3)] animate-reverse-spin">
-                        <video autoplay muted loop playsinline class="w-full h-full object-cover">
-                            <source src="mascot.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-blue-600 rounded-2xl flex items-center justify-center shadow-2xl">
-                        <i class="fa-solid fa-star text-2xl text-white"></i>
-                    </div>
-                </div>
-            </div>
+            <div class="glass-panel p-10 md:p-20 grid lg:grid-cols-2 gap-20 items-center">
+               <div class="flex justify-center" data-aos="zoom-in">
+                   <div class="mascot-video-wrapper">
+                       <video autoplay muted loop playsinline>
+                           <source src="kamaleon-revelado.mp4" type="video/mp4">
+                       </video>
+                       <div class="absolute inset-0 shadow-[inset_0_0_100px_rgba(59,130,246,0.4)] pointer-events-none"></div>
+                   </div>
+               </div>
+ 
+               <div class="text-left" data-aos="fade-left">
+                   <div class="inline-block px-4 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-[10px] font-black uppercase tracking-[0.3em] mb-6">Legendary Entity</div>
+                   <h4 class="text-4xl font-sync font-bold italic mb-8 uppercase text-white">THE MASTER OF <br><span class="text-blue-500">ADAPTATION.</span></h4>
+                   <p class="text-gray-300 text-xl leading-relaxed mb-10 font-light">
+                       Vibrant, versatile, and relentless. The **KAMALEON** is the beating heart of WCUP Nation. Just as football adapts to every culture, our mascot represents the fluid nature of our community—always evolving, always ready for the next play.
+                   </p>
+                   <ul class="space-y-6">
+                       <li class="flex items-center gap-5">
+                           <div class="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-500"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                           <span class="text-sm font-bold uppercase tracking-widest text-zinc-300">Multi-Phase Color Evolution</span>
+                       </li>
+                       <li class="flex items-center gap-5">
+                           <div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500"><i class="fa-solid fa-shield-cat"></i></div>
+                           <span class="text-sm font-bold uppercase tracking-widest text-zinc-300">Guardian of the Community DAO</span>
+                       </li>
+                       <li class="flex items-center gap-5">
+                           <div class="w-10 h-10 rounded-xl bg-yellow-500/10 flex items-center justify-center text-yellow-500"><i class="fa-solid fa-fire"></i></div>
+                           <span class="text-sm font-bold uppercase tracking-widest text-zinc-300">Deflationary Soul Mechanism</span>
+                       </li>
+                   </ul>
+               </div>
+           </div>
         </div>
     </section>
-
-    <section id="tokenomics" class="py-40 px-6">
-        <div class="max-w-7xl mx-auto text-center mb-24">
-            <h2 class="text-6xl md:text-[8rem] font-sync font-bold uppercase italic tracking-tighter mb-10">TOKENOMICS</h2>
-            <div class="h-1 w-40 bg-blue-600 mx-auto"></div>
-        </div>
-        
-        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12">
-            <div class="glass-panel p-16 text-center group" data-aos="fade-up">
-                <div class="w-24 h-24 bg-blue-500/10 rounded-3xl flex items-center justify-center mx-auto mb-10 transition-transform group-hover:rotate-12">
-                    <i class="fa-solid fa-megaphone text-4xl text-blue-500"></i>
-                </div>
-                <h4 class="text-4xl font-black italic mb-4">2%</h4>
-                <h3 class="text-xl font-bold uppercase tracking-widest mb-6">Marketing</h3>
-                <p class="text-gray-500 text-sm leading-relaxed italic uppercase font-bold tracking-tighter">
-                    Scaling our nation to the main exchange leagues and sports stadium sponsorships.
-                </p>
-            </div>
-
-            <div class="glass-panel p-16 text-center group border-emerald-500/20" data-aos="fade-up" data-aos-delay="200">
-                <div class="w-24 h-24 bg-emerald-500/10 rounded-3xl flex items-center justify-center mx-auto mb-10 transition-transform group-hover:rotate-12">
-                    <i class="fa-solid fa-earth-americas text-4xl text-emerald-500"></i>
-                </div>
-                <h4 class="text-4xl font-black italic mb-4 text-emerald-400">2%</h4>
-                <h3 class="text-xl font-bold uppercase tracking-widest mb-6">Social Impact</h3>
-                <p class="text-gray-500 text-sm leading-relaxed italic uppercase font-bold tracking-tighter">
-                    Directly funding social sport NGOs and community infrastructure worldwide.
-                </p>
-            </div>
-
-            <div class="glass-panel p-16 text-center group" data-aos="fade-up" data-aos-delay="400">
-                <div class="w-24 h-24 bg-blue-300/10 rounded-3xl flex items-center justify-center mx-auto mb-10 transition-transform group-hover:rotate-12">
-                    <i class="fa-solid fa-droplet text-4xl text-blue-300"></i>
-                </div>
-                <h4 class="text-4xl font-black italic mb-4">1%</h4>
-                <h3 class="text-xl font-bold uppercase tracking-widest mb-6">LP Injection</h3>
-                <p class="text-gray-500 text-sm leading-relaxed italic uppercase font-bold tracking-tighter">
-                    Ensuring price stability and liquidity depth for long-term holders.
-                </p>
-            </div>
-        </div>
-
-        <div class="max-w-5xl mx-auto mt-20 p-12 glass-panel border-white/5" data-aos="zoom-in">
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 text-center italic">
-                <div>
-                    <span class="block text-gray-500 text-[10px] font-black tracking-widest uppercase mb-2">Network</span>
-                    <span class="text-2xl font-black">BNB CHAIN</span>
-                </div>
-                <div>
-                    <span class="block text-gray-500 text-[10px] font-black tracking-widest uppercase mb-2">Symbol</span>
-                    <span class="text-2xl font-black text-blue-500">$WCUP</span>
-                </div>
-                <div>
-                    <span class="block text-gray-500 text-[10px] font-black tracking-widest uppercase mb-2">LP Lock</span>
-                    <span class="text-2xl font-black text-emerald-500">100% BURN</span>
-                </div>
-                <div>
-                    <span class="block text-gray-500 text-[10px] font-black tracking-widest uppercase mb-2">Contract</span>
-                    <span class="text-2xl font-black">REN_D</span>
-                </div>
-            </div>
+ 
+    <section id="howtobuy" class="py-32 px-6 bg-blue-900/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-24" data-aos="fade-up">
+                <h3 class="text-accent font-bold uppercase tracking-[0.6em] text-xs mb-4 italic">Get Your Ticket</h3>
+                <h2 class="text-6xl md:text-8xl font-sync font-bold italic uppercase tracking-tighter">ENTER THE <span class="gradient-text">ARENA.</span></h2>
+           </div>
+ 
+            <div class="grid lg:grid-cols-2 gap-16">
+               <div class="space-y-12" data-aos="fade-right">
+                   <div class="flex gap-8 items-start">
+                       <div class="step-pill shrink-0">1</div>
+                       <div>
+                           <h5 class="text-2xl font-black italic uppercase text-white mb-3 tracking-tight">Prepare Your Gear</h5>
+                           <p class="text-gray-400 leading-relaxed font-light">Install a decentralized wallet like <b>MetaMask</b> or <b>Trust Wallet</b>. Store your recovery phrase in a physical location—never online.</p>
+                       </div>
+                   </div>
+ 
+                   <div class="flex gap-8 items-start">
+                       <div class="step-pill shrink-0">2</div>
+                       <div>
+                           <h5 class="text-2xl font-black italic uppercase text-white mb-3 tracking-tight">Fuel Your Journey</h5>
+                           <p class="text-gray-400 leading-relaxed font-light">Transfer <b>BNB</b> to your wallet on the Binance Smart Chain (BEP-20) network. You will need this for the swap and gas fees.</p>
+                       </div>
+                   </div>
+ 
+                   <div class="flex gap-8 items-start">
+                       <div class="step-pill shrink-0">3</div>
+                       <div>
+                           <h5 class="text-2xl font-black italic uppercase text-white mb-3 tracking-tight">Perform the Swap</h5>
+                           <p class="text-gray-400 leading-relaxed font-light">Connect to <b>PancakeSwap</b>, paste the official $WCUP contract address, and complete the exchange. Welcome to the Nation!</p>
+                       </div>
+                   </div>
+               </div>
+ 
+               <div class="grid gap-6" data-aos="fade-left">
+                   <a href="https://pancakeswap.finance/swap?outputCurrency=0x0000000000000000000000000000000000000000" target="_blank" class="trade-card flex items-center justify-between group">
+                       <div class="flex items-center gap-6">
+                           <div class="w-16 h-16 bg-orange-500/10 rounded-2xl flex items-center justify-center text-3xl text-orange-500">
+                                <i class="fa-solid fa-cake-candles"></i>
+                           </div>
+                           <div>
+                                <h6 class="text-xl font-black italic uppercase text-white">Buy on PancakeSwap</h6>
+                                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Main Exchange / Liquidity</p>
+                           </div>
+                       </div>
+                       <i class="fa-solid fa-chevron-right text-gray-700 group-hover:text-blue-500 transition-colors"></i>
+                   </a>
+ 
+                   <a href="https://dexscreener.com/bsc/0x0000000000000000000000000000000000000000" target="_blank" class="trade-card flex items-center justify-between group">
+                       <div class="flex items-center gap-6">
+                           <div class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center text-3xl text-blue-500">
+                                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                           </div>
+                           <div>
+                                <h6 class="text-xl font-black italic uppercase text-white">View DexScreener</h6>
+                                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Real-time Trading Metrics</p>
+                           </div>
+                       </div>
+                       <i class="fa-solid fa-chevron-right text-gray-700 group-hover:text-blue-500 transition-colors"></i>
+                   </a>
+ 
+                   <a href="https://dextools.io" target="_blank" class="trade-card flex items-center justify-between group">
+                       <div class="flex items-center gap-6">
+                           <div class="w-16 h-16 bg-emerald-500/10 rounded-2xl flex items-center justify-center text-3xl text-emerald-500">
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
+                           </div>
+                           <div>
+                                <h6 class="text-xl font-black italic uppercase text-white">Analyze DexTools</h6>
+                                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Advanced Safety Audit</p>
+                           </div>
+                       </div>
+                       <i class="fa-solid fa-chevron-right text-gray-700 group-hover:text-blue-500 transition-colors"></i>
+                   </a>
+               </div>
+           </div>
         </div>
     </section>
-
-    <section id="roadmap" class="py-40 px-6 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto flex flex-col items-center">
-            <h2 class="text-6xl md:text-9xl font-sync font-bold uppercase italic mb-32 tracking-tighter text-center">THE GAME <br><span class="text-blue-500">PLAN.</span></h2>
+ 
+    <section id="tokenomics" class="py-32 px-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-blue-500 font-bold uppercase tracking-[0.8em] text-xs mb-8 italic">Internal Statistics</h2>
+            <h3 class="text-7xl md:text-[9rem] font-sync font-bold italic mb-24 uppercase tracking-tighter">TOKENOMICS</h3>
             
-            <div class="relative w-full max-w-4xl">
-                <div class="timeline-line"></div>
-                
-                <div class="roadmap-card" data-aos="fade-left">
-                    <span class="text-blue-500 font-black italic text-xs tracking-[0.4em] mb-4 block uppercase">First Half - Launch</span>
-                    <h3 class="text-3xl font-black uppercase mb-6 italic">Phase 1: Deployment</h3>
-                    <ul class="space-y-4 text-gray-400 font-bold uppercase text-[12px] tracking-wider">
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> Smart Contract Audit & Verification</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> Liquidity Burn & Renounce</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> Community Stadium (Telegram) Launch</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-dot text-blue-500 animate-pulse"></i> Initial Viral Marketing Push</li>
-                    </ul>
-                </div>
-
-                <div class="roadmap-card" data-aos="fade-left" data-aos-delay="200">
-                    <span class="text-emerald-400 font-black italic text-xs tracking-[0.4em] mb-4 block uppercase">Second Half - Growth</span>
-                    <h3 class="text-3xl font-black uppercase mb-6 italic">Phase 2: Global Listing</h3>
-                    <ul class="space-y-4 text-gray-400 font-bold uppercase text-[12px] tracking-wider">
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-notch text-gray-700"></i> CoinMarketCap & CoinGecko Applications</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-notch text-gray-700"></i> Kamaleon NFT Badge Airdrops</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-notch text-gray-700"></i> Sports Influencer Partnerships</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-notch text-gray-700"></i> 10,000+ On-chain Holders Target</li>
-                    </ul>
-                </div>
-
-                <div class="roadmap-card" data-aos="fade-left" data-aos-delay="400">
-                    <span class="text-blue-500 font-black italic text-xs tracking-[0.4em] mb-4 block uppercase">Extra Time - Expansion</span>
-                    <h3 class="text-3xl font-black uppercase mb-6 italic">Phase 3: The Big League</h3>
-                    <ul class="space-y-4 text-gray-400 font-bold uppercase text-[12px] tracking-wider">
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-notch text-gray-700"></i> Centralized Exchange (CEX) Listings</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-notch text-gray-700"></i> First Real-world NGO Donation</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-notch text-gray-700"></i> Stadium Merchandise Store</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-notch text-gray-700"></i> DAO Governance Implementation</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="faq" class="py-40 px-6">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-5xl font-sync font-bold uppercase italic text-center mb-24">FAQ</h2>
-            
-            <div class="space-y-6">
-                <div class="glass-panel p-8" data-aos="fade-up">
-                    <h4 class="text-xl font-bold text-blue-400 mb-4 italic">Is the project safe?</h4>
-                    <p class="text-gray-400 italic">Absolutely. 100% of the LP is burned, the contract is verified and audited, and our community leads the vision. No rug-pulls in our stadium.</p>
-                </div>
-                <div class="glass-panel p-8" data-aos="fade-up">
-                    <h4 class="text-xl font-bold text-blue-400 mb-4 italic">How can I buy?</h4>
-                    <p class="text-gray-400 italic">Connect your wallet to PancakeSwap, use BNB, and swap for $WCUP. Make sure you use the official CA provided above.</p>
-                </div>
-                <div class="glass-panel p-8" data-aos="fade-up">
-                    <h4 class="text-xl font-bold text-blue-400 mb-4 italic">What about the Social Impact?</h4>
-                    <p class="text-gray-400 italic">The 2% tax is collected in a transparent multisig wallet. The community will vote on which sport NGOs we should support each month.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-32 px-6 border-t border-white/5 bg-[#010413]">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-20">
-            <div class="text-center md:text-left">
-                <div class="flex items-center justify-center md:justify-start gap-5 mb-8">
-                    <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center">
-                        <i class="fa-solid fa-trophy text-black text-xl"></i>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+               <div class="glass-panel p-16 border-blue-500/20 shadow-xl relative overflow-hidden" data-aos="flip-right">
+                    <div class="absolute top-0 right-0 p-4 opacity-5">
+                        <i class="fa-solid fa-coins text-9xl"></i>
                     </div>
-                    <span class="font-sync font-bold text-2xl uppercase tracking-tighter italic">WCUP <span class="text-blue-500">NATION</span></span>
-                </div>
-                <p class="text-zinc-600 max-w-xs uppercase font-black text-[10px] tracking-[0.4em] leading-relaxed italic">
-                    The world’s first decentralized fan sanctuary. Football is the bridge. Blockchain is the foundation.
-                </p>
-            </div>
+                    <h4 class="text-gray-500 font-bold mb-4 uppercase text-[10px] tracking-[0.4em]">Total Supply</h4>
+                    <span class="text-6xl md:text-7xl font-sync font-bold italic tracking-tighter leading-tight text-white block mt-4">150 <br><span class="text-blue-500 text-5xl">BILLION</span></span>
+                    <div class="h-1 w-24 bg-gradient-to-r from-blue-600 to-emerald-400 mx-auto my-12"></div>
+                    <div class="space-y-4 text-xs font-black uppercase tracking-[0.3em] italic">
+                        <div class="flex justify-between items-center bg-white/5 p-4 rounded-xl">
+                            <span class="text-gray-400">Tokens</span>
+                            <span class="text-emerald-400">150.000.000.000</span>
+                        </div>
+                    </div>
+               </div>
 
-            <div class="flex flex-col items-center">
-                <span class="text-[11px] font-black uppercase tracking-[0.5em] text-gray-500 mb-8 italic">Join the global cheering</span>
-                <div class="flex gap-12">
-                    <a href="https://x.com/WCUP_NATION" target="_blank" class="text-4xl hover:text-blue-400 transition transform hover:scale-125"><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href="https://t.me/+I6CLsQdNTBFkNDIx" target="_blank" class="text-4xl hover:text-blue-500 transition transform hover:scale-125"><i class="fa-brands fa-telegram"></i></a>
-                </div>
-            </div>
-
-            <div class="text-center md:text-right">
-                <p class="text-[11px] font-black text-zinc-700 uppercase tracking-[0.4em] mb-4">Official Links</p>
-                <div class="flex flex-col gap-3 font-bold text-[10px] uppercase tracking-widest">
-                    <a href="#" class="hover:text-blue-400 italic">BSC Scan</a>
-                    <a href="#" class="hover:text-blue-400 italic">DexTools</a>
-                    <a href="#" class="hover:text-blue-400 italic">Audit Report</a>
-                </div>
-            </div>
+               <div class="glass-panel p-16 border-blue-500/20 shadow-xl relative overflow-hidden" data-aos="flip-right" data-aos-delay="100">
+                   <div class="absolute top-0 right-0 p-4 opacity-5">
+                       <i class="fa-solid fa-receipt text-9xl"></i>
+                   </div>
+                   <h4 class="text-gray-500 font-bold mb-4 uppercase text-[10px] tracking-[0.4em]">Transaction Fee</h4>
+                   <span class="text-[10rem] font-sync font-bold italic tracking-tighter leading-none text-white">4<span class="text-4xl text-blue-500">%</span></span>
+                   <div class="h-1 w-24 bg-gradient-to-r from-blue-600 to-emerald-400 mx-auto my-12"></div>
+                   <div class="space-y-4 text-xs font-black uppercase tracking-[0.3em] italic">
+                       <div class="flex justify-between items-center bg-white/5 p-4 rounded-xl">
+                           <span class="text-gray-400">Social Support</span>
+                           <span class="text-emerald-400">2%</span>
+                       </div>
+                       <div class="flex justify-between items-center bg-white/5 p-4 rounded-xl">
+                           <span class="text-gray-400">Marketing</span>
+                           <span class="text-blue-400">1%</span>
+                       </div>
+                       <div class="flex justify-between items-center bg-white/5 p-4 rounded-xl">
+                           <span class="text-gray-400">Liquidity Pool</span>
+                           <span class="text-accent">1%</span>
+                       </div>
+                   </div>
+               </div>
+ 
+               <div class="glass-panel p-16" data-aos="flip-right" data-aos-delay="200">
+                   <div class="w-20 h-20 bg-emerald-500/10 rounded-full flex items-center justify-center text-4xl text-emerald-400 mx-auto mb-10">
+                       <i class="fa-solid fa-microchip"></i>
+                   </div>
+                   <h4 class="text-gray-500 font-bold mb-6 uppercase text-[10px] tracking-[0.4em]">Infrastructure</h4>
+                   <span class="text-5xl font-sync font-bold italic uppercase leading-none">BINANCE<br>SMART CHAIN</span>
+                   <div class="mt-16 text-left space-y-6">
+                       <div class="flex items-center gap-4">
+                           <i class="fa-solid fa-bolt text-yellow-500"></i>
+                           <span class="text-[11px] font-black uppercase tracking-widest text-zinc-400">Ultra-Fast 3s Block Time</span>
+                       </div>
+                       <div class="flex items-center gap-4">
+                           <i class="fa-solid fa-gas-pump text-emerald-500"></i>
+                           <span class="text-[11px] font-black uppercase tracking-widest text-zinc-400">Optimized Gas Efficiency</span>
+                       </div>
+                       <div class="flex items-center gap-4">
+                           <i class="fa-solid fa-link text-blue-500"></i>
+                           <span class="text-[11px] font-black uppercase tracking-widest text-zinc-400">Global Cross-Chain Reach</span>
+                       </div>
+                   </div>
+               </div>
+           </div>
         </div>
-        <div class="text-center mt-32">
-            <p class="text-[9px] font-black text-zinc-800 uppercase tracking-[1em]">© 2026 WCUP NATION | THE WORLD IS OUR STADIUM</p>
+    </section>
+ 
+    <section id="roadmap" class="py-32 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-24" data-aos="fade-down">
+                <h3 class="text-emerald-400 font-bold uppercase tracking-widest text-xs mb-4">Strategic Timeline</h3>
+                <h2 class="text-6xl md:text-[9rem] font-sync font-bold italic uppercase tracking-tighter text-white opacity-5">ROADMAP</h2>
+           </div>
+            
+            <div class="space-y-16 relative">
+               <div class="absolute left-1/2 top-0 w-px h-full bg-white/5 -z-10 hidden md:block"></div>
+ 
+               <div class="glass-panel p-12 md:p-16 border-l-8 border-emerald-500 relative" data-aos="fade-up">
+                   <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-10">
+                       <div>
+                           <span class="text-emerald-500 text-[10px] font-black uppercase tracking-[0.5em] italic">Quarter 01</span>
+                           <h4 class="text-4xl font-sync font-bold text-white uppercase italic mt-2">KICK-OFF DEBUT</h4>
+                       </div>
+                       <div class="bg-emerald-500/20 text-emerald-500 px-6 py-2 rounded-full text-xs font-black uppercase italic tracking-widest border border-emerald-500/20">Active Stage</div>
+                   </div>
+                   <div class="grid md:grid-cols-2 gap-8 text-gray-400 font-bold text-sm uppercase italic tracking-wide">
+                       <div class="flex items-center gap-4"><i class="fa-solid fa-check-circle text-emerald-500 text-xl"></i> Smart Contract Verification</div>
+                       <div class="flex items-center gap-4"><i class="fa-solid fa-check-circle text-emerald-500 text-xl"></i> Global Website 2.0 Launch</div>
+                       <div class="flex items-center gap-4"><i class="fa-solid fa-check-circle text-emerald-500 text-xl"></i> Telegram Community Build</div>
+                       <div class="flex items-center gap-4"><i class="fa-solid fa-spinner text-blue-500 text-xl animate-spin"></i> Initial Coin Marketing Shilling</div>
+                   </div>
+               </div>
+ 
+               <div class="glass-panel p-12 md:p-16 border-l-8 border-blue-500 relative" data-aos="fade-up">
+                   <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-10">
+                       <div>
+                           <span class="text-blue-500 text-[10px] font-black uppercase tracking-[0.5em] italic">Quarter 02</span>
+                           <h4 class="text-4xl font-sync font-bold text-white uppercase italic mt-2">GLOBAL ATTACK</h4>
+                       </div>
+                       <div class="bg-blue-500/10 text-blue-400 px-6 py-2 rounded-full text-xs font-black uppercase italic tracking-widest">Upcoming</div>
+                   </div>
+                   <div class="grid md:grid-cols-2 gap-8 text-zinc-500 font-bold text-sm uppercase italic tracking-wide">
+                       <div class="flex items-center gap-4"><i class="fa-solid fa-circle-dot text-zinc-800 text-xl"></i> CoinGecko & CMC Listing</div>
+                       <div class="flex items-center gap-4"><i class="fa-solid fa-circle-dot text-zinc-800 text-xl"></i> Influencer Partnerships (Sport)</div>
+                       <div class="flex items-center gap-4"><i class="fa-solid fa-circle-dot text-zinc-800 text-xl"></i> $WCUP Merchandise Store</div>
+                       <div class="flex items-center gap-4"><i class="fa-solid fa-circle-dot text-zinc-800 text-xl"></i> First Global Charity Donation</div>
+                   </div>
+               </div>
+           </div>
+        </div>
+    </section>
+ 
+    <section class="py-32 px-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-4xl font-sync font-bold mb-20 italic uppercase tracking-tighter">STADIUM <span class="text-blue-500">LIVE FEED</span></h2>
+            <div class="glass-panel overflow-hidden border-blue-500/20 shadow-[0_0_100px_rgba(59,130,246,0.1)]" style="height: 650px;">
+               <iframe src="https://dexscreener.com/bsc/0x0000000000000000000000000000000000000000?embed=1&theme=dark" width="100%" height="100%" frameborder="0"></iframe>
+           </div>
+        </div>
+    </section>
+ 
+    <footer class="py-24 px-8 border-t border-white/5 bg-[#01020a] relative overflow-hidden">
+        <div class="absolute -top-10 left-1/4 w-96 h-96 bg-blue-600/5 rounded-full blur-[120px]"></div>
+        <div class="max-w-7xl mx-auto relative z-10 text-center text-gray-500 text-xs uppercase tracking-widest">
+            <p>© 2026 WCUP NATION. All Rights Reserved. Football is for Everyone.</p>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1200, once: true, offset: 50 });
-
-        // Contract Copy Function
+        AOS.init();
         function copyCA() {
             const ca = document.getElementById('caAddress').innerText;
-            navigator.clipboard.writeText(ca).then(() => {
-                const btn = document.querySelector('button[onclick="copyCA()"]');
-                const originalText = btn.innerHTML;
-                btn.innerHTML = '<i class="fa-solid fa-check mr-4"></i> Copied!';
-                btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
-                setTimeout(() => {
-                    btn.innerHTML = originalText;
-                    btn.style.background = '';
-                }, 2000);
-            });
+            navigator.clipboard.writeText(ca);
+            alert("Contract Address Copied!");
         }
-
-        // Navigation Blur on Scroll
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('mainNav');
-            if (window.scrollY > 50) {
-                nav.style.paddingTop = '1.5rem';
-                nav.style.paddingBottom = '1.5rem';
-            } else {
-                nav.style.paddingTop = '2rem';
-                nav.style.paddingBottom = '2rem';
-            }
-        });
     </script>
 </body>
 </html>
