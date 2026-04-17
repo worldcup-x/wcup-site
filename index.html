@@ -1,218 +1,718 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-  <!-- Premium refactor scaffold preserving existing layout -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WCUP NATION | Premium Edition</title> <!-- NOTE:
-    This canvas contains the upgraded structure for your existing site.
-    To keep the response size manageable in chat, the full premium file is organized here
-    with the same visual structure, videos, images and sections preserved.
-    The code below expands your original with SEO, accessibility, performance,
-    better interactions, multilingual hooks and cleaner architecture.
-  --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-74JFCT5J63"></script> <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-74JFCT5J63');
-  </script> <script src="https://cdn.tailwindcss.com"></script> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"> <style>
-    :root {
-      --primary:#3b82f6;
-      --secondary:#10b981;
-      --accent:#fbbf24;
-      --bg:#020617;
-      --glass:rgba(255,255,255,.04);
-      --border:rgba(255,255,255,.08);
-    }
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-74JFCT5J63"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-74JFCT5J63', { 'anonymize_ip': false });
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="WCUP NATION - The first decentralized community building a global social legacy through the power of sport.">
+    <title>WCUP NATION | Many Flags. One Nation. ⚽</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;900&family=Syncopate:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-    html { scroll-behavior:smooth; }
-    body {
-      margin:0;
-      background:var(--bg);
-      color:#fff;
-      font-family:Arial,sans-serif;
-      overflow-x:hidden;
-    }
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --primary-bright: #60a5fa;
+            --secondary: #10b981;
+            --accent: #fbbf24;
+            --bg-dark: #020617;
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
-    .glass-panel {
-      background:var(--glass);
-      backdrop-filter:blur(20px);
-      border:1px solid var(--border);
-      border-radius:2rem;
-      transition:.35s ease;
-    }
+        /* Base Setup */
+        * { margin: 0; padding: 0; box-sizing: border-box; cursor: default; }
+        body { 
+            font-family: 'Outfit', sans-serif; 
+            background-color: var(--bg-dark); 
+            color: #fff; 
+            overflow-x: hidden; 
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .font-sync { font-family: 'Syncopate', sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
 
-    .glass-panel:hover {
-      border-color:rgba(59,130,246,.4);
-      transform:translateY(-4px);
-    }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
 
-    .btn-stadium {
-      background:linear-gradient(135deg,var(--primary),var(--secondary));
-      color:#fff;
-      transition:.35s ease;
-    }
+        /* Background Layers */
+        .master-video-bg { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; overflow: hidden; 
+        }
+        .master-video-bg video { 
+            min-width: 100%; min-height: 100%; width: auto; height: auto; position: absolute; 
+            top: 50%; left: 50%; transform: translate(-50%, -50%); object-fit: cover; 
+            filter: saturate(1.2) brightness(0.3) blur(2px); 
+        }
+        .master-overlay { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: radial-gradient(circle at center, transparent 0%, rgba(2, 6, 23, 0.9) 100%); 
+            z-index: -1; 
+        }
 
-    .btn-stadium:hover {
-      transform:translateY(-3px);
-      box-shadow:0 10px 30px rgba(59,130,246,.25);
-    }
+        /* Glassmorphism Refined */
+        .glass-panel { 
+            background: var(--glass-bg); 
+            backdrop-filter: blur(25px); 
+            border: 1px solid var(--glass-border); 
+            border-radius: 2rem;
+            transition: var(--transition-smooth);
+        }
+        .glass-panel:hover {
+            border-color: rgba(59, 130, 246, 0.4);
+            background: rgba(255, 255, 255, 0.05);
+        }
 
-    .master-video-bg {
-      position:fixed;
-      inset:0;
-      z-index:-2;
-      overflow:hidden;
-    }
+        .gradient-text { 
+            background: linear-gradient(135deg, #60a5fa, #34d399, #fbbf24); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+        
+        /* Buttons */
+        .btn-stadium { 
+            background: linear-gradient(135deg, var(--primary), var(--secondary)); 
+            transition: var(--transition-smooth); 
+            position: relative; overflow: hidden; color: white; font-weight: 900; 
+            box-shadow: 0 0 0 rgba(59, 130, 246, 0);
+        }
+        .btn-stadium:hover { 
+            transform: translateY(-5px) scale(1.02); 
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.3); 
+        }
+        .btn-stadium::after {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg); transition: 0.8s;
+        }
+        .btn-stadium:hover::after { left: 100%; }
 
-    .master-video-bg video {
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      filter:brightness(.5) saturate(1.1);
-    }
+        /* Animations */
+        .mascot-video-wrapper { 
+            width: 100%; max-width: 450px; aspect-ratio: 1/1; border-radius: 50%; 
+            overflow: hidden; border: 8px solid rgba(59, 130, 246, 0.1); 
+            animation: float 8s ease-in-out infinite;
+            box-shadow: 0 0 80px rgba(59, 130, 246, 0.2);
+        }
+        @keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-30px) rotate(2deg); } }
+        
+        /* Language Selector Refined */
+        #lang-selector { 
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); 
+            color: white; font-size: 11px; padding: 8px 15px; border-radius: 12px; 
+            cursor: pointer; outline: none; transition: var(--transition-smooth);
+            appearance: none; background-image: url('data:image/svg+xml;charset=US-ASCII,<svg%20xmlns%3D"http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg"%20width%3D"10"%20height%3D"10"%20viewBox%3D"0%200%2010%2010"><path%20fill%3D"white"%20d%3D"M0%203l5%205%205-5z"%2F><%2Fsvg>');
+            background-repeat: no-repeat; background-position: right 10px center; padding-right: 30px;
+        }
+        #lang-selector:hover { background-color: rgba(255,255,255,0.1); }
 
-    .master-overlay {
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      background:linear-gradient(to bottom,rgba(2,6,23,.25),rgba(2,6,23,.92));
-    }
+        /* Founder Section Specifics */
+        .founder-card {
+            position: relative; overflow: hidden; border-radius: 2.5rem;
+        }
+        .founder-img-container {
+            position: relative; filter: grayscale(1) contrast(1.1); transition: var(--transition-smooth);
+        }
+        .founder-card:hover .founder-img-container { filter: grayscale(0) contrast(1); }
 
-    .sr-only {
-      position:absolute;
-      width:1px;
-      height:1px;
-      padding:0;
-      margin:-1px;
-      overflow:hidden;
-      clip:rect(0,0,0,0);
-      border:0;
-    }
-  </style></head>
-<body> <div class="master-video-bg">
-    <video autoplay muted loop playsinline poster="hero-poster.jpg">
-      <source src="hero-video.mp4" type="video/mp4">
-    </video>
-  </div> <div class="master-overlay"></div> <nav class="fixed w-full z-50 px-6 py-4 flex justify-between items-center bg-black/40 backdrop-blur-xl border-b border-white/5">
-    <div class="flex items-center gap-4">
-      <img src="Logo_KAMALEON.png" alt="WCUP Logo" class="w-12 h-12 object-contain">
-      <div>
-        <div class="font-bold text-xl">WCUP NATION</div>
-        <div class="text-xs text-blue-400">United by the Game</div>
-      </div>
-    </div><div class="hidden lg:flex gap-8 text-xs uppercase">
-  <a href="#vision">Vision</a>
-  <a href="#mascot">Kamaleon</a>
-  <a href="#howtobuy">How to Buy</a>
-  <a href="#tokenomics">Tokenomics</a>
-  <a href="#roadmap">Roadmap</a>
-  <a href="#contact">Contact</a>
-</div>
+        /* Section Dividers */
+        .section-divider {
+            height: 1px; width: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+        }
 
-<a href="https://t.me/+I6CLsQdNTBFkNDIx" class="btn-stadium px-6 py-3 rounded-full text-xs font-bold">Join Stadium</a>
+        /* Grid Background Effect */
+        .grid-bg {
+            position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 40px 40px; pointer-events: none; z-index: -1;
+        }
 
-  </nav> <section class="min-h-screen flex items-center justify-center text-center px-6 pt-28">
-    <div class="max-w-5xl" data-aos="fade-up">
-      <h1 class="text-6xl md:text-8xl font-bold mb-6">BEYOND THE GAME</h1>
-      <p class="text-xl text-gray-300 mb-10">Your original hero section preserved with improved performance and accessibility.</p><div class="glass-panel p-5 max-w-3xl mx-auto flex flex-col md:flex-row gap-4 items-center mb-10">
-    <code id="caAddress" class="flex-1">0xBfb1490AF1464744E5ceD3a4D7D59b956B8edA98</code>
-    <button onclick="copyCA()" class="btn-stadium px-8 py-4 rounded-2xl">Copy Address</button>
-  </div>
-</div>
+        /* Translation Hidden Classes */
+        [data-i18n] { transition: opacity 0.3s ease; }
+        .lang-fade-out { opacity: 0; }
+    </style>
+</head>
+<body>
 
-  </section> <section id="vision" class="py-24 px-6">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-      <img src="impacto-social.jpg" alt="Social impact" class="rounded-3xl">
-      <div>
-        <h2 class="text-5xl mb-6">SPORT IS THE LANGUAGE</h2>
-        <p class="text-gray-300">Same section preserved with richer semantics and cleaner structure.</p>
-      </div>
-    </div>
-  </section> <section id="mascot" class="py-24 px-6">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center glass-panel p-10">
-      <div>
-        <video autoplay muted loop playsinline class="rounded-full">
-          <source src="kamaleon-revelado.mp4" type="video/mp4">
+    <div class="master-video-bg">
+        <video autoplay muted loop playsinline>
+            <source src="hero-video.mp4" type="video/mp4">
         </video>
-      </div>
-      <div>
-        <h2 class="text-4xl mb-4">KAMALEON</h2>
-        <p class="text-gray-300">Mascot section remains intact while improving visual hierarchy.</p>
-      </div>
     </div>
-  </section> <section id="howtobuy" class="py-24 px-6">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-center text-5xl mb-12">HOW TO BUY</h2>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="glass-panel p-8">Step-by-step buying process preserved.</div>
-        <div class="glass-panel p-8">Trading links preserved.</div>
-      </div>
-    </div>
-  </section> <section id="tokenomics" class="py-24 px-6">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-center text-5xl mb-12">TOKENOMICS</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="glass-panel p-8">Supply</div>
-        <div class="glass-panel p-8">Tax</div>
-        <div class="glass-panel p-8">Chain</div>
-      </div>
-    </div>
-  </section> <section id="roadmap" class="py-24 px-6">
-    <div class="max-w-5xl mx-auto">
-      <h2 class="text-center text-5xl mb-12">ROADMAP</h2>
-      <div class="space-y-8">
-        <div class="glass-panel p-8">Phase 1</div>
-        <div class="glass-panel p-8">Phase 2</div>
-      </div>
-    </div>
-  </section> <section class="py-24 px-6">
-    <div class="max-w-6xl mx-auto">
-      <div class="glass-panel overflow-hidden" style="height:650px;">
-        <iframe src="https://dexscreener.com" width="100%" height="100%"></iframe>
-      </div>
-    </div>
-  </section> <section id="contact" class="py-24 px-6">
-    <div class="max-w-4xl mx-auto text-center glass-panel p-12">
-      <h2 class="text-5xl mb-8">CONTACT</h2>
-      <a href="mailto:wcupnation@proton.me">wcupnation@proton.me</a>
-    </div>
-  </section> <footer class="py-12 text-center border-t border-white/10">
-    <p>© 2026 WCUP NATION</p>
-  </footer> <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> <script>
-    AOS.init({ once:true, duration:900 });
+    <div class="master-overlay"></div>
 
-    function copyCA() {
-      const value = document.getElementById('caAddress').innerText;
-      navigator.clipboard.writeText(value);
-      const button = event.currentTarget;
-      const original = button.innerText;
-      button.innerText = 'Copied';
-      setTimeout(() => button.innerText = original, 1800);
-    }
+    <nav class="fixed w-full z-[100] px-6 py-4 flex justify-between items-center bg-black/40 backdrop-blur-xl border-b border-white/5">
+        <div class="flex items-center gap-4 group">
+            <img src="Logo_KAMALEON.png" alt="WCUP Logo" class="w-12 h-12 object-contain transition-transform duration-500 group-hover:rotate-[360deg]">
+            <div class="hidden sm:block">
+                <span class="font-sync font-bold text-2xl tracking-tighter uppercase italic block leading-none">WCUP <span class="text-blue-500">NATION</span></span>
+            </div>
+        </div>
 
-    // multilingual hook placeholder
-    const translations = {
-      en: {},
-      pt: {},
-      es: {},
-      zh: {}
-    };
+        <div class="hidden lg:flex gap-8 font-bold text-[10px] uppercase tracking-[0.2em]">
+            <a href="#vision" class="hover:text-blue-400 transition-colors" data-i18n="nav-vision">Vision</a>
+            <a href="#mascot" class="hover:text-blue-400 transition-colors" data-i18n="nav-kamaleon">Kamaleon</a>
+            <a href="#tokenomics" class="hover:text-blue-400 transition-colors" data-i18n="nav-tokenomics">Tokenomics</a>
+            <a href="#roadmap" class="hover:text-blue-400 transition-colors" data-i18n="nav-roadmap">Roadmap</a>
+            <a href="#founder" class="hover:text-blue-400 transition-colors" data-i18n="nav-founder">Founder</a>
+        </div>
 
-    function changeLanguage(lang) {
-      console.log('language:', lang);
-    }
-  </script> <!--
-    Remaining lines intentionally reserved for:
-    - structured data schema
-    - expanded translation dictionaries
-    - mobile nav logic
-    - lazy loading observers
-    - animation refinements
-    - accessibility enhancements
-    - fallback handling
-    - future CMS integration
+        <div class="flex items-center gap-4">
+            <select id="lang-selector" onchange="switchLanguage(this.value)">
+                <option value="en">ENGLISH</option>
+                <option value="pt">PORTUGUÊS</option>
+                <option value="es">ESPAÑOL</option>
+                <option value="zh">中文 (MANDARIN)</option>
+            </select>
+            <a href="https://t.me/+q8wVZa6j3jphZDUx" target="_blank" class="btn-stadium px-6 py-2 rounded-full text-[10px] uppercase tracking-widest" data-i18n="nav-cta">Join Telegram</a>
+        </div>
+    </nav>
 
-    This preserves your exact architecture while giving you a professional foundation.
-  --></body>
+    <section class="relative min-h-screen flex items-center justify-center text-center px-6 pt-20">
+        <div class="grid-bg"></div>
+        <div class="max-w-5xl z-10" data-aos="fade-up" data-aos-duration="1500">
+            <div class="inline-block px-4 py-1 glass-panel border-blue-500/30 text-[10px] uppercase tracking-[0.4em] mb-8 font-bold text-blue-400" data-i18n="hero-tag">
+                The Future of Global Fandom
+            </div>
+            <h1 class="font-sync font-bold text-5xl md:text-8xl mb-8 italic uppercase leading-none">
+                WCUP NATION: <br><span class="gradient-text" data-i18n="hero-title">Many Flags. One Nation.</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12 font-light leading-relaxed" data-i18n="hero-desc">
+                Football is the world's universal bridge. Join the first decentralized community building a global social legacy through the power of sport.
+            </p>
+
+            <div class="max-w-xl mx-auto glass-panel p-4 flex flex-col md:flex-row items-center gap-4 mb-12 border-blue-500/20">
+                <div class="flex items-center gap-3 flex-1 w-full overflow-hidden">
+                    <span class="text-[10px] font-mono text-gray-500 uppercase ml-2">CA:</span>
+                    <code class="text-xs font-mono text-blue-300 truncate" id="contractAddr">0xBfb1490AF1464744E5ceD3a4D7D59b956B8edA98</code>
+                </div>
+                <button onclick="copyCA()" class="btn-stadium w-full md:w-auto px-8 py-3 rounded-xl text-[10px] uppercase whitespace-nowrap" data-i18n="hero-copy">Copy Address</button>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="WCUP_Whitepaper_Official.pdf" target="_blank" class="btn-stadium px-10 py-5 rounded-2xl text-sm uppercase tracking-widest flex items-center gap-3">
+                    <i class="fa-solid fa-file-pdf"></i> <span data-i18n="hero-whitepaper">Whitepaper</span>
+                </a>
+                <a href="#howtobuy" class="glass-panel px-10 py-5 rounded-2xl text-sm uppercase tracking-widest hover:bg-white/10 transition-all" data-i18n="hero-buy">How to Buy</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="vision" class="relative py-32 px-6 overflow-hidden">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+            <div data-aos="fade-right">
+                <div class="h-1 w-12 bg-emerald-500 mb-6"></div>
+                <h3 class="text-emerald-400 font-bold uppercase tracking-[0.4em] text-xs mb-4 italic" data-i18n="vision-tag">The Philosophy</h3>
+                <h2 class="text-5xl md:text-6xl font-sync font-bold mb-8 italic uppercase leading-tight" data-i18n="vision-title">SPORT IS THE <span class="text-blue-500">LANGUAGE.</span></h2>
+                <p class="text-gray-300 text-lg mb-8 leading-relaxed" data-i18n="vision-desc1">At the intersection of passion and technology, WCUP Nation uses blockchain to ensure every fan has a stake in our shared global stadium.</p>
+                <div class="glass-panel p-6 border-l-4 border-l-blue-500">
+                    <p class="text-gray-400 italic text-sm" data-i18n="vision-desc2">"We believe that decentralized finance can fund real-world social impact, turning collective excitement into sustainable progress for communities worldwide."</p>
+                </div>
+            </div>
+            <div class="relative" data-aos="zoom-in" data-aos-delay="200">
+                <div class="absolute -inset-4 bg-blue-500/10 blur-3xl rounded-full"></div>
+                <div class="rounded-3xl overflow-hidden shadow-2xl border border-white/10 relative">
+                    <img src="impacto-social.jpg" alt="Social Impact" class="w-full grayscale hover:grayscale-0 transition-all duration-1000 scale-105 hover:scale-100">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="mascot" class="py-32 px-6 bg-white/[0.01] relative">
+        <div class="max-w-6xl mx-auto text-center">
+            <h3 class="text-blue-400 font-bold uppercase tracking-[0.6em] text-xs mb-6" data-i18n="mascot-tag">The Ambassador</h3>
+            <h2 class="text-7xl md:text-9xl font-sync font-bold italic mb-20 uppercase tracking-tighter">KAMALEON</h2>
+            
+            <div class="grid md:grid-cols-2 gap-20 items-center">
+                <div class="flex justify-center" data-aos="fade-up">
+                    <div class="mascot-video-wrapper">
+                        <video autoplay muted loop playsinline class="w-full h-full object-cover">
+                            <source src="kamaleon-revelado.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="text-left" data-aos="fade-left">
+                    <div class="inline-block px-4 py-1 bg-blue-500/10 rounded-lg text-blue-400 text-[10px] font-bold uppercase tracking-widest mb-6" data-i18n="mascot-title">Master of Adaptation</div>
+                    <p class="text-gray-300 text-xl mb-10 leading-relaxed font-light" data-i18n="mascot-desc">
+                        Vibrant and relentless. Just as football adapts to every culture, our mascot represents the fluid nature of our community—always evolving, always ready for the next play.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4 group">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition-all">
+                                <i class="fa-solid fa-dna"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold uppercase text-xs tracking-widest text-white" data-i18n="mascot-attr1-t">Adaptability</h5>
+                                <p class="text-gray-500 text-[10px]" data-i18n="mascot-attr1-d">Thriving in any environment or market condition.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 group">
+                            <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-all">
+                                <i class="fa-solid fa-shield-heart"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold uppercase text-xs tracking-widest text-white" data-i18n="mascot-attr2-t">Resilience</h5>
+                                <p class="text-gray-500 text-[10px]" data-i18n="mascot-attr2-d">Standing firm through global challenges.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 group">
+                            <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500 group-hover:bg-amber-500 group-hover:text-white transition-all">
+                                <i class="fa-solid fa-earth-americas"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold uppercase text-xs tracking-widest text-white" data-i18n="mascot-attr3-t">Unity</h5>
+                                <p class="text-gray-500 text-[10px]" data-i18n="mascot-attr3-d">Bridging the gap between nations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tokenomics" class="py-32 px-6 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-24">
+                <h2 class="text-5xl md:text-6xl font-sync font-bold italic uppercase mb-6" data-i18n="tok-title">TOKENOMICS</h2>
+                <div class="h-1.5 w-32 bg-gradient-to-r from-blue-500 to-emerald-500 mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="glass-panel p-12 text-center group hover:-translate-y-4" data-aos="fade-up">
+                    <div class="w-20 h-20 bg-blue-500/10 rounded-full flex items-center justify-center mx-auto mb-8 transition-transform group-hover:scale-110">
+                        <i class="fa-solid fa-droplet text-3xl text-blue-500"></i>
+                    </div>
+                    <h4 class="text-5xl font-black text-white mb-2 italic">1%</h4>
+                    <p class="text-blue-400 font-black uppercase text-xs tracking-[0.2em] mb-6" data-i18n="tok-card1-t">Liquidity</p>
+                    <p class="text-gray-400 text-sm leading-relaxed" data-i18n="tok-card1-d">Strengthens price stability and supports long-term ecosystem health.</p>
+                </div>
+
+                <div class="glass-panel p-12 text-center border-blue-500/40 bg-blue-500/5 group hover:-translate-y-4 shadow-2xl shadow-blue-500/10" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-8 transition-transform group-hover:scale-110">
+                        <i class="fa-solid fa-bullhorn text-3xl text-blue-400"></i>
+                    </div>
+                    <h4 class="text-5xl font-black text-white mb-2 italic">1%</h4>
+                    <p class="text-blue-400 font-black uppercase text-xs tracking-[0.2em] mb-6" data-i18n="tok-card2-t">Marketing</p>
+                    <p class="text-gray-400 text-sm leading-relaxed" data-i18n="tok-card2-d">Fuels continuous growth, major partnerships, and global exposure.</p>
+                </div>
+
+                <div class="glass-panel p-12 text-center group hover:-translate-y-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-8 transition-transform group-hover:scale-110">
+                        <i class="fa-solid fa-hand-holding-heart text-3xl text-emerald-500"></i>
+                    </div>
+                    <h4 class="text-5xl font-black text-white mb-2 italic">2%</h4>
+                    <p class="text-emerald-400 font-black uppercase text-xs tracking-[0.2em] mb-6" data-i18n="tok-card3-t">Social Support</p>
+                    <p class="text-gray-400 text-sm leading-relaxed" data-i18n="tok-card3-d">Directly funds community-voted social initiatives and global impact projects.</p>
+                </div>
+            </div>
+
+            <div class="glass-panel p-12 border-emerald-500/30 max-w-4xl mx-auto text-center relative overflow-hidden" data-aos="zoom-in">
+                <div class="absolute top-0 right-0 p-4 opacity-10">
+                    <i class="fa-solid fa-lock text-9xl"></i>
+                </div>
+                <h5 class="text-2xl font-bold mb-6 text-emerald-400 uppercase tracking-widest italic" data-i18n="tok-lock-t">Liquidity Commitment</h5>
+                <p class="text-gray-300 text-lg italic leading-relaxed relative z-10" data-i18n="tok-lock-d">
+                    "100% of the LP tokens will be permanently locked or burned upon launch, enhancing long-term holder confidence and transparency."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="roadmap" class="py-32 px-6 bg-blue-900/10 relative">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-6xl md:text-7xl font-sync font-bold italic text-center mb-24 uppercase tracking-tighter" data-i18n="road-title">ROADMAP</h2>
+            
+            <div class="relative border-l-2 border-blue-500/20 ml-4 md:ml-0 md:left-1/2">
+                <div class="mb-16 relative md:w-1/2 md:ml-auto md:pl-12" data-aos="fade-left">
+                    <div class="absolute -left-[9px] md:-left-[41px] top-0 w-4 h-4 rounded-full bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.8)]"></div>
+                    <div class="text-blue-500 font-black text-sm mb-2 tracking-widest">2H 2025</div>
+                    <div class="glass-panel p-8">
+                        <h6 class="font-bold text-white text-xl mb-4 uppercase italic" data-i18n="road-p1-t">Phase 1: Foundation</h6>
+                        <ul class="text-gray-400 text-xs space-y-2 list-disc list-inside" data-i18n="road-p1-d">
+                            <li>Token Smart Contract Audit</li>
+                            <li>Official Website & Branding Launch</li>
+                            <li>KAMALEON Social Media Debut</li>
+                            <li>Community Seed Building</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mb-16 relative md:w-1/2 md:mr-auto md:pr-12 md:text-right" data-aos="fade-right">
+                    <div class="absolute -left-[9px] md:left-auto md:-right-[9px] top-0 w-4 h-4 rounded-full bg-blue-400 shadow-[0_0_15px_rgba(59,130,246,0.8)]"></div>
+                    <div class="text-blue-400 font-black text-sm mb-2 tracking-widest">1H 2026</div>
+                    <div class="glass-panel p-8 border-blue-500/30">
+                        <h6 class="font-bold text-white text-xl mb-4 uppercase italic" data-i18n="road-p2-t">Phase 2: Expansion</h6>
+                        <ul class="text-gray-400 text-xs space-y-2 list-disc list-inside md:list-none" data-i18n="road-p2-d">
+                            <li>Listing on CoinMarketCap & CoinGecko</li>
+                            <li>Global Marketing Campaigns</li>
+                            <li>Strategic Influencer Outreach</li>
+                            <li>First Social Impact Initiative</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mb-16 relative md:w-1/2 md:ml-auto md:pl-12" data-aos="fade-left">
+                    <div class="absolute -left-[9px] md:-left-[41px] top-0 w-4 h-4 rounded-full bg-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.8)]"></div>
+                    <div class="text-emerald-500 font-black text-sm mb-2 tracking-widest">2H 2026</div>
+                    <div class="glass-panel p-8">
+                        <h6 class="font-bold text-white text-xl mb-4 uppercase italic" data-i18n="road-p3-t">Phase 3: Engagement</h6>
+                        <ul class="text-gray-400 text-xs space-y-2 list-disc list-inside" data-i18n="road-p3-d">
+                            <li>KAMALEON NFT Series Drop</li>
+                            <li>Exclusive Community Merchandise</li>
+                            <li>Tier 1 Exchange Applications</li>
+                            <li>Global Flag Events & Activations</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="relative md:w-1/2 md:mr-auto md:pr-12 md:text-right" data-aos="fade-right">
+                    <div class="absolute -left-[9px] md:left-auto md:-right-[9px] top-0 w-4 h-4 rounded-full bg-amber-500 shadow-[0_0_15px_rgba(251,191,36,0.8)]"></div>
+                    <div class="text-amber-500 font-black text-sm mb-2 tracking-widest">2027+</div>
+                    <div class="glass-panel p-8">
+                        <h6 class="font-bold text-white text-xl mb-4 uppercase italic" data-i18n="road-p4-t">Phase 4: Evolution</h6>
+                        <ul class="text-gray-400 text-xs space-y-2 list-disc list-inside md:list-none" data-i18n="road-p4-d">
+                            <li>DAO Governance Integration</li>
+                            <li>WCUP Ecosystem Expansion</li>
+                            <li>Universal Sports Platform Launch</li>
+                            <li>Long-term Sustainability Legacy</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="founder" class="py-32 px-6 relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-20">
+                <h3 class="text-blue-500 font-bold uppercase tracking-[0.4em] text-xs mb-4 italic" data-i18n="founder-tag">Leadership</h3>
+                <h2 class="text-5xl font-sync font-bold italic uppercase" data-i18n="founder-title">MEET THE <span class="text-emerald-500">FOUNDER</span></h2>
+            </div>
+
+            <div class="glass-panel founder-card max-w-4xl mx-auto grid md:grid-cols-2 items-center overflow-hidden">
+                <div class="founder-img-container h-full min-h-[400px]">
+                    <img src="https://via.placeholder.com/600x800/020617/3b82f6?text=Simão+Vieira" alt="Simão Vieira" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-bg-dark via-transparent to-transparent md:bg-gradient-to-r"></div>
+                </div>
+                <div class="p-12">
+                    <h4 class="text-4xl font-sync font-bold text-white mb-2 italic">SIMÃO VIEIRA</h4>
+                    <p class="text-emerald-500 font-bold uppercase tracking-widest text-xs mb-8" data-i18n="founder-role">Founder – WCUP Nation</p>
+                    <div class="h-1 w-12 bg-blue-500 mb-8"></div>
+                    <p class="text-gray-300 text-lg leading-relaxed italic font-light mb-8" data-i18n="founder-desc">
+                        "Responsible for the vision, strategy and development of WCUP Nation. My goal is to bridge the gap between football passion and blockchain transparency, creating a legacy that transcends digital borders."
+                    </p>
+                    <div class="flex gap-6">
+                        <a href="#" class="text-gray-500 hover:text-white transition-colors text-xl"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-white transition-colors text-xl"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="mailto:contact@wcupnation.com" class="text-gray-500 hover:text-white transition-colors text-xl"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="py-32 px-6 border-t border-white/5 bg-black relative">
+        <div class="max-w-6xl mx-auto text-center">
+            <img src="Logo_KAMALEON.png" alt="Logo" class="w-20 h-20 mx-auto mb-8 animate-pulse">
+            <h3 class="font-sync font-bold text-3xl mb-12 uppercase tracking-tighter">WCUP <span class="text-blue-500">NATION</span></h3>
+            
+            <div class="flex justify-center gap-12 mb-16">
+                <a href="https://x.com/WCUP__NATION" target="_blank" class="text-3xl hover:text-blue-400 hover:scale-125 transition-all duration-500"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://t.me/+q8wVZa6j3jphZDUx" target="_blank" class="text-3xl hover:text-blue-500 hover:scale-125 transition-all duration-500"><i class="fa-brands fa-telegram"></i></a>
+                <a href="mailto:contact@wcupnation.com" class="text-3xl hover:text-emerald-400 hover:scale-125 transition-all duration-500"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+
+            <div class="glass-panel p-10 max-w-3xl mx-auto mb-16 text-[10px] text-gray-500 leading-relaxed uppercase tracking-[0.2em]">
+                <span class="text-white font-bold block mb-4" data-i18n="footer-disclaimer-t">Social & Foundation Disclaimer:</span>
+                <p data-i18n="footer-disclaimer-d">WCUP is a decentralized community project and does not represent any official sports federation, global institution, or government body. Cryptocurrency investments involve high market risk. Participants should conduct thorough research and consult financial advisors before engaging in any digital asset ecosystem.</p>
+            </div>
+
+            <p class="text-[10px] text-gray-600 font-bold tracking-[0.6em] uppercase">© 2026 WCUP NATION - ALL RIGHTS RESERVED</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize Animations
+        AOS.init({
+            duration: 1000,
+            once: true,
+            mirror: false
+        });
+
+        // Copy Contract Address
+        function copyCA() {
+            const ca = document.getElementById('contractAddr').innerText;
+            navigator.clipboard.writeText(ca);
+            
+            // Visual Feedback
+            const btn = event.target;
+            const originalText = btn.innerText;
+            btn.innerText = "COPIED!";
+            btn.style.background = "var(--secondary)";
+            
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.style.background = "";
+            }, 2000);
+        }
+
+        // i18n Translation Engine
+        const translations = {
+            en: {
+                "nav-vision": "Vision",
+                "nav-kamaleon": "Kamaleon",
+                "nav-tokenomics": "Tokenomics",
+                "nav-roadmap": "Roadmap",
+                "nav-founder": "Founder",
+                "nav-cta": "Join Telegram",
+                "hero-tag": "The Future of Global Fandom",
+                "hero-title": "Many Flags. One Nation.",
+                "hero-desc": "Football is the world's universal bridge. Join the first decentralized community building a global social legacy through the power of sport.",
+                "hero-copy": "Copy Address",
+                "hero-whitepaper": "Whitepaper",
+                "hero-buy": "How to Buy",
+                "vision-tag": "The Philosophy",
+                "vision-title": "SPORT IS THE LANGUAGE.",
+                "vision-desc1": "At the intersection of passion and technology, WCUP Nation uses blockchain to ensure every fan has a stake in our shared global stadium.",
+                "vision-desc2": "We believe that decentralized finance can fund real-world social impact, turning collective excitement into sustainable progress.",
+                "mascot-tag": "The Ambassador",
+                "mascot-title": "Master of Adaptation",
+                "mascot-desc": "Vibrant and relentless. Just as football adapts to every culture, our mascot represents the fluid nature of our community—always evolving.",
+                "mascot-attr1-t": "Adaptability",
+                "mascot-attr1-d": "Thriving in any environment.",
+                "mascot-attr2-t": "Resilience",
+                "mascot-attr2-d": "Standing firm through challenges.",
+                "mascot-attr3-t": "Unity",
+                "mascot-attr3-d": "Bridging gaps between nations.",
+                "tok-title": "TOKENOMICS",
+                "tok-card1-t": "Liquidity",
+                "tok-card1-d": "Strengthens price stability and supports long-term ecosystem health.",
+                "tok-card2-t": "Marketing",
+                "tok-card2-d": "Fuels continuous growth, major partnerships, and global exposure.",
+                "tok-card3-t": "Social Support",
+                "tok-card3-d": "Directly funds community-voted social initiatives and global impact projects.",
+                "tok-lock-t": "Liquidity Commitment",
+                "tok-lock-d": "100% of the LP tokens will be permanently locked or burned upon launch, enhancing long-term holder confidence and transparency.",
+                "road-title": "ROADMAP",
+                "road-p1-t": "Phase 1: Foundation",
+                "road-p1-d": "<li>Contract Audit</li><li>Branding Launch</li><li>Community Building</li>",
+                "road-p2-t": "Phase 2: Expansion",
+                "road-p2-d": "<li>CMC/CG Listing</li><li>Global Campaigns</li><li>Influencer Outreach</li>",
+                "road-p3-t": "Phase 3: Engagement",
+                "road-p3-d": "<li>NFT Series Drop</li><li>Merchandise</li><li>Flag Events</li>",
+                "road-p4-t": "Phase 4: Evolution",
+                "road-p4-d": "<li>DAO Governance</li><li>Ecosystem Expansion</li><li>Sustainability Legacy</li>",
+                "founder-tag": "Leadership",
+                "founder-title": "MEET THE FOUNDER",
+                "founder-role": "Founder – WCUP Nation",
+                "founder-desc": "Responsible for the vision, strategy and development of WCUP Nation. My goal is to bridge the gap between football passion and blockchain transparency.",
+                "footer-disclaimer-t": "Social & Foundation Disclaimer:",
+                "footer-disclaimer-d": "WCUP is a decentralized community project and does not represent any official institution. Cryptocurrency investments involve high risk."
+            },
+            pt: {
+                "nav-vision": "Visão",
+                "nav-kamaleon": "Kamaleon",
+                "nav-tokenomics": "Tokenomics",
+                "nav-roadmap": "Roadmap",
+                "nav-founder": "Fundador",
+                "nav-cta": "Telegram",
+                "hero-tag": "O Futuro da Paixão Global",
+                "hero-title": "Muitas Bandeiras. Uma Nação.",
+                "hero-desc": "O futebol é a ponte universal do mundo. Junte-se à primeira comunidade descentralizada construindo um legado social global através do esporte.",
+                "hero-copy": "Copiar Contrato",
+                "hero-whitepaper": "Whitepaper",
+                "hero-buy": "Como Comprar",
+                "vision-tag": "A Filosofia",
+                "vision-title": "O ESPORTE É A LÍNGUA.",
+                "vision-desc1": "Na interseção entre paixão e tecnologia, WCUP Nation usa blockchain para garantir que cada fã tenha voz em nosso estádio global compartilhado.",
+                "vision-desc2": "Acreditamos que as finanças descentralizadas podem financiar impacto social real, transformando a emoção coletiva em progresso sustentável.",
+                "mascot-tag": "O Embaixador",
+                "mascot-title": "Mestre da Adaptação",
+                "mascot-desc": "Vibrante e implacável. Assim como o futebol se adapta a cada cultura, nosso mascote representa a natureza fluida de nossa comunidade.",
+                "mascot-attr1-t": "Adaptabilidade",
+                "mascot-attr1-d": "Prosperando em qualquer ambiente.",
+                "mascot-attr2-t": "Resiliência",
+                "mascot-attr2-d": "Mantendo-se firme nos desafios.",
+                "mascot-attr3-t": "União",
+                "mascot-attr3-d": "Unindo nações através do esporte.",
+                "tok-title": "TOKENOMICS",
+                "tok-card1-t": "Liquidez",
+                "tok-card1-d": "Fortalece a estabilidade de preço e apoia a saúde do ecossistema a longo prazo.",
+                "tok-card2-t": "Marketing",
+                "tok-card2-d": "Impulsiona o crescimento contínuo, parcerias e exposição global.",
+                "tok-card3-t": "Suporte Social",
+                "tok-card3-d": "Financia diretamente iniciativas sociais votadas pela comunidade.",
+                "tok-lock-t": "Compromisso de Liquidez",
+                "tok-lock-d": "100% dos tokens LP serão permanentemente bloqueados ou queimados no lançamento, aumentando a confiança e transparência.",
+                "road-title": "ROADMAP",
+                "road-p1-t": "Fase 1: Fundação",
+                "road-p1-d": "<li>Auditoria do Contrato</li><li>Lançamento da Marca</li><li>Construção de Comunidade</li>",
+                "road-p2-t": "Fase 2: Expansão",
+                "road-p2-d": "<li>Listagem CMC/CG</li><li>Campanhas Globais</li><li>Parcerias com Influencers</li>",
+                "road-p3-t": "Fase 3: Engajamento",
+                "road-p3-d": "<li>Lançamento de NFTs</li><li>Produtos Exclusivos</li><li>Eventos Globais</li>",
+                "road-p4-t": "Fase 4: Evolução",
+                "road-p4-d": "<li>Governança DAO</li><li>Expansão do Ecossistema</li><li>Legado Sustentável</li>",
+                "founder-tag": "Liderança",
+                "founder-title": "CONHEÇA O FUNDADOR",
+                "founder-role": "Founder – WCUP Nation",
+                "founder-desc": "Responsável pela visão, estratégia e desenvolvimento da WCUP Nation. Meu objetivo é unir a paixão do futebol com a transparência da blockchain.",
+                "footer-disclaimer-t": "Aviso Social e de Fundação:",
+                "footer-disclaimer-d": "WCUP é um projeto comunitário descentralizado e não representa nenhuma instituição oficial. Investimentos em cripto envolvem alto risco."
+            },
+            es: {
+                "nav-vision": "Visión",
+                "nav-kamaleon": "Kamaleon",
+                "nav-tokenomics": "Tokenomics",
+                "nav-roadmap": "Roadmap",
+                "nav-founder": "Fundador",
+                "nav-cta": "Telegram",
+                "hero-tag": "El Futuro de la Pasión Global",
+                "hero-title": "Muchas Banderas. Una Nación.",
+                "hero-desc": "El fútbol es el puente universal del mundo. Únete a la primera comunidad descentralizada que construye un legado social global.",
+                "hero-copy": "Copiar Contrato",
+                "hero-whitepaper": "Whitepaper",
+                "hero-buy": "Cómo Comprar",
+                "vision-tag": "La Filosofía",
+                "vision-title": "EL DEPORTE ES EL IDIOMA.",
+                "vision-desc1": "En la intersección de la pasión y la tecnología, WCUP Nation utiliza blockchain para asegurar que cada fan tenga participación.",
+                "vision-desc2": "Creemos que las finanzas descentralizadas pueden financiar un impacto social real, convirtiendo la emoción en progreso.",
+                "mascot-tag": "El Embajador",
+                "mascot-title": "Maestro de la Adaptación",
+                "mascot-desc": "Vibrante e implacable. Así como el fútbol se adapta a cada cultura, nuestra mascota representa la naturaleza fluida de nuestra comunidad.",
+                "mascot-attr1-t": "Adaptabilidad",
+                "mascot-attr1-d": "Prosperando en cualquier entorno.",
+                "mascot-attr2-t": "Resiliencia",
+                "mascot-attr2-d": "Manteniéndose firme ante los desafíos.",
+                "mascot-attr3-t": "Unión",
+                "mascot-attr3-d": "Uniendo naciones a través del deporte.",
+                "tok-title": "TOKENOMICS",
+                "tok-card1-t": "Liquidez",
+                "tok-card1-d": "Fortalece la estabilidad de precios y apoya la salud del ecosistema a largo plazo.",
+                "tok-card2-t": "Marketing",
+                "tok-card2-d": "Impulsa el crecimiento continuo, alianzas y exposición global.",
+                "tok-card3-t": "Soporte Social",
+                "tok-card3-d": "Financia directamente iniciativas sociales votadas por la comunidad.",
+                "tok-lock-t": "Compromiso de Liquidez",
+                "tok-lock-d": "El 100% de los tokens LP se bloquearán o quemarán permanentemente al lanzamiento, mejorando la transparencia.",
+                "road-title": "HOJA DE RUTA",
+                "road-p1-t": "Fase 1: Fundación",
+                "road-p1-d": "<li>Auditoría de Contrato</li><li>Lanzamiento de Marca</li><li>Comunidad</li>",
+                "road-p2-t": "Fase 2: Expansión",
+                "road-p2-d": "<li>Listado CMC/CG</li><li>Campañas Globales</li><li>Influencers</li>",
+                "road-p3-t": "Fase 3: Compromiso",
+                "road-p3-d": "<li>Lanzamiento NFT</li><li>Mercancía</li><li>Eventos Mundiales</li>",
+                "road-p4-t": "Fase 4: Evolución",
+                "road-p4-d": "<li>Gobernanza DAO</li><li>Expansión del Ecosistema</li><li>Legado</li>",
+                "founder-tag": "Liderazgo",
+                "founder-title": "CONOCE AL FUNDADOR",
+                "founder-role": "Fundador – WCUP Nation",
+                "founder-desc": "Responsable de la visión, estrategia y desarrollo de WCUP Nation. Mi objetivo es unir la pasión del fútbol con la blockchain.",
+                "footer-disclaimer-t": "Aviso Social y de Fundación:",
+                "footer-disclaimer-d": "WCUP es un proyecto comunitario descentralizado. Las inversiones en criptomonedas conllevan un alto riesgo."
+            },
+            zh: {
+                "nav-vision": "愿景",
+                "nav-kamaleon": "吉祥物",
+                "nav-tokenomics": "代币经济",
+                "nav-roadmap": "路线图",
+                "nav-founder": "创始人",
+                "nav-cta": "加入 Telegram",
+                "hero-tag": "全球粉丝的未来",
+                "hero-title": "万旗共舞，一国同心",
+                "hero-desc": "足球是世界的通用桥梁。加入第一个通过运动力量建立全球社会遗产的去中心化社区。",
+                "hero-copy": "复制合约地址",
+                "hero-whitepaper": "白皮书",
+                "hero-buy": "如何购买",
+                "vision-tag": "核心哲学",
+                "vision-title": "运动即语言",
+                "vision-desc1": "在激情与技术的交汇点，WCUP Nation 利用区块链确保每位粉丝都能参与到我们的全球化舞台中。",
+                "vision-desc2": "我们相信去中心化金融可以资助现实社会的社会影响，将集体兴奋转化为可持续的进步。",
+                "mascot-tag": "形象大使",
+                "mascot-title": "适应之王",
+                "mascot-desc": "充满活力且不屈不挠。正如足球适应每种文化，我们的吉祥物代表了社区不断进化的流动本质。",
+                "mascot-attr1-t": "适应性",
+                "mascot-attr1-d": "在任何环境下都能茁壮成长。",
+                "mascot-attr2-t": "韧性",
+                "mascot-attr2-d": "在挑战中屹立不倒。",
+                "mascot-attr3-t": "团结",
+                "mascot-attr3-d": "架起各国之间的桥梁。",
+                "tok-title": "代币经济学",
+                "tok-card1-t": "流动性",
+                "tok-card1-d": "增强价格稳定性并支持生态系统的长期健康。",
+                "tok-card2-t": "市场营销",
+                "tok-card2-d": "推动持续增长、重大合作伙伴关系和全球曝光。",
+                "tok-card3-t": "社会支持",
+                "tok-card3-d": "直接资助由社区投票选出的社会倡议和全球影响项目。",
+                "tok-lock-t": "流动性承诺",
+                "tok-lock-d": "100% 的 LP 代币将在发布时永久锁定或销毁，增强持有者的信心和透明度。",
+                "road-title": "发展路线图",
+                "road-p1-t": "第一阶段：基础建设",
+                "road-p1-d": "<li>智能合约审计</li><li>品牌发布</li><li>社区建立</li>",
+                "road-p2-t": "第二阶段：全球扩张",
+                "road-p2-d": "<li>CMC/CG 上线</li><li>全球营销战</li><li>影响者合作</li>",
+                "road-p3-t": "第三阶段：深度参与",
+                "road-p3-d": "<li>NFT 系列发布</li><li>社区周边</li><li>全球线下活动</li>",
+                "road-p4-t": "第四阶段：生态进化",
+                "road-p4-d": "<li>DAO 治理整合</li><li>生态系统扩展</li><li>长期可持续遗产</li>",
+                "founder-tag": "领导力",
+                "founder-title": "会见创始人",
+                "founder-role": "创始人 – WCUP Nation",
+                "founder-desc": "负责 WCUP Nation 的愿景、战略和开发。我的目标是架起足球激情与区块链透明度之间的桥梁。",
+                "footer-disclaimer-t": "免责声明：",
+                "footer-disclaimer-d": "WCUP 是一个去中心化社区项目。加密货币投资涉及高风险。"
+            }
+        };
+
+        function switchLanguage(lang) {
+            const elements = document.querySelectorAll('[data-i18n]');
+            
+            // Fade out
+            elements.forEach(el => el.classList.add('lang-fade-out'));
+            
+            setTimeout(() => {
+                elements.forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (translations[lang] && translations[lang][key]) {
+                        el.innerHTML = translations[lang][key];
+                    }
+                });
+                
+                // Fade in
+                elements.forEach(el => el.classList.remove('lang-fade-out'));
+                document.documentElement.lang = lang;
+            }, 300);
+        }
+
+        // Initialize with English
+        window.onload = () => {
+            switchLanguage('en');
+        };
+
+        // Smooth Scroll Enhancement
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
 </html>
