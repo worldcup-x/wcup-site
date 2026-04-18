@@ -90,6 +90,7 @@
             transition: var(--transition-smooth); 
             position: relative; overflow: hidden; color: white; font-weight: 900; 
             box-shadow: 0 0 0 rgba(59, 130, 246, 0);
+            cursor: pointer;
         }
         .btn-stadium:hover { 
             transform: translateY(-5px) scale(1.02); 
@@ -101,6 +102,23 @@
             transform: rotate(45deg); transition: 0.8s;
         }
         .btn-stadium:hover::after { left: 100%; }
+
+        /* How to Buy Specific Styles */
+        .step-pill {
+            width: 3.5rem; height: 3.5rem; background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 1rem; display: flex; align-items: center; justify-content: center;
+            font-family: 'Syncopate'; font-weight: 700; font-size: 1.25rem;
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
+        }
+        .trade-card {
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
+            padding: 1.5rem; border-radius: 1.5rem; transition: var(--transition-smooth);
+            cursor: pointer;
+        }
+        .trade-card:hover {
+            background: rgba(255,255,255,0.07); border-color: var(--primary);
+            transform: translateX(10px);
+        }
 
         /* Animations */
         .mascot-video-wrapper { 
@@ -120,26 +138,6 @@
             background-repeat: no-repeat; background-position: right 10px center; padding-right: 30px;
         }
         #lang-selector:hover { background-color: rgba(255,255,255,0.1); }
-
-        /* Founder Section Specifics */
-        .founder-card {
-            position: relative; overflow: hidden; border-radius: 2.5rem;
-        }
-        .founder-img-container {
-            position: relative; filter: grayscale(1) contrast(1.1); transition: var(--transition-smooth);
-        }
-        .founder-card:hover .founder-img-container { filter: grayscale(0) contrast(1); }
-
-        /* Section Dividers */
-        .section-divider {
-            height: 1px; width: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-        }
-
-        /* Grid Background Effect */
-        .grid-bg {
-            position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
-            background-size: 40px 40px; pointer-events: none; z-index: -1;
-        }
 
         /* Translation Hidden Classes */
         [data-i18n] { transition: opacity 0.3s ease; }
@@ -167,8 +165,8 @@
             <a href="#vision" class="hover:text-blue-400 transition-colors" data-i18n="nav-vision">Vision</a>
             <a href="#mascot" class="hover:text-blue-400 transition-colors" data-i18n="nav-kamaleon">Kamaleon</a>
             <a href="#tokenomics" class="hover:text-blue-400 transition-colors" data-i18n="nav-tokenomics">Tokenomics</a>
+            <a href="#howtobuy" class="hover:text-blue-400 transition-colors" data-i18n="hero-buy">How to Buy</a>
             <a href="#roadmap" class="hover:text-blue-400 transition-colors" data-i18n="nav-roadmap">Roadmap</a>
-            <a href="#founder" class="hover:text-blue-400 transition-colors" data-i18n="nav-founder">Founder</a>
         </div>
 
         <div class="flex items-center gap-4">
@@ -183,7 +181,6 @@
     </nav>
 
     <section class="relative min-h-screen flex items-center justify-center text-center px-6 pt-20">
-        <div class="grid-bg"></div>
         <div class="max-w-5xl z-10" data-aos="fade-up" data-aos-duration="1500">
             <div class="inline-block px-4 py-1 glass-panel border-blue-500/30 text-[10px] uppercase tracking-[0.4em] mb-8 font-bold text-blue-400" data-i18n="hero-tag">
                 The Future of Global Fandom
@@ -207,160 +204,87 @@
                 <a href="WCUP_Whitepaper_Official.pdf" target="_blank" class="btn-stadium px-10 py-5 rounded-2xl text-sm uppercase tracking-widest flex items-center gap-3">
                     <i class="fa-solid fa-file-pdf"></i> <span data-i18n="hero-whitepaper">Whitepaper</span>
                 </a>
-                
-    <section id="howtobuy" class="py-32 px-6 bg-blue-900/5">
-        <div class="max-w-7xl mx-auto">
-
-            <div class="text-center mb-24" data-aos="fade-up">
-
-                <h3 class="text-accent font-bold uppercase tracking-[0.6em] text-xs mb-4 italic">Get Your Ticket</h3>
-
-                <h2 class="text-6xl md:text-8xl font-sync font-bold italic uppercase tracking-tighter">ENTER THE <span class="gradient-text">ARENA.</span></h2>
-
-           </div>
-
- 
-
-            <div class="grid lg:grid-cols-2 gap-16">
-
-               <div class="space-y-12" data-aos="fade-right">
-
-                   <div class="flex gap-8 items-start">
-
-                       <div class="step-pill shrink-0">1</div>
-
-                       <div>
-
-                           <h5 class="text-2xl font-black italic uppercase text-white mb-3 tracking-tight">Prepare Your Gear</h5>
-
-                           <p class="text-gray-400 leading-relaxed font-light">Install a decentralized wallet like <b>MetaMask</b> or <b>Trust Wallet</b>. Store your recovery phrase in a physical location—never online.</p>
-
-                       </div>
-
-                   </div>
-
- 
-
-                   <div class="flex gap-8 items-start">
-
-                       <div class="step-pill shrink-0">2</div>
-
-                       <div>
-
-                           <h5 class="text-2xl font-black italic uppercase text-white mb-3 tracking-tight">Fuel Your Journey</h5>
-
-                           <p class="text-gray-400 leading-relaxed font-light">Transfer <b>BNB</b> to your wallet on the Binance Smart Chain (BEP-20) network. You will need this for the swap and gas fees.</p>
-
-                       </div>
-
-                   </div>
-
- 
-
-                   <div class="flex gap-8 items-start">
-
-                       <div class="step-pill shrink-0">3</div>
-
-                       <div>
-
-                           <h5 class="text-2xl font-black italic uppercase text-white mb-3 tracking-tight">Perform the Swap</h5>
-
-                           <p class="text-gray-400 leading-relaxed font-light">Connect to <b>PancakeSwap</b>, paste the official $WCUP contract address, and complete the exchange. Welcome to the Nation!</p>
-
-                       </div>
-
-                   </div>
-
-               </div>
-
- 
-
-               <div class="grid gap-6" data-aos="fade-left">
-
-                   <a href="https://pancakeswap.finance/swap?outputCurrency=0x0000000000000000000000000000000000000000" target="_blank" class="trade-card flex items-center justify-between group">
-
-                       <div class="flex items-center gap-6">
-
-                           <div class="w-16 h-16 bg-orange-500/10 rounded-2xl flex items-center justify-center text-3xl text-orange-500">
-
-                                <i class="fa-solid fa-cake-candles"></i>
-
-                           </div>
-
-                           <div>
-
-                                <h6 class="text-xl font-black italic uppercase text-white">Buy on PancakeSwap</h6>
-
-                                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Main Exchange / Liquidity</p>
-
-                           </div>
-
-                       </div>
-
-                       <i class="fa-solid fa-chevron-right text-gray-700 group-hover:text-blue-500 transition-colors"></i>
-
-                   </a>
-
- 
-
-                   <a href="https://dexscreener.com/bsc/0x0000000000000000000000000000000000000000" target="_blank" class="trade-card flex items-center justify-between group">
-
-                       <div class="flex items-center gap-6">
-
-                           <div class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center text-3xl text-blue-500">
-
-                                <i class="fa-solid fa-magnifying-glass-chart"></i>
-
-                           </div>
-
-                           <div>
-
-                                <h6 class="text-xl font-black italic uppercase text-white">View DexScreener</h6>
-
-                                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Real-time Trading Metrics</p>
-
-                           </div>
-
-                       </div>
-
-                       <i class="fa-solid fa-chevron-right text-gray-700 group-hover:text-blue-500 transition-colors"></i>
-
-                   </a>
-
- 
-
-                   <a href="https://dextools.io" target="_blank" class="trade-card flex items-center justify-between group">
-
-                       <div class="flex items-center gap-6">
-
-                           <div class="w-16 h-16 bg-emerald-500/10 rounded-2xl flex items-center justify-center text-3xl text-emerald-500">
-
-                                <i class="fa-solid fa-screwdriver-wrench"></i>
-
-                           </div>
-
-                           <div>
-
-                                <h6 class="text-xl font-black italic uppercase text-white">Analyze DexTools</h6>
-
-                                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Advanced Safety Audit</p>
-
-                           </div>
-
-                       </div>
-
-                       <i class="fa-solid fa-chevron-right text-gray-700 group-hover:text-blue-500 transition-colors"></i>
-
-                   </a>
-
-               </div>
-
+                <a href="#howtobuy" class="glass-panel px-10 py-5 rounded-2xl text-sm uppercase tracking-widest hover:bg-white/10 transition-all" data-i18n="hero-buy">How to Buy</a>
             </div>
-
         </div>
-
     </section>
 
+    <section id="howtobuy" class="py-32 px-6 bg-blue-900/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-24" data-aos="fade-up">
+                <h3 class="text-accent font-bold uppercase tracking-[0.6em] text-xs mb-4 italic" data-i18n="h2b_ticket">Get Your Ticket</h3>
+                <h2 class="text-6xl md:text-8xl font-sync font-bold italic uppercase tracking-tighter">
+                    <span data-i18n="h2b_enter">ENTER THE</span> <span class="gradient-text" data-i18n="h2b_arena">ARENA.</span>
+                </h2>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div class="space-y-12" data-aos="fade-right">
+                    <div class="flex gap-8 items-start">
+                        <div class="step-pill shrink-0">1</div>
+                        <div>
+                            <h5 class="text-2xl font-black italic uppercase text-white mb-3 tracking-tight" data-i18n="h2b_s1_title">Prepare Your Gear</h5>
+                            <p class="text-gray-400 leading-relaxed font-light" data-i18n="h2b_s1_desc">Install a decentralized wallet like <b>MetaMask</b> or <b>Trust Wallet</b>. Store your recovery phrase in a physical location—never online.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-8 items-start">
+                        <div class="step-pill shrink-0">2</div>
+                        <div>
+                            <h5 class="text-2xl font-black italic uppercase text-white mb-3 tracking-tight" data-i18n="h2b_s2_title">Fuel Your Journey</h5>
+                            <p class="text-gray-400 leading-relaxed font-light" data-i18n="h2b_s2_desc">Transfer <b>BNB</b> to your wallet on the Binance Smart Chain (BEP-20) network. You will need this for the swap and gas fees.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-8 items-start">
+                        <div class="step-pill shrink-0">3</div>
+                        <div>
+                            <h5 class="text-2xl font-black italic uppercase text-white mb-3 tracking-tight" data-i18n="h2b_s3_title">Perform the Swap</h5>
+                            <p class="text-gray-400 leading-relaxed font-light" data-i18n="h2b_s3_desc">Connect to <b>PancakeSwap</b>, paste the official $WCUP contract address, and complete the exchange. Welcome to the Nation!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid gap-6" data-aos="fade-left">
+                    <a href="https://pancakeswap.finance/swap?outputCurrency=0xBfb1490AF1464744E5ceD3a4D7D59b956B8edA98" target="_blank" class="trade-card flex items-center justify-between group">
+                        <div class="flex items-center gap-6">
+                            <div class="w-16 h-16 bg-orange-500/10 rounded-2xl flex items-center justify-center text-3xl text-orange-500">
+                                <i class="fa-solid fa-cake-candles"></i>
+                            </div>
+                            <div>
+                                <h6 class="text-xl font-black italic uppercase text-white" data-i18n="h2b_c1_title">Buy on PancakeSwap</h6>
+                                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest" data-i18n="h2b_c1_sub">Main Exchange / Liquidity</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-gray-700 group-hover:text-blue-500 transition-colors"></i>
+                    </a>
+
+                    <a href="https://dexscreener.com/bsc/0xBfb1490AF1464744E5ceD3a4D7D59b956B8edA98" target="_blank" class="trade-card flex items-center justify-between group">
+                        <div class="flex items-center gap-6">
+                            <div class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center text-3xl text-blue-500">
+                                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                            </div>
+                            <div>
+                                <h6 class="text-xl font-black italic uppercase text-white" data-i18n="h2b_c2_title">View DexScreener</h6>
+                                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest" data-i18n="h2b_c2_sub">Real-time Trading Metrics</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-gray-700 group-hover:text-blue-500 transition-colors"></i>
+                    </a>
+
+                    <a href="https://dextools.io" target="_blank" class="trade-card flex items-center justify-between group">
+                        <div class="flex items-center gap-6">
+                            <div class="w-16 h-16 bg-emerald-500/10 rounded-2xl flex items-center justify-center text-3xl text-emerald-500">
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
+                            </div>
+                            <div>
+                                <h6 class="text-xl font-black italic uppercase text-white" data-i18n="h2b_c3_title">Analyze DexTools</h6>
+                                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest" data-i18n="h2b_c3_sub">Advanced Safety Audit</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-gray-700 group-hover:text-blue-500 transition-colors"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -498,7 +422,6 @@
                         <ul class="text-gray-400 text-xs space-y-2 list-disc list-inside" data-i18n="road-p1-d">
                             <li>Token Smart Contract Audit</li>
                             <li>Official Website & Branding Launch</li>
-                            <li>KAMALEON Social Media Debut</li>
                             <li>Community Seed Building</li>
                         </ul>
                     </div>
@@ -510,138 +433,34 @@
                     <div class="glass-panel p-8 border-blue-500/30">
                         <h6 class="font-bold text-white text-xl mb-4 uppercase italic" data-i18n="road-p2-t">Phase 2: Expansion</h6>
                         <ul class="text-gray-400 text-xs space-y-2 list-disc list-inside md:list-none" data-i18n="road-p2-d">
-                            <li>Listing on CoinMarketCap & CoinGecko</li>
+                            <li>Listing on CMC & CG</li>
                             <li>Global Marketing Campaigns</li>
                             <li>Strategic Influencer Outreach</li>
-                            <li>First Social Impact Initiative</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="mb-16 relative md:w-1/2 md:ml-auto md:pl-12" data-aos="fade-left">
-                    <div class="absolute -left-[9px] md:-left-[41px] top-0 w-4 h-4 rounded-full bg-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.8)]"></div>
-                    <div class="text-emerald-500 font-black text-sm mb-2 tracking-widest">2H 2026</div>
-                    <div class="glass-panel p-8">
-                        <h6 class="font-bold text-white text-xl mb-4 uppercase italic" data-i18n="road-p3-t">Phase 3: Engagement</h6>
-                        <ul class="text-gray-400 text-xs space-y-2 list-disc list-inside" data-i18n="road-p3-d">
-                            <li>KAMALEON NFT Series Drop</li>
-                            <li>Exclusive Community Merchandise</li>
-                            <li>Tier 1 Exchange Applications</li>
-                            <li>Global Flag Events & Activations</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="relative md:w-1/2 md:mr-auto md:pr-12 md:text-right" data-aos="fade-right">
-                    <div class="absolute -left-[9px] md:left-auto md:-right-[9px] top-0 w-4 h-4 rounded-full bg-amber-500 shadow-[0_0_15px_rgba(251,191,36,0.8)]"></div>
-                    <div class="text-amber-500 font-black text-sm mb-2 tracking-widest">2027+</div>
-                    <div class="glass-panel p-8">
-                        <h6 class="font-bold text-white text-xl mb-4 uppercase italic" data-i18n="road-p4-t">Phase 4: Evolution</h6>
-                        <ul class="text-gray-400 text-xs space-y-2 list-disc list-inside md:list-none" data-i18n="road-p4-d">
-                            <li>DAO Governance Integration</li>
-                            <li>WCUP Ecosystem Expansion</li>
-                            <li>Universal Sports Platform Launch</li>
-                            <li>Long-term Sustainability Legacy</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
- 
-</section> <section class="py-24 px-6">
-    <div class="max-w-6xl mx-auto">
-      <div class="glass-panel overflow-hidden" style="height:650px;">
-        <iframe src="https://dexscreener.com" width="100%" height="100%"></iframe>
-      </div>
-    </div>
 
-    <section id="founder" class="py-32 px-6 relative">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-20">
-                <h3 class="text-blue-500 font-bold uppercase tracking-[0.4em] text-xs mb-4 italic" data-i18n="founder-tag">Leadership</h3>
-                <h2 class="text-5xl font-sync font-bold italic uppercase" data-i18n="founder-title">MEET THE <span class="text-emerald-500">FOUNDER</span></h2>
-            </div>
-
-            <div class="glass-panel founder-card max-w-4xl mx-auto grid md:grid-cols-2 items-center overflow-hidden">
-                <div class="founder-img-container h-full min-h-[400px]">
-                    <img src="https://via.placeholder.com/600x800/020617/3b82f6?text=Simão+Vieira" alt="Simão Vieira" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-bg-dark via-transparent to-transparent md:bg-gradient-to-r"></div>
-                </div>
-                <div class="p-12">
-                    <h4 class="text-4xl font-sync font-bold text-white mb-2 italic">SIMÃO VIEIRA</h4>
-                    <p class="text-emerald-500 font-bold uppercase tracking-widest text-xs mb-8" data-i18n="founder-role">Founder – WCUP Nation</p>
-                    <div class="h-1 w-12 bg-blue-500 mb-8"></div>
-                    <p class="text-gray-300 text-lg leading-relaxed italic font-light mb-8" data-i18n="founder-desc">
-                        "Responsible for the vision, strategy and development of WCUP Nation. My goal is to bridge the gap between football passion and blockchain transparency, creating a legacy that transcends digital borders."
-                    </p>
-                    <div class="flex gap-6">
-                        <a href="#" class="text-gray-500 hover:text-white transition-colors text-xl"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="#" class="text-gray-500 hover:text-white transition-colors text-xl"><i class="fa-brands fa-x-twitter"></i></a>
-                        <a href="mailto:contact@wcupnation.com" class="text-gray-500 hover:text-white transition-colors text-xl"><i class="fa-solid fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-</section> <section id="contact" class="py-24 px-6">
-    <div class="max-w-4xl mx-auto text-center glass-panel p-12">
-      <h2 class="text-5xl mb-8">CONTACT</h2>
-      <a href="mailto:wcupnation@proton.me">wcupnation@proton.me</a>
-    </div>
-
-    <footer id="contact" class="py-32 px-6 border-t border-white/5 bg-black relative">
-        <div class="max-w-6xl mx-auto text-center">
-            <img src="Logo_KAMALEON.png" alt="Logo" class="w-20 h-20 mx-auto mb-8 animate-pulse">
-            <h3 class="font-sync font-bold text-3xl mb-12 uppercase tracking-tighter">WCUP <span class="text-blue-500">NATION</span></h3>
-            
-            <div class="flex justify-center gap-12 mb-16">
-                <a href="https://x.com/WCUP__NATION" target="_blank" class="text-3xl hover:text-blue-400 hover:scale-125 transition-all duration-500"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="https://t.me/+q8wVZa6j3jphZDUx" target="_blank" class="text-3xl hover:text-blue-500 hover:scale-125 transition-all duration-500"><i class="fa-brands fa-telegram"></i></a>
-                <a href="mailto:contact@wcupnation.com" class="text-3xl hover:text-emerald-400 hover:scale-125 transition-all duration-500"><i class="fa-solid fa-envelope"></i></a>
-            </div>
-
-            <div class="glass-panel p-10 max-w-3xl mx-auto mb-16 text-[10px] text-gray-500 leading-relaxed uppercase tracking-[0.2em]">
-                <span class="text-white font-bold block mb-4" data-i18n="footer-disclaimer-t">Social & Foundation Disclaimer:</span>
-                <p data-i18n="footer-disclaimer-d">WCUP is a decentralized community project and does not represent any official sports federation, global institution, or government body. Cryptocurrency investments involve high market risk. Participants should conduct thorough research and consult financial advisors before engaging in any digital asset ecosystem.</p>
-            </div>
-
-            <p class="text-[10px] text-gray-600 font-bold tracking-[0.6em] uppercase">© 2026 WCUP NATION - ALL RIGHTS RESERVED</p>
+    <footer class="py-12 px-6 border-t border-white/5 text-center bg-black">
+        <div class="max-w-4xl mx-auto">
+            <p class="text-xs text-gray-500 uppercase tracking-widest mb-4">
+                <span class="font-bold text-white" data-i18n="footer-disclaimer-t">Disclaimer:</span> 
+                <span data-i18n="footer-disclaimer-d">WCUP is a decentralized community project. Cryptocurrency investment involves high risk.</span>
+            </p>
+            <p class="text-[10px] text-gray-700 font-mono">© 2026 WCUP NATION | ALL FLAGS. ONE NATION.</p>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Initialize Animations
-        AOS.init({
-            duration: 1000,
-            once: true,
-            mirror: false
-        });
+        AOS.init({ duration: 1000, once: true });
 
-        // Copy Contract Address
-        function copyCA() {
-            const ca = document.getElementById('contractAddr').innerText;
-            navigator.clipboard.writeText(ca);
-            
-            // Visual Feedback
-            const btn = event.target;
-            const originalText = btn.innerText;
-            btn.innerText = "COPIED!";
-            btn.style.background = "var(--secondary)";
-            
-            setTimeout(() => {
-                btn.innerText = originalText;
-                btn.style.background = "";
-            }, 2000);
-        }
-
-        // i18n Translation Engine
         const translations = {
             en: {
                 "nav-vision": "Vision",
-                "nav-kamaleon": "Kamaleon",
+                "nav-kamaleon": "Mascot",
                 "nav-tokenomics": "Tokenomics",
                 "nav-roadmap": "Roadmap",
                 "nav-founder": "Founder",
@@ -652,145 +471,124 @@
                 "hero-copy": "Copy Address",
                 "hero-whitepaper": "Whitepaper",
                 "hero-buy": "How to Buy",
+                "h2b_ticket": "Get Your Ticket",
+                "h2b_enter": "ENTER THE",
+                "h2b_arena": "ARENA.",
+                "h2b_s1_title": "Prepare Your Gear",
+                "h2b_s1_desc": "Install a decentralized wallet like <b>MetaMask</b> or <b>Trust Wallet</b>. Store your recovery phrase in a physical location—never online.",
+                "h2b_s2_title": "Fuel Your Journey",
+                "h2b_s2_desc": "Transfer <b>BNB</b> to your wallet on the Binance Smart Chain (BEP-20) network. You will need this for the swap and gas fees.",
+                "h2b_s3_title": "Perform the Swap",
+                "h2b_s3_desc": "Connect to <b>PancakeSwap</b>, paste the official $WCUP contract address, and complete the exchange. Welcome to the Nation!",
+                "h2b_c1_title": "Buy on PancakeSwap",
+                "h2b_c1_sub": "Main Exchange / Liquidity",
+                "h2b_c2_title": "View DexScreener",
+                "h2b_c2_sub": "Real-time Trading Metrics",
+                "h2b_c3_title": "Analyze DexTools",
+                "h2b_c3_sub": "Advanced Safety Audit",
                 "vision-tag": "The Philosophy",
                 "vision-title": "SPORT IS THE LANGUAGE.",
                 "vision-desc1": "At the intersection of passion and technology, WCUP Nation uses blockchain to ensure every fan has a stake in our shared global stadium.",
                 "vision-desc2": "We believe that decentralized finance can fund real-world social impact, turning collective excitement into sustainable progress.",
                 "mascot-tag": "The Ambassador",
                 "mascot-title": "Master of Adaptation",
-                "mascot-desc": "Vibrant and relentless. Just as football adapts to every culture, our mascot represents the fluid nature of our community—always evolving.",
-                "mascot-attr1-t": "Adaptability",
-                "mascot-attr1-d": "Thriving in any environment.",
-                "mascot-attr2-t": "Resilience",
-                "mascot-attr2-d": "Standing firm through challenges.",
-                "mascot-attr3-t": "Unity",
-                "mascot-attr3-d": "Bridging gaps between nations.",
+                "mascot-desc": "Vibrant and relentless. Just as football adapts to every culture, our mascot represents the fluid nature of our community.",
                 "tok-title": "TOKENOMICS",
                 "tok-card1-t": "Liquidity",
-                "tok-card1-d": "Strengthens price stability and supports long-term ecosystem health.",
                 "tok-card2-t": "Marketing",
-                "tok-card2-d": "Fuels continuous growth, major partnerships, and global exposure.",
                 "tok-card3-t": "Social Support",
-                "tok-card3-d": "Directly funds community-voted social initiatives and global impact projects.",
                 "tok-lock-t": "Liquidity Commitment",
-                "tok-lock-d": "100% of the LP tokens will be permanently locked or burned upon launch, enhancing long-term holder confidence and transparency.",
                 "road-title": "ROADMAP",
-                "road-p1-t": "Phase 1: Foundation",
-                "road-p1-d": "<li>Contract Audit</li><li>Branding Launch</li><li>Community Building</li>",
-                "road-p2-t": "Phase 2: Expansion",
-                "road-p2-d": "<li>CMC/CG Listing</li><li>Global Campaigns</li><li>Influencer Outreach</li>",
-                "road-p3-t": "Phase 3: Engagement",
-                "road-p3-d": "<li>NFT Series Drop</li><li>Merchandise</li><li>Flag Events</li>",
-                "road-p4-t": "Phase 4: Evolution",
-                "road-p4-d": "<li>DAO Governance</li><li>Ecosystem Expansion</li><li>Sustainability Legacy</li>",
-                "founder-tag": "Leadership",
-                "founder-title": "MEET THE FOUNDER",
-                "founder-role": "Founder – WCUP Nation",
-                "founder-desc": "Responsible for the vision, strategy and development of WCUP Nation. My goal is to bridge the gap between football passion and blockchain transparency.",
-                "footer-disclaimer-t": "Social & Foundation Disclaimer:",
-                "footer-disclaimer-d": "WCUP is a decentralized community project and does not represent any official institution. Cryptocurrency investments involve high risk."
+                "footer-disclaimer-t": "Disclaimer:",
+                "footer-disclaimer-d": "WCUP is a decentralized community project. Cryptocurrency investment involves high risk."
             },
             pt: {
                 "nav-vision": "Visão",
-                "nav-kamaleon": "Kamaleon",
+                "nav-kamaleon": "Mascote",
                 "nav-tokenomics": "Tokenomics",
                 "nav-roadmap": "Roadmap",
                 "nav-founder": "Fundador",
                 "nav-cta": "Telegram",
-                "hero-tag": "O Futuro da Paixão Global",
+                "hero-tag": "O Futuro do Fandom Global",
                 "hero-title": "Muitas Bandeiras. Uma Nação.",
-                "hero-desc": "O futebol é a ponte universal do mundo. Junte-se à primeira comunidade descentralizada construindo um legado social global através do esporte.",
+                "hero-desc": "O futebol é a ponte universal do mundo. Junte-se à primeira comunidade descentralizada construindo um legado social global.",
                 "hero-copy": "Copiar Contrato",
                 "hero-whitepaper": "Whitepaper",
                 "hero-buy": "Como Comprar",
+                "h2b_ticket": "Garanta seu Ingresso",
+                "h2b_enter": "ENTRE NA",
+                "h2b_arena": "ARENA.",
+                "h2b_s1_title": "Prepare seu Equipamento",
+                "h2b_s1_desc": "Instale uma carteira descentralizada como <b>MetaMask</b> ou <b>Trust Wallet</b>. Guarde sua frase de recuperação em local seguro.",
+                "h2b_s2_title": "Abasteça sua Jornada",
+                "h2b_s2_desc": "Transfira <b>BNB</b> para sua carteira na rede BSC (BEP-20). Você precisará disso para a troca e taxas de gás.",
+                "h2b_s3_title": "Realize a Troca",
+                "h2b_s3_desc": "Conecte-se à <b>PancakeSwap</b>, cole o contrato oficial $WCUP e complete a troca. Bem-vindo à Nação!",
+                "h2b_c1_title": "Comprar na PancakeSwap",
+                "h2b_c1_sub": "Exchange Principal / Liquidez",
+                "h2b_c2_title": "Ver DexScreener",
+                "h2b_c2_sub": "Métricas em Tempo Real",
+                "h2b_c3_title": "Analisar DexTools",
+                "h2b_c3_sub": "Auditoria de Segurança",
                 "vision-tag": "A Filosofia",
-                "vision-title": "O ESPORTE É A LÍNGUA.",
-                "vision-desc1": "Na interseção entre paixão e tecnologia, WCUP Nation usa blockchain para garantir que cada fã tenha voz em nosso estádio global compartilhado.",
-                "vision-desc2": "Acreditamos que as finanças descentralizadas podem financiar impacto social real, transformando a emoção coletiva em progresso sustentável.",
+                "vision-title": "ESPORTE É A LÍNGUA.",
+                "vision-desc1": "Na intersecção da paixão e tecnologia, WCUP Nation usa blockchain para garantir voz a cada torcedor.",
+                "vision-desc2": "Acreditamos que as finanças descentralizadas podem financiar impacto social no mundo real.",
                 "mascot-tag": "O Embaixador",
                 "mascot-title": "Mestre da Adaptação",
-                "mascot-desc": "Vibrante e implacável. Assim como o futebol se adapta a cada cultura, nosso mascote representa a natureza fluida de nossa comunidade.",
-                "mascot-attr1-t": "Adaptabilidade",
-                "mascot-attr1-d": "Prosperando em qualquer ambiente.",
-                "mascot-attr2-t": "Resiliência",
-                "mascot-attr2-d": "Mantendo-se firme nos desafios.",
-                "mascot-attr3-t": "União",
-                "mascot-attr3-d": "Unindo nações através do esporte.",
+                "mascot-desc": "Vibrante e implacável. Assim como o futebol se adapta a cada cultura, nosso mascote representa nossa fluidez.",
                 "tok-title": "TOKENOMICS",
                 "tok-card1-t": "Liquidez",
-                "tok-card1-d": "Fortalece a estabilidade de preço e apoia a saúde do ecossistema a longo prazo.",
                 "tok-card2-t": "Marketing",
-                "tok-card2-d": "Impulsiona o crescimento contínuo, parcerias e exposição global.",
-                "tok-card3-t": "Suporte Social",
-                "tok-card3-d": "Financia diretamente iniciativas sociais votadas pela comunidade.",
+                "tok-card3-t": "Impacto Social",
                 "tok-lock-t": "Compromisso de Liquidez",
-                "tok-lock-d": "100% dos tokens LP serão permanentemente bloqueados ou queimados no lançamento, aumentando a confiança e transparência.",
                 "road-title": "ROADMAP",
-                "road-p1-t": "Fase 1: Fundação",
-                "road-p1-d": "<li>Auditoria do Contrato</li><li>Lançamento da Marca</li><li>Construção de Comunidade</li>",
-                "road-p2-t": "Fase 2: Expansão",
-                "road-p2-d": "<li>Listagem CMC/CG</li><li>Campanhas Globais</li><li>Parcerias com Influencers</li>",
-                "road-p3-t": "Fase 3: Engajamento",
-                "road-p3-d": "<li>Lançamento de NFTs</li><li>Produtos Exclusivos</li><li>Eventos Globais</li>",
-                "road-p4-t": "Fase 4: Evolução",
-                "road-p4-d": "<li>Governança DAO</li><li>Expansão do Ecossistema</li><li>Legado Sustentável</li>",
-                "founder-tag": "Liderança",
-                "founder-title": "CONHEÇA O FUNDADOR",
-                "founder-role": "Founder – WCUP Nation",
-                "founder-desc": "Responsável pela visão, estratégia e desenvolvimento da WCUP Nation. Meu objetivo é unir a paixão do futebol com a transparência da blockchain.",
-                "footer-disclaimer-t": "Aviso Social e de Fundação:",
-                "footer-disclaimer-d": "WCUP é um projeto comunitário descentralizado e não representa nenhuma instituição oficial. Investimentos em cripto envolvem alto risco."
+                "footer-disclaimer-t": "Aviso:",
+                "footer-disclaimer-d": "WCUP é um projeto comunitário. Investimentos em cripto envolvem alto risco."
             },
             es: {
                 "nav-vision": "Visión",
-                "nav-kamaleon": "Kamaleon",
+                "nav-kamaleon": "Mascota",
                 "nav-tokenomics": "Tokenomics",
                 "nav-roadmap": "Roadmap",
                 "nav-founder": "Fundador",
-                "nav-cta": "Telegram",
-                "hero-tag": "El Futuro de la Pasión Global",
+                "nav-cta": "Unirse a Telegram",
+                "hero-tag": "El Futuro del Fandom Global",
                 "hero-title": "Muchas Banderas. Una Nación.",
-                "hero-desc": "El fútbol es el puente universal del mundo. Únete a la primera comunidad descentralizada que construye un legado social global.",
-                "hero-copy": "Copiar Contrato",
-                "hero-whitepaper": "Whitepaper",
+                "hero-desc": "El fútbol es el puente universal del mundo. Únase a la primera comunidad descentralizada que construye un legado social global.",
+                "hero-copy": "Copiar Dirección",
+                "hero-whitepaper": "Libro Blanco",
                 "hero-buy": "Cómo Comprar",
+                "h2b_ticket": "Consigue tu Entrada",
+                "h2b_enter": "ENTRA EN LA",
+                "h2b_arena": "ARENA.",
+                "h2b_s1_title": "Prepara tu Equipo",
+                "h2b_s1_desc": "Instala una billetera descentralizada como <b>MetaMask</b> o <b>Trust Wallet</b>. Guarda tu frase de recuperación físicamente.",
+                "h2b_s2_title": "Alimenta tu Viaje",
+                "h2b_s2_desc": "Transfiere <b>BNB</b> a tu billetera en la red BSC (BEP-20). Lo necesitarás para el intercambio y el gas.",
+                "h2b_s3_title": "Realiza el Intercambio",
+                "h2b_s3_desc": "Conéctate a <b>PancakeSwap</b>, pega el contrato $WCUP y completa el canje. ¡Bienvenido a la Nación!",
+                "h2b_c1_title": "Comprar en PancakeSwap",
+                "h2b_c1_sub": "Intercambio Principal",
+                "h2b_c2_title": "Ver DexScreener",
+                "h2b_c2_sub": "Métricas en Tiempo Real",
+                "h2b_c3_title": "Analizar DexTools",
+                "h2b_c3_sub": "Auditoría de Seguridad",
                 "vision-tag": "La Filosofía",
                 "vision-title": "EL DEPORTE ES EL IDIOMA.",
-                "vision-desc1": "En la intersección de la pasión y la tecnología, WCUP Nation utiliza blockchain para asegurar que cada fan tenga participación.",
-                "vision-desc2": "Creemos que las finanzas descentralizadas pueden financiar un impacto social real, convirtiendo la emoción en progreso.",
+                "vision-desc1": "En la intersección de la pasión y la tecnología, WCUP Nation utiliza blockchain para empoderar a los fans.",
+                "vision-desc2": "Creemos que las finanzas descentralizadas pueden financiar impacto social real.",
                 "mascot-tag": "El Embajador",
                 "mascot-title": "Maestro de la Adaptación",
-                "mascot-desc": "Vibrante e implacable. Así como el fútbol se adapta a cada cultura, nuestra mascota representa la naturaleza fluida de nuestra comunidad.",
-                "mascot-attr1-t": "Adaptabilidad",
-                "mascot-attr1-d": "Prosperando en cualquier entorno.",
-                "mascot-attr2-t": "Resiliencia",
-                "mascot-attr2-d": "Manteniéndose firme ante los desafíos.",
-                "mascot-attr3-t": "Unión",
-                "mascot-attr3-d": "Uniendo naciones a través del deporte.",
+                "mascot-desc": "Vibrante e implacable. Así como el fútbol se adapta a cada cultura, nuestra mascota representa nuestra fluidez.",
                 "tok-title": "TOKENOMICS",
                 "tok-card1-t": "Liquidez",
-                "tok-card1-d": "Fortalece la estabilidad de precios y apoya la salud del ecosistema a largo plazo.",
                 "tok-card2-t": "Marketing",
-                "tok-card2-d": "Impulsa el crecimiento continuo, alianzas y exposición global.",
-                "tok-card3-t": "Soporte Social",
-                "tok-card3-d": "Financia directamente iniciativas sociales votadas por la comunidad.",
-                "tok-lock-t": "Compromiso de Liquidez",
-                "tok-lock-d": "El 100% de los tokens LP se bloquearán o quemarán permanentemente al lanzamiento, mejorando la transparencia.",
-                "road-title": "HOJA DE RUTA",
-                "road-p1-t": "Fase 1: Fundación",
-                "road-p1-d": "<li>Auditoría de Contrato</li><li>Lanzamiento de Marca</li><li>Comunidad</li>",
-                "road-p2-t": "Fase 2: Expansión",
-                "road-p2-d": "<li>Listado CMC/CG</li><li>Campañas Globales</li><li>Influencers</li>",
-                "road-p3-t": "Fase 3: Compromiso",
-                "road-p3-d": "<li>Lanzamiento NFT</li><li>Mercancía</li><li>Eventos Mundiales</li>",
-                "road-p4-t": "Fase 4: Evolución",
-                "road-p4-d": "<li>Gobernanza DAO</li><li>Expansión del Ecosistema</li><li>Legado</li>",
-                "founder-tag": "Liderazgo",
-                "founder-title": "CONOCE AL FUNDADOR",
-                "founder-role": "Fundador – WCUP Nation",
-                "founder-desc": "Responsable de la visión, estrategia y desarrollo de WCUP Nation. Mi objetivo es unir la pasión del fútbol con la blockchain.",
-                "footer-disclaimer-t": "Aviso Social y de Fundación:",
-                "footer-disclaimer-d": "WCUP es un proyecto comunitario descentralizado. Las inversiones en criptomonedas conllevan un alto riesgo."
+                "tok-card3-t": "Apoyo Social",
+                "tok-lock-t": "Bloqueo de Liquidez",
+                "road-title": "ROADMAP",
+                "footer-disclaimer-t": "Descargo de responsabilidad:",
+                "footer-disclaimer-d": "WCUP es un proyecto descentralizado. La inversión en cripto implica alto riesgo."
             },
             zh: {
                 "nav-vision": "愿景",
@@ -805,41 +603,34 @@
                 "hero-copy": "复制合约地址",
                 "hero-whitepaper": "白皮书",
                 "hero-buy": "如何购买",
+                "h2b_ticket": "立即购票",
+                "h2b_enter": "进入",
+                "h2b_arena": "竞技场",
+                "h2b_s1_title": "准备你的装备",
+                "h2b_s1_desc": "安装去中心化钱包，如 <b>MetaMask</b> 或 <b>Trust Wallet</b>。将助记词存放在物理位置。",
+                "h2b_s2_title": "开启你的旅程",
+                "h2b_s2_desc": "将 <b>BNB</b> 转入您的 BSC (BEP-20) 钱包。您将需要它进行兑换和支付 Gas 费。",
+                "h2b_s3_title": "进行兑换",
+                "h2b_s3_desc": "连接到 <b>PancakeSwap</b>，粘贴 $WCUP 官方合约地址并完成兑换。欢迎加入！",
+                "h2b_c1_title": "在 PancakeSwap 购买",
+                "h2b_c1_sub": "主要交易所 / 流动性",
+                "h2b_c2_title": "查看 DexScreener",
+                "h2b_c2_sub": "实时交易指标",
+                "h2b_c3_title": "分析 DexTools",
+                "h2b_c3_sub": "高级安全审计",
                 "vision-tag": "核心哲学",
                 "vision-title": "运动即语言",
-                "vision-desc1": "在激情与技术的交汇点，WCUP Nation 利用区块链确保每位粉丝都能参与到我们的全球化舞台中。",
-                "vision-desc2": "我们相信去中心化金融可以资助现实社会的社会影响，将集体兴奋转化为可持续的进步。",
+                "vision-desc1": "在激情与技术的交汇点，WCUP Nation 利用区块链确保每位粉丝都能参与其中。",
+                "vision-desc2": "我们相信去中心化金融可以资助现实社会的社会影响。",
                 "mascot-tag": "形象大使",
                 "mascot-title": "适应之王",
-                "mascot-desc": "充满活力且不屈不挠。正如足球适应每种文化，我们的吉祥物代表了社区不断进化的流动本质。",
-                "mascot-attr1-t": "适应性",
-                "mascot-attr1-d": "在任何环境下都能茁壮成长。",
-                "mascot-attr2-t": "韧性",
-                "mascot-attr2-d": "在挑战中屹立不倒。",
-                "mascot-attr3-t": "团结",
-                "mascot-attr3-d": "架起各国之间的桥梁。",
+                "mascot-desc": "充满活力且不屈不挠。正如足球适应每种文化，我们的吉祥物代表了不断进化的本质。",
                 "tok-title": "代币经济学",
                 "tok-card1-t": "流动性",
-                "tok-card1-d": "增强价格稳定性并支持生态系统的长期健康。",
                 "tok-card2-t": "市场营销",
-                "tok-card2-d": "推动持续增长、重大合作伙伴关系和全球曝光。",
                 "tok-card3-t": "社会支持",
-                "tok-card3-d": "直接资助由社区投票选出的社会倡议和全球影响项目。",
                 "tok-lock-t": "流动性承诺",
-                "tok-lock-d": "100% 的 LP 代币将在发布时永久锁定或销毁，增强持有者的信心和透明度。",
                 "road-title": "发展路线图",
-                "road-p1-t": "第一阶段：基础建设",
-                "road-p1-d": "<li>智能合约审计</li><li>品牌发布</li><li>社区建立</li>",
-                "road-p2-t": "第二阶段：全球扩张",
-                "road-p2-d": "<li>CMC/CG 上线</li><li>全球营销战</li><li>影响者合作</li>",
-                "road-p3-t": "第三阶段：深度参与",
-                "road-p3-d": "<li>NFT 系列发布</li><li>社区周边</li><li>全球线下活动</li>",
-                "road-p4-t": "第四阶段：生态进化",
-                "road-p4-d": "<li>DAO 治理整合</li><li>生态系统扩展</li><li>长期可持续遗产</li>",
-                "founder-tag": "领导力",
-                "founder-title": "会见创始人",
-                "founder-role": "创始人 – WCUP Nation",
-                "founder-desc": "负责 WCUP Nation 的愿景、战略和开发。我的目标是架起足球激情与区块链透明度之间的桥梁。",
                 "footer-disclaimer-t": "免责声明：",
                 "footer-disclaimer-d": "WCUP 是一个去中心化社区项目。加密货币投资涉及高风险。"
             }
@@ -847,8 +638,6 @@
 
         function switchLanguage(lang) {
             const elements = document.querySelectorAll('[data-i18n]');
-            
-            // Fade out
             elements.forEach(el => el.classList.add('lang-fade-out'));
             
             setTimeout(() => {
@@ -858,27 +647,22 @@
                         el.innerHTML = translations[lang][key];
                     }
                 });
-                
-                // Fade in
                 elements.forEach(el => el.classList.remove('lang-fade-out'));
                 document.documentElement.lang = lang;
             }, 300);
         }
 
-        // Initialize with English
-        window.onload = () => {
-            switchLanguage('en');
-        };
+        window.onload = () => switchLanguage('en');
 
-        // Smooth Scroll Enhancement
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+        function copyCA() {
+            const addr = document.getElementById('contractAddr').innerText;
+            navigator.clipboard.writeText(addr).then(() => {
+                const btn = document.querySelector('[data-i18n="hero-copy"]');
+                const originalText = btn.innerText;
+                btn.innerText = "COPIED!";
+                setTimeout(() => { btn.innerText = originalText; }, 2000);
             });
-        });
+        }
     </script>
 </body>
 </html>
