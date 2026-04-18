@@ -231,43 +231,10 @@
             position: relative;
         }
 
-        /* LANGUAGE SELECTOR REFINEMENT 
-        */
-        .lang-wrapper {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-
-        #lang-selector { 
-            background: rgba(0,0,0,0.6); 
-            border: 1px solid rgba(255,255,255,0.15); 
-            color: white; 
-            font-size: 12px; 
-            font-weight: 700;
-            padding: 10px 40px 10px 15px; 
-            border-radius: 14px; 
-            cursor: pointer; 
-            outline: none; 
-            transition: var(--transition-smooth);
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 12px center;
-            background-size: 18px;
-        }
-
-        #lang-selector:hover {
-            border-color: var(--primary);
-            background-color: rgba(255,255,255,0.05);
-        }
-
         /* UTILITY CLASSES 
         */
         .section-padding { padding: 120px 24px; }
         .container-max { max-width: 1200px; margin: 0 auto; }
-        [data-i18n] { transition: opacity 0.4s ease; }
-        .fade-out { opacity: 0; }
         .social-icon { font-size: 1.5rem; transition: var(--transition-smooth); }
         .social-icon:hover { color: var(--primary); transform: scale(1.2); }
 
@@ -297,23 +264,15 @@
         </div>
 
         <div class="hidden lg:flex gap-10 font-bold text-[11px] uppercase tracking-[0.25em]">
-            <a href="#vision" class="hover:text-blue-400 transition-colors relative group" data-i18n="nav-vision">Vision</a>
-            <a href="#mascot" class="hover:text-blue-400 transition-colors relative group" data-i18n="nav-kamaleon">Kamaleon</a>
-            <a href="#tokenomics" class="hover:text-blue-400 transition-colors relative group" data-i18n="nav-tokenomics">Tokenomics</a>
-            <a href="#roadmap" class="hover:text-blue-400 transition-colors relative group" data-i18n="nav-roadmap">Roadmap</a>
-            <a href="#founder" class="hover:text-blue-400 transition-colors relative group" data-i18n="nav-founder">Founder</a>
+            <a href="#vision" class="hover:text-blue-400 transition-colors relative group">Vision</a>
+            <a href="#mascot" class="hover:text-blue-400 transition-colors relative group">Ambassador</a>
+            <a href="#tokenomics" class="hover:text-blue-400 transition-colors relative group">Tokenomics</a>
+            <a href="#roadmap" class="hover:text-blue-400 transition-colors relative group">Roadmap</a>
+            <a href="#founder" class="hover:text-blue-400 transition-colors relative group">Founder</a>
         </div>
 
         <div class="flex items-center gap-6">
-            <div class="lang-wrapper">
-                <select id="lang-selector" onchange="switchLanguage(this.value)">
-                    <option value="en">🇺🇸 ENGLISH</option>
-                    <option value="pt">🇧🇷 PORTUGUÊS</option>
-                    <option value="es">🇪🇸 ESPAÑOL</option>
-                    <option value="zh">🇨🇳 中文</option>
-                </select>
-            </div>
-            <a href="https://t.me/+q8wVZa6j3jphZDUx" target="_blank" class="btn-stadium px-8 py-3 rounded-full text-[10px] uppercase tracking-widest" data-i18n="nav-cta">
+            <a href="https://t.me/+q8wVZa6j3jphZDUx" target="_blank" class="btn-stadium px-8 py-3 rounded-full text-[10px] uppercase tracking-widest">
                 Join Telegram
             </a>
         </div>
@@ -321,16 +280,16 @@
 
     <section class="relative min-h-screen flex items-center justify-center text-center px-6 pt-24">
         <div class="max-w-6xl z-10" data-aos="fade-up" data-aos-duration="1200">
-            <div class="inline-block px-6 py-2 glass-panel border-blue-500/30 text-[11px] uppercase tracking-[0.5em] mb-10 font-bold text-blue-400" data-i18n="hero-tag">
+            <div class="inline-block px-6 py-2 glass-panel border-blue-500/30 text-[11px] uppercase tracking-[0.5em] mb-10 font-bold text-blue-400">
                 The Future of Global Fandom
             </div>
             
             <h1 class="font-sync font-bold text-5xl md:text-8xl mb-10 italic uppercase leading-[0.95] tracking-tighter">
                 WCUP NATION: <br>
-                <span class="gradient-text" data-i18n="hero-title">Many Flags. One Nation.</span>
+                <span class="gradient-text">Many Flags. One Nation.</span>
             </h1>
 
-            <p class="text-xl md:text-3xl text-gray-300 max-w-4xl mx-auto mb-16 font-light leading-relaxed opacity-90" data-i18n="hero-desc">
+            <p class="text-xl md:text-3xl text-gray-300 max-w-4xl mx-auto mb-16 font-light leading-relaxed opacity-90">
                 Football is the world's universal bridge. Join the first decentralized community building a global social legacy through the power of sport.
             </p>
 
@@ -341,16 +300,16 @@
                 </div>
                 <button onclick="copyCA()" class="btn-stadium w-full md:w-auto px-10 py-4 rounded-xl text-[11px] uppercase whitespace-nowrap group">
                     <i class="fa-regular fa-copy mr-2 group-hover:scale-125 transition-transform"></i>
-                    <span data-i18n="hero-copy">Copy Address</span>
+                    <span>Copy Address</span>
                 </button>
             </div>
 
             <div class="flex flex-wrap justify-center gap-8">
                 <a href="WCUP_Whitepaper_Official.pdf" target="_blank" class="btn-stadium px-12 py-6 rounded-2xl text-base uppercase tracking-widest flex items-center gap-4">
                     <i class="fa-solid fa-file-shield text-xl"></i>
-                    <span data-i18n="hero-whitepaper">Whitepaper V1.0</span>
+                    <span>Whitepaper V1.0</span>
                 </a>
-                <a href="#howtobuy" class="glass-panel px-12 py-6 rounded-2xl text-base uppercase tracking-widest hover:bg-white/10 transition-all border-white/20" data-i18n="hero-buy">
+                <a href="#howtobuy" class="glass-panel px-12 py-6 rounded-2xl text-base uppercase tracking-widest hover:bg-white/10 transition-all border-white/20">
                     How to Buy
                 </a>
             </div>
@@ -360,13 +319,13 @@
     <section class="section-padding bg-black/40">
         <div class="container-max grid md:grid-cols-2 gap-20 items-center">
             <div data-aos="fade-right">
-                <h2 class="text-4xl md:text-6xl font-sync font-bold italic uppercase mb-8 gradient-text" data-i18n="what-title">What is WCUP?</h2>
-                <p class="text-gray-300 text-lg mb-6 leading-relaxed" data-i18n="what-desc">
-                    WCUP NATION is a premium Web3 project created to transform the universal passion for football into a borderless digital movement. In a world increasingly marked by division, conflict, prejudice, and separation, the project stands as a symbol of unity — bringing together people from different nations, cultures, and backgrounds under one shared identity. More than a token, WCUP NATION represents a new global community where connection becomes stronger than difference..
+                <h2 class="text-4xl md:text-6xl font-sync font-bold italic uppercase mb-8 gradient-text">What is WCUP?</h2>
+                <p class="text-gray-300 text-lg mb-6 leading-relaxed">
+                    WCUP NATION is a decentralized Web3 ecosystem designed to merge the global passion for football with blockchain-driven social impact. It is more than a currency; it is a movement that adapts to global challenges and uses sport as a catalyst for change.
                 </p>
                 <div class="glass-panel p-6 border-l-4 border-blue-500">
-                    <h4 class="text-white font-bold mb-2 uppercase" data-i18n="func-title">Core Function</h4>
-                    <p class="text-gray-400" data-i18n="func-desc">
+                    <h4 class="text-white font-bold mb-2 uppercase">Core Function</h4>
+                    <p class="text-gray-400">
                         Its primary function is to serve as a bridge between the digital economy and real-world sports initiatives, providing transparent funding for community-led social projects.
                     </p>
                 </div>
@@ -380,10 +339,10 @@
     <section id="howtobuy" class="section-padding bg-blue-950/20 relative">
         <div class="container-max">
             <div class="text-center mb-32" data-aos="fade-up">
-                <h3 class="text-accent font-bold uppercase tracking-[0.8em] text-[10px] mb-6 italic" data-i18n="h2b_ticket">Tournament Access</h3>
+                <h3 class="text-accent font-bold uppercase tracking-[0.8em] text-[10px] mb-6 italic">Tournament Access</h3>
                 <h2 class="text-6xl md:text-9xl font-sync font-bold italic uppercase tracking-tighter leading-none">
-                    <span data-i18n="h2b_enter">ENTER THE</span> <br>
-                    <span class="gradient-text" data-i18n="h2b_arena">ARENA.</span>
+                    <span>ENTER THE</span> <br>
+                    <span class="gradient-text">ARENA.</span>
                 </h2>
             </div>
 
@@ -392,22 +351,24 @@
                     <div class="flex gap-10 items-start group">
                         <div class="step-pill shrink-0">01</div>
                         <div>
-                            <h5 class="text-3xl font-black italic uppercase text-white mb-4 tracking-tight group-hover:text-blue-400 transition-colors" data-i18n="h2b_s1_title">Prepare Your Gear</h5>
-                            <p class="text-gray-400 text-lg leading-relaxed font-light" data-i18n="h2b_s1_desc">Download <b>MetaMask</b> or <b>Trust Wallet</b>. Secure your seed phrase offline.</p>
+                            <h5 class="text-3xl font-black italic uppercase text-white mb-4 tracking-tight group-hover:text-blue-400 transition-colors">Prepare Your Gear</h5>
+                            <p class="text-gray-400 text-lg leading-relaxed font-light">Download <b>MetaMask</b> or <b>Trust Wallet</b>. Set up your wallet and secure your seed phrase offline.</p>
                         </div>
                     </div>
+
                     <div class="flex gap-10 items-start group">
                         <div class="step-pill shrink-0">02</div>
                         <div>
-                            <h5 class="text-3xl font-black italic uppercase text-white mb-4 tracking-tight group-hover:text-blue-400 transition-colors" data-i18n="h2b_s2_title">Fuel the Match</h5>
-                            <p class="text-gray-400 text-lg leading-relaxed font-light" data-i18n="h2b_s2_desc">Purchase <b>BNB</b> and transfer it to your wallet using the BEP-20 network.</p>
+                            <h5 class="text-3xl font-black italic uppercase text-white mb-4 tracking-tight group-hover:text-blue-400 transition-colors">Fuel the Match</h5>
+                            <p class="text-gray-400 text-lg leading-relaxed font-light">Purchase <b>BNB</b> (Binance Coin) and transfer it to your wallet address using the BNB Smart Chain (BEP-20) network.</p>
                         </div>
                     </div>
+
                     <div class="flex gap-10 items-start group">
                         <div class="step-pill shrink-0">03</div>
                         <div>
-                            <h5 class="text-3xl font-black italic uppercase text-white mb-4 tracking-tight group-hover:text-blue-400 transition-colors" data-i18n="h2b_s3_title">Score the Token</h5>
-                            <p class="text-gray-400 text-lg leading-relaxed font-light" data-i18n="h2b_s3_desc">Connect to <b>PancakeSwap</b>, paste the address, and swap BNB for $WCUP.</p>
+                            <h5 class="text-3xl font-black italic uppercase text-white mb-4 tracking-tight group-hover:text-blue-400 transition-colors">Score the Token</h5>
+                            <p class="text-gray-400 text-lg leading-relaxed font-light">Connect to <b>PancakeSwap</b>, paste our contract address, and swap your BNB for $WCUP.</p>
                         </div>
                     </div>
                 </div>
@@ -419,8 +380,21 @@
                                 <i class="fa-solid fa-sync"></i>
                             </div>
                             <div>
-                                <h6 class="text-2xl font-black italic uppercase text-white" data-i18n="h2b_c1_title">Buy on PancakeSwap</h6>
+                                <h6 class="text-2xl font-black italic uppercase text-white">Buy on PancakeSwap</h6>
                                 <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mt-1">Official DEX Listing</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-arrow-right-long text-gray-700 group-hover:text-blue-500 transition-all text-2xl"></i>
+                    </a>
+
+                    <a href="https://dexscreener.com/bsc/0xBfb1490AF1464744E5ceD3a4D7D59b956B8edA98" target="_blank" class="trade-card group">
+                        <div class="flex items-center gap-8">
+                            <div class="w-20 h-20 bg-blue-500/10 rounded-2xl flex items-center justify-center text-4xl text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-all">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+                            <div>
+                                <h6 class="text-2xl font-black italic uppercase text-white">Live Charting</h6>
+                                <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mt-1">Real-time Performance Metrics</p>
                             </div>
                         </div>
                         <i class="fa-solid fa-arrow-right-long text-gray-700 group-hover:text-blue-500 transition-all text-2xl"></i>
@@ -434,21 +408,34 @@
         <div class="container-max grid md:grid-cols-2 gap-24 items-center">
             <div data-aos="fade-right">
                 <div class="h-1.5 w-20 bg-blue-500 mb-8"></div>
-                <h3 class="text-blue-400 font-bold uppercase tracking-[0.4em] text-xs mb-6 italic" data-i18n="vision-tag">The Philosophy</h3>
-                <h2 class="text-5xl md:text-7xl font-sync font-bold mb-10 italic uppercase leading-tight" data-i18n="vision-title">SPORT IS THE UNIVERSAL CODE.</h2>
-                <p class="text-gray-300 text-xl mb-10 leading-relaxed font-light" data-i18n="vision-desc1">
-                    We are bridging the gap between digital wealth and tangible social impact. WCUP Nation is a movement to decentralize how sport supports global communities.
+                <h3 class="text-blue-400 font-bold uppercase tracking-[0.4em] text-xs mb-6 italic">The Philosophy</h3>
+                <h2 class="text-5xl md:text-7xl font-sync font-bold mb-10 italic uppercase leading-tight">
+                    SPORT IS THE <br>
+                    <span class="text-blue-500">UNIVERSAL CODE.</span>
+                </h2>
+                <p class="text-gray-300 text-xl mb-10 leading-relaxed font-light">
+                    We are bridging the gap between digital wealth and tangible social impact. WCUP Nation isn't just a token; it's a movement to decentralize how sport supports global communities.
                 </p>
+                <div class="glass-panel p-8 border-l-8 border-l-blue-500 bg-blue-500/5">
+                    <p class="text-white italic text-lg font-medium">
+                        "Unity is our strategy. Impact is our goal. Every transaction contributes to a legacy that outlasts the final whistle."
+                    </p>
+                </div>
             </div>
+            
             <div class="relative" data-aos="zoom-in">
-                <img src="impacto-social.jpg" alt="Social Impact" class="rounded-[3rem] border border-white/10 grayscale hover:grayscale-0 transition-all duration-1000">
+                <div class="absolute -inset-10 bg-blue-600/10 blur-[120px] rounded-full"></div>
+                <div class="rounded-[3rem] overflow-hidden shadow-2xl border border-white/10 relative group">
+                    <img src="impacto-social.jpg" alt="Global Social Impact" class="w-full grayscale hover:grayscale-0 transition-all duration-1000 scale-105 hover:scale-100 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-60"></div>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="mascot" class="section-padding bg-white/[0.02] relative">
         <div class="container-max text-center">
-            <h3 class="text-blue-400 font-bold uppercase tracking-[0.8em] text-[10px] mb-8" data-i18n="mascot-tag">Project Ambassador</h3>
+            <h3 class="text-blue-400 font-bold uppercase tracking-[0.8em] text-[10px] mb-8">Project Ambassador</h3>
             <h2 class="text-7xl md:text-[11rem] font-sync font-bold italic mb-24 uppercase tracking-tighter leading-none">KAMALEON</h2>
             
             <div class="grid md:grid-cols-2 gap-24 items-center">
@@ -457,17 +444,48 @@
                         <video autoplay muted loop playsinline class="w-full h-full object-cover">
                             <source src="kamaleon-revelado.mp4" type="video/mp4">
                         </video>
+                        <div class="absolute inset-0 border-[20px] border-black/20 rounded-full"></div>
                     </div>
                 </div>
+
                 <div class="text-left" data-aos="fade-left">
-                    <div class="inline-block px-5 py-2 bg-blue-500/10 rounded-xl text-blue-400 text-xs font-black uppercase tracking-[0.3em] mb-8" data-i18n="mascot-title">Symbol of Resilience</div>
-                    <p class="text-gray-300 text-2xl mb-12 leading-relaxed font-light" data-i18n="mascot-desc">
-                        KAMALEON represents adaptability, resilience, and unity in diversity. He is the guardian of our mission, evolving as the community grows.
+                    <div class="inline-block px-5 py-2 bg-blue-500/10 rounded-xl text-blue-400 text-xs font-black uppercase tracking-[0.3em] mb-8">
+                        Symbol of Resilience
+                    </div>
+                    <p class="text-gray-300 text-2xl mb-12 leading-relaxed font-light">
+                        KAMALEON represents adaptability, resilience, and unity in diversity. He is the guardian of our social mission, evolving as our community grows stronger.
                     </p>
-                    <div class="space-y-6">
-                        <p class="text-blue-400 font-bold italic text-xl">"Adaptability is our strength."</p>
-                        <p class="text-emerald-400 font-bold italic text-xl">"Resilience is our core."</p>
-                        <p class="text-amber-400 font-bold italic text-xl">"Unity in diversity is our nation."</p>
+
+                    <div class="grid gap-8">
+                        <div class="flex items-center gap-6 group">
+                            <div class="w-16 h-16 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition-all shadow-lg">
+                                <i class="fa-solid fa-microchip text-2xl"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-black uppercase text-sm tracking-widest text-white mb-1">Adaptability</h5>
+                                <p class="text-gray-500 text-xs uppercase font-bold">Thriving in any market climate.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-6 group">
+                            <div class="w-16 h-16 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-all shadow-lg">
+                                <i class="fa-solid fa-heart-pulse text-2xl"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-black uppercase text-sm tracking-widest text-white mb-1">Resilience</h5>
+                                <p class="text-gray-500 text-xs uppercase font-bold">Built to withstand the long game.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-6 group">
+                            <div class="w-16 h-16 rounded-2xl bg-amber-500/10 flex items-center justify-center text-amber-500 group-hover:bg-amber-500 group-hover:text-white transition-all shadow-lg">
+                                <i class="fa-solid fa-globe-africa text-2xl"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-black uppercase text-sm tracking-widest text-white mb-1">Unity in Diversity</h5>
+                                <p class="text-gray-500 text-xs uppercase font-bold">Connecting all flags as one nation.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -477,25 +495,65 @@
     <section id="tokenomics" class="section-padding relative overflow-hidden">
         <div class="container-max">
             <div class="text-center mb-32">
-                <h2 class="text-6xl md:text-8xl font-sync font-bold italic uppercase mb-8" data-i18n="tok-title">TOKENOMICS</h2>
-                <p class="mt-8 text-gray-500 uppercase tracking-[0.3em] font-bold text-xs" data-i18n="supply-info">Total Supply: 150,000,000,000 $WCUP</p>
+                <h2 class="text-6xl md:text-8xl font-sync font-bold italic uppercase mb-8">TOKENOMICS</h2>
+                <div class="h-2 w-48 bg-gradient-to-r from-blue-600 via-emerald-500 to-amber-500 mx-auto rounded-full"></div>
+                <p class="mt-8 text-gray-500 uppercase tracking-[0.3em] font-bold text-xs">Total Supply: 150,000,000,000 $WCUP</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-10 mb-20">
-                <div class="glass-panel p-16 text-center group" data-aos="fade-up">
-                    <h4 class="text-6xl font-black text-white mb-3 italic">1%</h4>
-                    <p class="text-blue-400 font-black uppercase text-sm tracking-[0.3em]" data-i18n="tok-card1-t">Auto-Liquidity</p>
-                    <p class="text-gray-400 mt-4" data-i18n="tok-card1-d">1% Fee focused on strengthening the price floor automatically on every trade.</p>
+                <div class="glass-panel p-16 text-center group hover:-translate-y-6" data-aos="fade-up">
+                    <div class="w-24 h-24 bg-blue-500/10 rounded-full flex items-center justify-center mx-auto mb-10 transition-all group-hover:scale-110 group-hover:bg-blue-500 group-hover:text-white text-blue-500">
+                        <i class="fa-solid fa-water-ladder text-4xl"></i>
+                    </div>
+                    <h4 class="text-6xl font-black text-white mb-3 italic tracking-tighter">1%</h4>
+                    <p class="text-blue-400 font-black uppercase text-sm tracking-[0.3em] mb-8">Auto-Liquidity</p>
+                    <div class="w-full h-px bg-white/10 mb-8"></div>
+                    <p class="text-gray-400 text-base leading-relaxed">
+                        1% Fee focused on strengthening the price floor automatically, ensuring deep liquidity for all traders.
+                    </p>
                 </div>
-                <div class="glass-panel p-16 text-center border-blue-500/40 bg-blue-500/5 group" data-aos="fade-up" data-aos-delay="100">
-                    <h4 class="text-6xl font-black text-white mb-3 italic">1%</h4>
-                    <p class="text-blue-400 font-black uppercase text-sm tracking-[0.3em]" data-i18n="tok-card2-t">Strategic Growth</p>
-                    <p class="text-gray-400 mt-4" data-i18n="tok-card2-d">1% Marketing fee used for massive expansion and global influencer acquisition.</p>
+
+                <div class="glass-panel p-16 text-center border-blue-500/40 bg-blue-500/5 group hover:-translate-y-6 shadow-3xl shadow-blue-500/10 scale-105 z-10" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-24 h-24 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-10 transition-all group-hover:scale-110 group-hover:bg-blue-500 group-hover:text-white text-blue-400">
+                        <i class="fa-solid fa-rocket text-4xl"></i>
+                    </div>
+                    <h4 class="text-6xl font-black text-white mb-3 italic tracking-tighter">1%</h4>
+                    <p class="text-blue-400 font-black uppercase text-sm tracking-[0.3em] mb-8">Strategic Growth</p>
+                    <div class="w-full h-px bg-white/10 mb-8"></div>
+                    <p class="text-gray-400 text-base leading-relaxed">
+                        1% Marketing fee used for massive global expansion, exchange listings, and world-class ad campaigns.
+                    </p>
                 </div>
-                <div class="glass-panel p-16 text-center group" data-aos="fade-up" data-aos-delay="200">
-                    <h4 class="text-6xl font-black text-white mb-3 italic">2%</h4>
-                    <p class="text-emerald-400 font-black uppercase text-sm tracking-[0.3em]" data-i18n="tok-card3-t">Social Legacy</p>
-                    <p class="text-gray-400 mt-4" data-i18n="tok-card3-d">2% Fee directly supporting decentralized social initiatives worldwide.</p>
+
+                <div class="glass-panel p-16 text-center group hover:-translate-y-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-24 h-24 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-10 transition-all group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white text-emerald-500">
+                        <i class="fa-solid fa-handshake-angle text-4xl"></i>
+                    </div>
+                    <h4 class="text-6xl font-black text-white mb-3 italic tracking-tighter">2%</h4>
+                    <p class="text-emerald-400 font-black uppercase text-sm tracking-[0.3em] mb-8">Social Legacy</p>
+                    <div class="w-full h-px bg-white/10 mb-8"></div>
+                    <p class="text-gray-400 text-base leading-relaxed">
+                        2% Fee directly supporting decentralized social initiatives worldwide, voted on by our community.
+                    </p>
+                </div>
+            </div>
+
+            <div class="glass-panel p-12 border-emerald-500/40 max-w-5xl mx-auto text-center relative overflow-hidden shadow-2xl" data-aos="zoom-in">
+                <div class="absolute top-0 right-0 p-6 opacity-5 rotate-12">
+                    <i class="fa-solid fa-key text-[180px]"></i>
+                </div>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-10">
+                    <div class="text-left flex-1">
+                        <h5 class="text-3xl font-black mb-4 text-emerald-400 uppercase italic tracking-tight">Locked Forever</h5>
+                        <p class="text-gray-300 text-lg italic leading-relaxed">
+                            "100% of the initial liquidity tokens will be burned or permanently locked. Your trust is our ultimate foundation."
+                        </p>
+                    </div>
+                    <div class="shrink-0">
+                        <div class="w-32 h-32 border-4 border-emerald-500/30 rounded-full flex items-center justify-center animate-pulse">
+                            <i class="fa-solid fa-lock text-4xl text-emerald-500"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -503,87 +561,91 @@
 
     <section id="founder" class="section-padding bg-black/50">
         <div class="container-max text-center">
-            <h2 class="text-5xl font-sync font-bold italic uppercase mb-16" data-i18n="founder-title">The Founder</h2>
+            <h2 class="text-5xl font-sync font-bold italic uppercase mb-16">The Founder</h2>
             <div class="max-w-md mx-auto glass-panel p-12 border-blue-500/20">
                 <img src="founder-simao.jpg" alt="Simão Vieira" class="w-40 h-40 rounded-full mx-auto mb-8 border-4 border-blue-500 p-1 object-cover">
                 <h4 class="text-2xl font-black text-white mb-2">Simão Vieira</h4>
                 <p class="text-blue-400 font-bold uppercase text-xs tracking-widest mb-6">Founder & Lead Visionary</p>
                 <a href="https://www.linkedin.com/in/sim%C3%A3o-vieira-301132b3" target="_blank" class="btn-stadium px-8 py-3 rounded-xl flex items-center gap-3 justify-center">
-                    <i class="fa-brands fa-linkedin"></i> LinkedIn
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn Profile
                 </a>
             </div>
         </div>
     </section>
 
-    <section id="roadmap" class="section-padding bg-blue-900/10">
-        <div class="container-max">
-            <h2 class="text-6xl md:text-9xl font-sync font-bold italic text-center mb-32 uppercase tracking-tighter" data-i18n="road-title">THE PATH</h2>
+    <section id="roadmap" class="section-padding bg-blue-900/10 relative overflow-hidden">
+        <div class="container-max relative">
+            <h2 class="text-6xl md:text-9xl font-sync font-bold italic text-center mb-32 uppercase tracking-tighter">THE PATH</h2>
+            
             <div class="space-y-24">
                 <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up">
-                    <div class="md:w-1/2 md:pr-20 md:text-right">
-                        <div class="text-blue-500 font-black text-2xl mb-4">PHASE 01 / 2H 2025</div>
-                        <h6 class="font-bold text-white text-4xl mb-6 uppercase italic" data-i18n="road-p1-t">Foundation</h6>
-                        <ul class="text-gray-400 text-lg space-y-2 list-none" data-i18n="road-p1-d">
-                            <li>Branding & WCUP Token Engineering</li>
-                            <li>Smart Contract Audit (CertiK)</li>
-                            <li>Whitepaper V1.0 Release</li>
-                            <li>Social Media Seed Launch</li>
+                    <div class="md:w-1/2 md:pr-20 md:text-right mb-10 md:mb-0">
+                        <div class="text-blue-500 font-black text-2xl mb-4 font-mono tracking-widest">PHASE 01 / 2H 2025</div>
+                        <h6 class="font-bold text-white text-4xl mb-6 uppercase italic">Foundation</h6>
+                        <ul class="text-gray-400 text-lg space-y-4 list-none">
+                            <li><i class="fa-solid fa-check text-blue-500 mr-3"></i> Branding & WCUP Token Engineering</li>
+                            <li><i class="fa-solid fa-check text-blue-500 mr-3"></i> Smart Contract Audit & Security</li>
+                            <li><i class="fa-solid fa-check text-blue-500 mr-3"></i> Whitepaper V1.0 Official Release</li>
+                            <li><i class="fa-solid fa-check text-blue-500 mr-3"></i> Social Media Ecosystem Launch</li>
                         </ul>
                     </div>
                     <div class="md:w-1/2 md:pl-20">
-                        <div class="glass-panel p-8">Foundation Era</div>
+                        <div class="glass-panel p-12 bg-blue-500/5">Foundation Era</div>
                     </div>
                 </div>
+
                 <div class="relative flex flex-col md:flex-row-reverse items-center" data-aos="fade-up">
-                    <div class="md:w-1/2 md:pl-20">
-                        <div class="text-emerald-400 font-black text-2xl mb-4">PHASE 02 / 1H 2026</div>
-                        <h6 class="font-bold text-white text-4xl mb-6 uppercase italic" data-i18n="road-p2-t">Expansion</h6>
-                        <ul class="text-gray-400 text-lg space-y-2 list-none" data-i18n="road-p2-d">
-                            <li>Fair Launch on PancakeSwap</li>
-                            <li>CMC & CG Listings Fast-Track</li>
-                            <li>Global Community Campaigns</li>
-                            <li>Ambassador Program Kickoff</li>
+                    <div class="md:w-1/2 md:pl-20 mb-10 md:mb-0">
+                        <div class="text-emerald-400 font-black text-2xl mb-4 font-mono tracking-widest">PHASE 02 / 1H 2026</div>
+                        <h6 class="font-bold text-white text-4xl mb-6 uppercase italic">Expansion</h6>
+                        <ul class="text-gray-400 text-lg space-y-4 list-none">
+                            <li><i class="fa-solid fa-circle-play text-emerald-500 mr-3"></i> Fair Launch on PancakeSwap</li>
+                            <li><i class="fa-solid fa-circle-play text-emerald-500 mr-3"></i> CG & CMC Fast-Track Listings</li>
+                            <li><i class="fa-solid fa-circle-play text-emerald-500 mr-3"></i> Global Influencer & PR Blast</li>
+                            <li><i class="fa-solid fa-circle-play text-emerald-500 mr-3"></i> Ambassador Program Kickoff</li>
                         </ul>
                     </div>
                     <div class="md:w-1/2 md:pr-20">
-                        <div class="glass-panel p-8">Expansion Era</div>
+                        <div class="glass-panel p-12 bg-emerald-500/5">Expansion Era</div>
                     </div>
                 </div>
+
                 <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up">
-                    <div class="md:w-1/2 md:pr-20 md:text-right">
-                        <div class="text-amber-500 font-black text-2xl mb-4">PHASE 03 / 2H 2026</div>
-                        <h6 class="font-bold text-white text-4xl mb-6 uppercase italic" data-i18n="road-p3-t">Global Engagement</h6>
-                        <ul class="text-gray-400 text-lg space-y-2 list-none" data-i18n="road-p3-d">
-                            <li>CEX Listings (Gate.io / MEXC)</li>
-                            <li>KAMALEON NFT Series Launch</li>
-                            <li>First Major Social Project Funding</li>
-                            <li>Sports Diplomacy Partnerships</li>
+                    <div class="md:w-1/2 md:pr-20 md:text-right mb-10 md:mb-0">
+                        <div class="text-amber-500 font-black text-2xl mb-4 font-mono tracking-widest">PHASE 03 / 2H 2026</div>
+                        <h6 class="font-bold text-white text-4xl mb-6 uppercase italic">Global Engagement</h6>
+                        <ul class="text-gray-400 text-lg space-y-4 list-none">
+                            <li><i class="fa-solid fa-earth-americas text-amber-500 mr-3"></i> Tier 1 CEX Listings (Gate.io/MEXC)</li>
+                            <li><i class="fa-solid fa-earth-americas text-amber-500 mr-3"></i> KAMALEON NFT Series Launch</li>
+                            <li><i class="fa-solid fa-earth-americas text-amber-500 mr-3"></i> Major Social Project Funding Vote</li>
+                            <li><i class="fa-solid fa-earth-americas text-amber-500 mr-3"></i> Sports Diplomacy Partnerships</li>
                         </ul>
                     </div>
                     <div class="md:w-1/2 md:pl-20">
-                        <div class="glass-panel p-8">Engagement Era</div>
+                        <div class="glass-panel p-12 bg-amber-500/5">Engagement Era</div>
                     </div>
                 </div>
+
                 <div class="relative flex flex-col md:flex-row-reverse items-center" data-aos="fade-up">
-                    <div class="md:w-1/2 md:pl-20">
-                        <div class="text-purple-500 font-black text-2xl mb-4">PHASE 04 / 2027+</div>
-                        <h6 class="font-bold text-white text-4xl mb-6 uppercase italic" data-i18n="road-p4-t">Ecosystem Evolution</h6>
-                        <ul class="text-gray-400 text-lg space-y-2 list-none" data-i18n="road-p4-d">
-                            <li>WCUP Nation DAO Implementation</li>
-                            <li>Global Stadium Branding Rights</li>
-                            <li>Next-Gen Sport Metaverse Integration</li>
-                            <li>Self-Sustaining Social Impact Fund</li>
+                    <div class="md:w-1/2 md:pl-20 mb-10 md:mb-0">
+                        <div class="text-purple-500 font-black text-2xl mb-4 font-mono tracking-widest">PHASE 04 / 2027+</div>
+                        <h6 class="font-bold text-white text-4xl mb-6 uppercase italic">Ecosystem Evolution</h6>
+                        <ul class="text-gray-400 text-lg space-y-4 list-none">
+                            <li><i class="fa-solid fa-infinity text-purple-500 mr-3"></i> WCUP Nation DAO Governance</li>
+                            <li><i class="fa-solid fa-infinity text-purple-500 mr-3"></i> Global Stadium Branding Rights</li>
+                            <li><i class="fa-solid fa-infinity text-purple-500 mr-3"></i> Sport Metaverse Integration</li>
+                            <li><i class="fa-solid fa-infinity text-purple-500 mr-3"></i> Sustaining Global Social Legacy</li>
                         </ul>
                     </div>
                     <div class="md:w-1/2 md:pr-20">
-                        <div class="glass-panel p-8">Evolution Era</div>
+                        <div class="glass-panel p-12 bg-purple-500/5">Evolution Era</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="pt-24 pb-12 px-8 bg-black">
+    <footer class="pt-24 pb-12 px-8 bg-black border-t border-white/5 relative">
         <div class="container-max">
             <div class="grid md:grid-cols-4 gap-16 mb-20">
                 <div class="md:col-span-2">
@@ -591,123 +653,74 @@
                         <img src="Logo_KAMALEON.png" alt="WCUP" class="w-12 h-12">
                         <span class="font-sync font-bold text-2xl tracking-tighter uppercase italic">WCUP <span class="text-blue-500">NATION</span></span>
                     </div>
-                    <p class="text-gray-500 text-lg mb-8" data-i18n="footer-desc">The world's first decentralized sport-legacy ecosystem.</p>
+                    <p class="text-gray-500 text-lg max-w-md leading-relaxed mb-8">
+                        The world's first decentralized sport-legacy ecosystem. Connecting fans, funding futures, and building a nation without borders.
+                    </p>
                     <div class="flex gap-6">
-                        <a href="https://t.me/+q8wVZa6j3jphZDUx" class="social-icon"><i class="fa-brands fa-telegram"></i></a>
+                        <a href="https://t.me/+q8wVZa6j3jphZDUx" target="_blank" class="social-icon"><i class="fa-brands fa-telegram"></i></a>
                         <a href="mailto:info@wcupnation.com" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
-                        <a href="https://www.linkedin.com/in/sim%C3%A3o-vieira-301132b3" class="social-icon"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://www.linkedin.com/in/sim%C3%A3o-vieira-301132b3" target="_blank" class="social-icon"><i class="fa-brands fa-linkedin"></i></a>
                     </div>
                 </div>
+                
                 <div>
-                    <h6 class="text-white font-black uppercase text-xs mb-8">Navigation</h6>
-                    <ul class="text-gray-500 space-y-4 text-sm font-bold uppercase">
-                        <li><a href="#vision">Vision</a></li>
-                        <li><a href="#tokenomics">Tokenomics</a></li>
-                        <li><a href="#roadmap">Roadmap</a></li>
-                        <li><a href="#founder">Founder</a></li>
+                    <h6 class="text-white font-black uppercase text-xs tracking-widest mb-8">Navigation</h6>
+                    <ul class="text-gray-500 space-y-4 text-sm font-bold uppercase tracking-wider">
+                        <li><a href="#vision" class="hover:text-blue-500 transition-colors">Vision</a></li>
+                        <li><a href="#tokenomics" class="hover:text-blue-500 transition-colors">Tokenomics</a></li>
+                        <li><a href="#roadmap" class="hover:text-blue-500 transition-colors">Roadmap</a></li>
+                        <li><a href="#founder" class="hover:text-blue-500 transition-colors">Founder</a></li>
                     </ul>
                 </div>
+
                 <div>
-                    <h6 class="text-white font-black uppercase text-xs mb-8">Contact</h6>
-                    <p class="text-gray-500 font-mono text-xs">Email: <br>info@wcupnation.com</p>
+                    <h6 class="text-white font-black uppercase text-xs tracking-widest mb-8">Contact</h6>
+                    <p class="text-gray-500 font-mono text-xs">Support Email: <br>info@wcupnation.com</p>
+                    <div class="mt-8 flex gap-4 opacity-30 grayscale">
+                        <i class="fa-brands fa-cc-visa text-2xl"></i>
+                        <i class="fa-brands fa-cc-mastercard text-2xl"></i>
+                        <i class="fa-brands fa-bitcoin text-2xl"></i>
+                    </div>
                 </div>
             </div>
+
             <div class="pt-12 border-t border-white/5 text-center">
-                <p class="text-[10px] text-gray-700 font-mono" data-i18n="footer-disclaimer-d">Investment in crypto-assets involves significant risk.</p>
+                <p class="text-[10px] text-gray-600 uppercase tracking-[0.4em] font-mono mb-2">© 2026 WCUP NATION | ALL FLAGS. ONE NATION.</p>
+                <p class="text-[10px] text-gray-700 font-mono italic">
+                    Investment in crypto-assets involves significant risk. Conduct your own research.
+                </p>
             </div>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1000, once: true });
+        // Initialize AOS
+        AOS.init({ 
+            duration: 1000, 
+            once: true 
+        });
 
-        const translations = {
-            en: {
-                "nav-vision": "Vision", "nav-kamaleon": "Ambassador", "nav-tokenomics": "Tokenomics", "nav-roadmap": "Roadmap", "nav-founder": "Founder", "nav-cta": "Join Telegram",
-                "hero-title": "Many Flags. One Nation.", "hero-desc": "Join the first decentralized community building a global social legacy.",
-                "hero-copy": "Copy Address", "hero-whitepaper": "Whitepaper V1.0", "hero-buy": "How to Buy",
-                "what-title": "What is WCUP?", "what-desc": "A Web3 ecosystem merging football passion with social impact.",
-                "func-title": "Core Function", "func-desc": "Serving as a bridge for transparent funding of sports initiatives.",
-                "mascot-title": "Symbol of Resilience", "mascot-desc": "KAMALEON represents adaptability, resilience, and unity in diversity.",
-                "tok-title": "TOKENOMICS", "supply-info": "Total Supply: 150,000,000,000 $WCUP",
-                "tok-card1-t": "Auto-Liquidity", "tok-card1-d": "1% Fee focused on strengthening the price floor.",
-                "tok-card2-t": "Strategic Growth", "tok-card2-d": "1% Marketing fee for massive expansion.",
-                "tok-card3-t": "Social Legacy", "tok-card3-d": "2% Fee supporting decentralized social initiatives.",
-                "road-title": "THE PATH", "road-p1-t": "Foundation", "road-p2-t": "Expansion", "road-p3-t": "Global Engagement", "road-p4-t": "Ecosystem Evolution",
-                "founder-title": "The Founder", "footer-desc": "First decentralized sport-legacy ecosystem.", "footer-disclaimer-d": "Risk warning: Crypto assets involve risk."
-            },
-            pt: {
-                "nav-vision": "Visão", "nav-kamaleon": "Embaixador", "nav-tokenomics": "Tokenomics", "nav-roadmap": "Roadmap", "nav-founder": "Fundador", "nav-cta": "Entrar no Telegram",
-                "hero-title": "Muitas Bandeiras. Uma Nação.", "hero-desc": "Junte-se à primeira comunidade descentralizada construindo um legado social global.",
-                "hero-copy": "Copiar Endereço", "hero-whitepaper": "Whitepaper V1.0", "hero-buy": "Como Comprar",
-                "what-title": "O que é WCUP?", "what-desc": "Um ecossistema Web3 que une a paixão pelo futebol ao impacto social.",
-                "func-title": "Função Principal", "func-desc": "Servir como ponte para financiamento transparente de iniciativas esportivas.",
-                "mascot-title": "Símbolo de Resiliência", "mascot-desc": "O KAMALEON representa adaptabilidade, resiliência e união na diversidade.",
-                "tok-title": "TOKENOMICS", "supply-info": "Fornecimento Total: 150.000.000.000 $WCUP",
-                "tok-card1-t": "Liquidez Automática", "tok-card1-d": "Taxa de 1% focada em fortalecer o piso de preço.",
-                "tok-card2-t": "Crescimento Estratégico", "tok-card2-d": "Taxa de 1% de marketing para expansão massiva.",
-                "tok-card3-t": "Legado Social", "tok-card3-d": "Taxa de 2% apoiando iniciativas sociais descentralizadas.",
-                "road-title": "O CAMINHO", "road-p1-t": "Fundação", "road-p2-t": "Expansão", "road-p3-t": "Engajamento Global", "road-p4-t": "Evolução do Ecossistema",
-                "founder-title": "O Fundador", "footer-desc": "Primeiro ecossistema descentralizado de legado esportivo.", "footer-disclaimer-d": "Aviso: Criptoativos envolvem riscos significativos."
-            },
-            es: {
-                "nav-vision": "Visión", "nav-kamaleon": "Embajador", "nav-tokenomics": "Tokenomics", "nav-roadmap": "Hoja de Ruta", "nav-founder": "Fundador", "nav-cta": "Telegram",
-                "hero-title": "Muchos Banderas. Una Nación.", "hero-desc": "Únete a la primera comunidad descentralizada que construye un legado social global.",
-                "hero-copy": "Copiar Dirección", "hero-whitepaper": "Libro Blanco V1.0", "hero-buy": "Cómo Comprar",
-                "what-title": "¿Qué es WCUP?", "what-desc": "Un ecosistema Web3 que une la pasión por el fútbol con el impacto social.",
-                "func-title": "Función Principal", "func-desc": "Servir como puente para el financiamiento transparente de iniciativas deportivas.",
-                "mascot-title": "Símbolo de Resiliência", "mascot-desc": "KAMALEON representa adaptabilidad, resiliencia y unión en la diversidad.",
-                "tok-title": "TOKENOMICS", "supply-info": "Suministro Total: 150.000.000.000 $WCUP",
-                "tok-card1-t": "Liquidez Automática", "tok-card1-d": "Tasa del 1% enfocada en fortalecer el precio mínimo.",
-                "tok-card2-t": "Crecimiento Estratégico", "tok-card2-d": "Tasa de marketing del 1% para una expansión masiva.",
-                "tok-card3-t": "Legado Social", "tok-card3-d": "Tasa del 2% que apoya iniciativas sociales descentralizadas.",
-                "road-title": "EL CAMINO", "road-p1-t": "Fundación", "road-p2-t": "Expansión", "road-p3-t": "Compromiso Global", "road-p4-t": "Evolución",
-                "founder-title": "El Fundador", "footer-desc": "Primer ecosistema descentralizado de legado deportivo.", "footer-disclaimer-d": "Aviso: Los criptoactivos implican riesgos."
-            },
-            zh: {
-                "nav-vision": "愿景", "nav-kamaleon": "大使", "nav-tokenomics": "代币经济学", "nav-roadmap": "路线图", "nav-founder": "创始人", "nav-cta": "加入 Telegram",
-                "hero-title": "多面旗帜，一个国家。", "hero-desc": "加入第一个建立全球社会遗产的去中心化社区。",
-                "hero-copy": "复制地址", "hero-whitepaper": "白皮书 V1.0", "hero-buy": "如何购买",
-                "what-title": "什么是 WCUP？", "what-desc": "一个将足球激情与社会影响相结合的 Web3 生态系统。",
-                "func-title": "核心功能", "func-desc": "作为体育倡议透明融资的桥梁。",
-                "mascot-title": "韧性的象征", "mascot-desc": "KAMALEON 代表着适应能力、韧性和多样性的统一。",
-                "tok-title": "代币经济学", "supply-info": "总供应量: 150,000,000,000 $WCUP",
-                "tok-card1-t": "自动流动性", "tok-card1-d": "1% 的费用专注于加强价格底线。",
-                "tok-card2-t": "战略增长", "tok-card2-d": "1% 的营销费用用于大规模扩张。",
-                "tok-card3-t": "社会遗产", "tok-card3-d": "2% 的费用直接支持全球去中心化社会倡议。",
-                "road-title": "道路", "road-p1-t": "基础", "road-p2-t": "扩张", "road-p3-t": "全球参与", "road-p4-t": "生态演变",
-                "founder-title": "创始人", "footer-desc": "世界上第一个去中心化的体育遗产生态系统。", "footer-disclaimer-d": "风险提示：加密资产涉及风险。"
-            }
-        };
-
-        function switchLanguage(langCode) {
-            const elements = document.querySelectorAll('[data-i18n]');
-            const selected = translations[langCode] || translations['en'];
-            elements.forEach(el => {
-                el.classList.add('fade-out');
-                setTimeout(() => {
-                    const key = el.getAttribute('data-i18n');
-                    if (selected[key]) el.innerHTML = selected[key];
-                    el.classList.remove('fade-out');
-                }, 400);
-            });
-            localStorage.setItem('preferredLang', langCode);
-        }
-
+        // Copy Contract Address Function
         async function copyCA() {
             const address = document.getElementById('contractAddr').innerText;
             const btn = document.querySelector('[onclick="copyCA()"]');
-            await navigator.clipboard.writeText(address);
-            btn.innerHTML = 'COPIED!';
-            setTimeout(() => { btn.innerHTML = 'Copy Address'; }, 2000);
+            const originalText = btn.innerHTML;
+            
+            try {
+                await navigator.clipboard.writeText(address);
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> COPIED!';
+                btn.classList.add('bg-emerald-500');
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.classList.remove('bg-emerald-500');
+                }, 2000);
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+            }
         }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('preferredLang') || 'en';
-            document.getElementById('lang-selector').value = savedLang;
-            switchLanguage(savedLang);
-        });
     </script>
+    
 </body>
 </html>
